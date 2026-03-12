@@ -132,12 +132,35 @@
           </div>
         </div>
 
-        <!-- Hero product visual — floating bottles -->
-        <div class="hidden lg:block absolute right-8 xl:right-16 top-1/2 -translate-y-1/2 w-[420px]">
-          <div class="relative">
-            <img src="brand_assets/Mix_front.png" alt="InnoVAherb Mix Spray" class="w-44 mx-auto drop-shadow-2xl animate-fade-in-up delay-300" loading="eager" />
-            <img src="brand_assets/Lions_mane_front.png" alt="Lion's Mane" class="absolute -left-8 top-16 w-28 drop-shadow-xl animate-fade-in-up delay-400 opacity-60" loading="eager" />
-            <img src="brand_assets/Reishi_front.png" alt="Reishi" class="absolute -right-4 top-12 w-28 drop-shadow-xl animate-fade-in-up delay-500 opacity-60" loading="eager" />
+        <!-- Hero product visual — Desktop -->
+        <div class="hidden lg:block absolute right-8 xl:right-12 top-1/2 -translate-y-1/2 w-[440px] xl:w-[480px]">
+          <div class="relative animate-fade-in-up delay-300">
+            <div class="relative overflow-hidden rounded-3xl shadow-floating">
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-900/20 to-transparent z-10"></div>
+              <img src="brand_assets/Mix_front.png" alt="InnoVAherb Mix Spray" class="w-full h-[520px] object-cover" loading="eager" />
+            </div>
+            <!-- Small accent images -->
+            <div class="absolute -left-14 bottom-12 w-28 h-36 overflow-hidden rounded-2xl shadow-elevated animate-fade-in-up delay-400 border-2 border-white/80">
+              <img src="brand_assets/Lions_mane_front.png" alt="Lion's Mane" class="w-full h-full object-cover" loading="eager" />
+            </div>
+            <div class="absolute -right-10 bottom-20 w-28 h-36 overflow-hidden rounded-2xl shadow-elevated animate-fade-in-up delay-500 border-2 border-white/80">
+              <img src="brand_assets/Reishi_front.png" alt="Reishi" class="w-full h-full object-cover" loading="eager" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero product visual — Mobile/Tablet -->
+        <div class="lg:hidden mt-10 animate-fade-in-up delay-300">
+          <div class="flex items-center justify-center gap-3">
+            <div class="w-24 h-32 overflow-hidden rounded-xl shadow-elevated border border-white/80">
+              <img src="brand_assets/Lions_mane_front.png" alt="Lion's Mane" class="w-full h-full object-cover" loading="eager" />
+            </div>
+            <div class="w-32 h-44 overflow-hidden rounded-2xl shadow-floating border-2 border-white/80 -mt-4">
+              <img src="brand_assets/Mix_front.png" alt="InnoVAherb Mix Spray" class="w-full h-full object-cover" loading="eager" />
+            </div>
+            <div class="w-24 h-32 overflow-hidden rounded-xl shadow-elevated border border-white/80">
+              <img src="brand_assets/Reishi_front.png" alt="Reishi" class="w-full h-full object-cover" loading="eager" />
+            </div>
           </div>
         </div>
       </div>
@@ -160,106 +183,130 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
           <!-- Lion's Mane -->
-          <a href="products/lions-mane.html" class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover block reveal">
-            <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
-              <div class="absolute inset-0 bg-gradient-to-br from-brand-50/40 to-transparent"></div>
-              <img src="brand_assets/Lions_mane_front.png" alt="Lion's Mane Spray" class="relative w-32 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
-            </div>
-            <div class="space-y-2">
-              <span class="text-xs font-body font-bold tracking-widest uppercase text-brand-600" data-i18n="product.lions_mane.tagline">FOCUS life</span>
-              <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.lions_mane.name">Lion's Mane</h3>
-              <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.lions_mane.benefit">Sharpen focus & support memory</p>
-              <div class="flex items-center justify-between pt-3 border-t border-warm-100">
-                <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
-                <span class="text-brand-600 font-body text-sm font-semibold group-hover:translate-x-0.5 transition-transform duration-200" data-i18n="products.view">Learn More →</span>
+          <div class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover reveal">
+            <a href="products/lions-mane.html" class="block">
+              <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-50/40 to-transparent"></div>
+                <img src="brand_assets/Lions_mane_front.png" alt="Lion's Mane Spray" class="relative w-36 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
               </div>
+              <div class="space-y-1.5">
+                <span class="text-xs font-body font-bold tracking-widest uppercase text-brand-600" data-i18n="product.lions_mane.tagline">FOCUS life</span>
+                <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.lions_mane.name">Lion's Mane</h3>
+                <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.lions_mane.benefit">Sharpen focus & support memory</p>
+              </div>
+            </a>
+            <div class="flex items-center justify-between pt-4 mt-4 border-t border-warm-100">
+              <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
+              <button class="btn-press inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-400 text-white font-body font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors duration-200" data-i18n="products.add_to_cart">
+                Add to Cart
+              </button>
             </div>
-          </a>
+          </div>
 
           <!-- Cordyceps -->
-          <a href="products/cordyceps.html" class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover block reveal">
-            <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
-              <div class="absolute inset-0 bg-gradient-to-br from-earth-50/40 to-transparent"></div>
-              <img src="brand_assets/Cordycepts_front.png" alt="Cordyceps Spray" class="relative w-32 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
-            </div>
-            <div class="space-y-2">
-              <span class="text-xs font-body font-bold tracking-widest uppercase text-earth-500" data-i18n="product.cordyceps.tagline">ENERGY life</span>
-              <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.cordyceps.name">Cordyceps</h3>
-              <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.cordyceps.benefit">Boost natural energy & stamina</p>
-              <div class="flex items-center justify-between pt-3 border-t border-warm-100">
-                <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
-                <span class="text-earth-500 font-body text-sm font-semibold group-hover:translate-x-0.5 transition-transform duration-200" data-i18n="products.view">Learn More →</span>
+          <div class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover reveal">
+            <a href="products/cordyceps.html" class="block">
+              <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-earth-50/40 to-transparent"></div>
+                <img src="brand_assets/Cordycepts_front.png" alt="Cordyceps Spray" class="relative w-36 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
               </div>
+              <div class="space-y-1.5">
+                <span class="text-xs font-body font-bold tracking-widest uppercase text-earth-500" data-i18n="product.cordyceps.tagline">ENERGY life</span>
+                <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.cordyceps.name">Cordyceps</h3>
+                <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.cordyceps.benefit">Boost natural energy & stamina</p>
+              </div>
+            </a>
+            <div class="flex items-center justify-between pt-4 mt-4 border-t border-warm-100">
+              <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
+              <button class="btn-press inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-400 text-white font-body font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors duration-200" data-i18n="products.add_to_cart">
+                Add to Cart
+              </button>
             </div>
-          </a>
+          </div>
 
           <!-- Reishi -->
-          <a href="products/reishi.html" class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover block reveal">
-            <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
-              <div class="absolute inset-0 bg-gradient-to-br from-brand-50/30 to-transparent"></div>
-              <img src="brand_assets/Reishi_front.png" alt="Reishi Spray" class="relative w-32 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
-            </div>
-            <div class="space-y-2">
-              <span class="text-xs font-body font-bold tracking-widest uppercase text-brand-600" data-i18n="product.reishi.tagline">BALANCE life</span>
-              <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.reishi.name">Reishi</h3>
-              <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.reishi.benefit">Calm stress & strengthen immunity</p>
-              <div class="flex items-center justify-between pt-3 border-t border-warm-100">
-                <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
-                <span class="text-brand-600 font-body text-sm font-semibold group-hover:translate-x-0.5 transition-transform duration-200" data-i18n="products.view">Learn More →</span>
+          <div class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover reveal">
+            <a href="products/reishi.html" class="block">
+              <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-50/30 to-transparent"></div>
+                <img src="brand_assets/Reishi_front.png" alt="Reishi Spray" class="relative w-36 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
               </div>
+              <div class="space-y-1.5">
+                <span class="text-xs font-body font-bold tracking-widest uppercase text-brand-600" data-i18n="product.reishi.tagline">BALANCE life</span>
+                <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.reishi.name">Reishi</h3>
+                <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.reishi.benefit">Calm stress & strengthen immunity</p>
+              </div>
+            </a>
+            <div class="flex items-center justify-between pt-4 mt-4 border-t border-warm-100">
+              <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
+              <button class="btn-press inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-400 text-white font-body font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors duration-200" data-i18n="products.add_to_cart">
+                Add to Cart
+              </button>
             </div>
-          </a>
+          </div>
 
           <!-- Shiitake -->
-          <a href="products/shiitake.html" class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover block reveal">
-            <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
-              <div class="absolute inset-0 bg-gradient-to-br from-earth-50/30 to-transparent"></div>
-              <img src="brand_assets/Shiitake_front.png" alt="Shiitake Spray" class="relative w-32 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
-            </div>
-            <div class="space-y-2">
-              <span class="text-xs font-body font-bold tracking-widest uppercase text-earth-600" data-i18n="product.shiitake.tagline">VITALITY life</span>
-              <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.shiitake.name">Shiitake</h3>
-              <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.shiitake.benefit">Support immune defense & vitality</p>
-              <div class="flex items-center justify-between pt-3 border-t border-warm-100">
-                <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
-                <span class="text-earth-600 font-body text-sm font-semibold group-hover:translate-x-0.5 transition-transform duration-200" data-i18n="products.view">Learn More →</span>
+          <div class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover reveal">
+            <a href="products/shiitake.html" class="block">
+              <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-earth-50/30 to-transparent"></div>
+                <img src="brand_assets/Shiitake_front.png" alt="Shiitake Spray" class="relative w-36 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
               </div>
+              <div class="space-y-1.5">
+                <span class="text-xs font-body font-bold tracking-widest uppercase text-earth-600" data-i18n="product.shiitake.tagline">VITALITY life</span>
+                <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.shiitake.name">Shiitake</h3>
+                <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.shiitake.benefit">Support immune defense & vitality</p>
+              </div>
+            </a>
+            <div class="flex items-center justify-between pt-4 mt-4 border-t border-warm-100">
+              <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
+              <button class="btn-press inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-400 text-white font-body font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors duration-200" data-i18n="products.add_to_cart">
+                Add to Cart
+              </button>
             </div>
-          </a>
+          </div>
 
           <!-- Chaga -->
-          <a href="products/chaga.html" class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover block reveal">
-            <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
-              <div class="absolute inset-0 bg-gradient-to-br from-warm-100/40 to-transparent"></div>
-              <img src="brand_assets/Chaga_front.jpg" alt="Chaga Spray" class="relative w-32 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
-            </div>
-            <div class="space-y-2">
-              <span class="text-xs font-body font-bold tracking-widest uppercase text-warm-600" data-i18n="product.chaga.tagline">SHIELD life</span>
-              <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.chaga.name">Chaga</h3>
-              <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.chaga.benefit">Antioxidant power & healthy aging</p>
-              <div class="flex items-center justify-between pt-3 border-t border-warm-100">
-                <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
-                <span class="text-warm-600 font-body text-sm font-semibold group-hover:translate-x-0.5 transition-transform duration-200" data-i18n="products.view">Learn More →</span>
+          <div class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover reveal">
+            <a href="products/chaga.html" class="block">
+              <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-warm-100/40 to-transparent"></div>
+                <img src="brand_assets/Chaga_front.jpg" alt="Chaga Spray" class="relative w-36 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
               </div>
+              <div class="space-y-1.5">
+                <span class="text-xs font-body font-bold tracking-widest uppercase text-warm-600" data-i18n="product.chaga.tagline">SHIELD life</span>
+                <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.chaga.name">Chaga</h3>
+                <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.chaga.benefit">Antioxidant power & healthy aging</p>
+              </div>
+            </a>
+            <div class="flex items-center justify-between pt-4 mt-4 border-t border-warm-100">
+              <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
+              <button class="btn-press inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-400 text-white font-body font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors duration-200" data-i18n="products.add_to_cart">
+                Add to Cart
+              </button>
             </div>
-          </a>
+          </div>
 
           <!-- Mix -->
-          <a href="products/mix.html" class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover block reveal">
-            <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
-              <div class="absolute inset-0 bg-gradient-to-br from-brand-50/20 via-earth-50/20 to-transparent"></div>
-              <img src="brand_assets/Mix_front.png" alt="Mix Spray" class="relative w-32 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
-            </div>
-            <div class="space-y-2">
-              <span class="text-xs font-body font-bold tracking-widest uppercase text-brand-700" data-i18n="product.mix.tagline">COMPLETE life</span>
-              <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.mix.name">Mix</h3>
-              <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.mix.benefit">Full-spectrum daily wellness</p>
-              <div class="flex items-center justify-between pt-3 border-t border-warm-100">
-                <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
-                <span class="text-brand-700 font-body text-sm font-semibold group-hover:translate-x-0.5 transition-transform duration-200" data-i18n="products.view">Learn More →</span>
+          <div class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover reveal">
+            <a href="products/mix.html" class="block">
+              <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-50/20 via-earth-50/20 to-transparent"></div>
+                <img src="brand_assets/Mix_front.png" alt="Mix Spray" class="relative w-36 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
               </div>
+              <div class="space-y-1.5">
+                <span class="text-xs font-body font-bold tracking-widest uppercase text-brand-700" data-i18n="product.mix.tagline">COMPLETE life</span>
+                <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.mix.name">Mix</h3>
+                <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.mix.benefit">Full-spectrum daily wellness</p>
+              </div>
+            </a>
+            <div class="flex items-center justify-between pt-4 mt-4 border-t border-warm-100">
+              <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
+              <button class="btn-press inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-400 text-white font-body font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors duration-200" data-i18n="products.add_to_cart">
+                Add to Cart
+              </button>
             </div>
-          </a>
+          </div>
 
         </div>
       </div>
@@ -394,20 +441,41 @@
          Conversion Score #9 (Emotional Storytelling)
     ══════════════════════════════════════════════ -->
     <section class="relative py-24 sm:py-28 overflow-hidden grain">
-      <div class="absolute inset-0 bg-gradient-to-br from-grey-900 via-grey-800 to-grey-900"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-grey-900/80 via-transparent to-grey-900/60"></div>
-      <div class="absolute top-0 right-0 w-96 h-96 bg-brand-600/10 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 left-0 w-72 h-72 bg-earth-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-grey-900 via-brand-800/90 to-grey-900"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-grey-900/80 via-transparent to-grey-900/40"></div>
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-600/15 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-earth-500/15 rounded-full blur-3xl"></div>
+      <!-- Decorative leaf pattern -->
+      <div class="absolute top-8 right-8 opacity-[0.04]">
+        <svg class="w-64 h-64 text-white" viewBox="0 0 120 120" fill="currentColor"><path d="M60 10c-20 15-45 35-45 55 0 25 20 45 45 45s45-20 45-45c0-20-25-40-45-55z"/></svg>
+      </div>
+      <div class="absolute bottom-8 left-12 opacity-[0.03]">
+        <svg class="w-48 h-48 text-white" viewBox="0 0 120 120" fill="currentColor"><path d="M60 10c-20 15-45 35-45 55 0 25 20 45 45 45s45-20 45-45c0-20-25-40-45-55z"/></svg>
+      </div>
 
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-2xl reveal">
-          <span class="inline-block text-brand-400 font-body text-sm font-semibold tracking-widest uppercase mb-4">Our Origin</span>
-          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-heading leading-heading mb-6" data-i18n="story.title">From Bulgarian Forests to Your Daily Ritual</h2>
-          <p class="text-warm-300 text-lg leading-body mb-8" data-i18n="story.text">Nestled in the heart of Bulgaria's pristine mountain forests, InnoVAherb was born from a deep respect for nature's ancient wisdom and a passion for modern extraction science. We source only the finest mushrooms, extracting their potent bioactive compounds to bring you supplements that truly make a difference.</p>
-          <a href="about.html" class="btn-press inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white/50 backdrop-blur-sm border border-white/20 text-white font-body font-semibold text-sm px-6 py-3 rounded-xl transition-colors duration-200">
-            <span data-i18n="story.cta">Learn Our Story</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
-          </a>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="reveal">
+            <span class="inline-block text-brand-400 font-body text-sm font-semibold tracking-widest uppercase mb-4">Our Origin</span>
+            <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-heading leading-heading mb-6" data-i18n="story.title">From Bulgarian Forests to Your Daily Ritual</h2>
+            <p class="text-warm-200 text-lg leading-body mb-8" data-i18n="story.text">Nestled in the heart of Bulgaria's pristine mountain forests, InnoVAherb was born from a deep respect for nature's ancient wisdom and a passion for modern extraction science. We source only the finest mushrooms, extracting their potent bioactive compounds to bring you supplements that truly make a difference.</p>
+            <a href="about.html" class="btn-press inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 focus-visible:ring-2 focus-visible:ring-brand-400 text-white font-body font-semibold text-sm px-6 py-3.5 rounded-xl transition-colors duration-200 shadow-lg shadow-brand-900/30">
+              <span data-i18n="story.cta">Learn Our Story</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+            </a>
+          </div>
+          <!-- Visual collage of products -->
+          <div class="reveal hidden lg:flex items-center justify-center gap-4">
+            <div class="w-36 h-48 overflow-hidden rounded-2xl shadow-floating border border-white/10 rotate-[-3deg]">
+              <img src="brand_assets/Cordycepts_front.png" alt="Cordyceps" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="w-40 h-56 overflow-hidden rounded-2xl shadow-floating border border-white/10 -mt-8">
+              <img src="brand_assets/Shiitake_front.png" alt="Shiitake" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="w-36 h-48 overflow-hidden rounded-2xl shadow-floating border border-white/10 rotate-[3deg]">
+              <img src="brand_assets/Chaga_front.jpg" alt="Chaga" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -511,16 +579,19 @@
   <!-- Scroll Reveal & Mobile Sticky Logic -->
   <script>
     // Intersection Observer for scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.01, rootMargin: '0px 0px 300px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    }
 
     // Mobile sticky CTA — show after scrolling past hero
     const mobileCta = document.getElementById('mobile-sticky-cta');
