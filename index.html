@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InnoVAherb — Premium Mushroom Extract Sprays</title>
+  <meta name="description" content="Premium Bulgarian mushroom extract sprays for focus, energy, balance, and vitality. 5× faster absorption with sublingual delivery." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind -->
+  <script src="js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Grain texture overlay */
+    .grain::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+    .grain > * { position: relative; z-index: 2; }
+
+    /* Entrance animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      opacity: 0;
+    }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+
+    /* Scroll-triggered reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Product card hover */
+    .product-card {
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease-out;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* Button press effect */
+    .btn-press:active {
+      transform: scale(0.97);
+    }
+
+    /* Star rating */
+    .stars { color: #e59449; }
+
+    /* Lang button active state */
+    .lang-btn.active,
+    .lang-btn.bg-white {
+      background: white;
+      color: #2e7d32;
+      box-shadow: 0 1px 3px rgba(107,123,110,0.12);
+    }
+
+    /* Mobile sticky CTA */
+    #mobile-sticky-cta {
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    #mobile-sticky-cta.visible {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-warm-50 font-body text-grey-700 antialiased">
+
+  <!-- Header (injected by shared.js) -->
+  <div id="site-header" style="min-height: 44px;"></div>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 1: HERO
+         Conversion Score #1 (Clarity) + #2 (Social Proof)
+    ══════════════════════════════════════════════ -->
+    <section class="relative overflow-hidden grain">
+      <!-- Background: layered radial gradients for organic depth -->
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-50 via-warm-50 to-warm-100"></div>
+      <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-100/30 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4"></div>
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-earth-100/20 rounded-full blur-3xl translate-y-1/4 -translate-x-1/4"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-28 pb-20 sm:pb-24 lg:pb-32">
+        <div class="max-w-3xl">
+          <!-- Social proof chip -->
+          <div class="animate-fade-in-up inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-warm-200/60 rounded-full px-4 py-1.5 mb-6 shadow-elevated">
+            <span class="stars text-sm">★★★★★</span>
+            <span class="text-grey-600 text-sm font-medium" data-i18n="hero.social_proof">Trusted by 2,000+ customers across Europe</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="animate-fade-in-up delay-100 font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-grey-900 tracking-heading leading-heading mb-6">
+            <span data-i18n="hero.title">Nature's Intelligence, One Spray at a Time</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="animate-fade-in-up delay-200 text-lg sm:text-xl text-grey-600 leading-body max-w-2xl mb-8" data-i18n="hero.subtitle">
+            Premium Bulgarian mushroom extracts in a revolutionary spray format. Faster absorption. Precise dosing. Pure results.
+          </p>
+
+          <!-- CTA -->
+          <div class="animate-fade-in-up delay-300">
+            <a href="#products"
+               class="btn-press inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 text-white font-body font-semibold text-base px-8 py-4 rounded-xl shadow-hover transition-colors duration-200">
+              <span data-i18n="hero.cta">Shop Our Collection</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero product visual — floating bottles -->
+        <div class="hidden lg:block absolute right-8 xl:right-16 top-1/2 -translate-y-1/2 w-[420px]">
+          <div class="relative">
+            <img src="brand_assets/Mix_front.png" alt="InnoVAherb Mix Spray" class="w-44 mx-auto drop-shadow-2xl animate-fade-in-up delay-300" loading="eager" />
+            <img src="brand_assets/Lions_mane_front.png" alt="Lion's Mane" class="absolute -left-8 top-16 w-28 drop-shadow-xl animate-fade-in-up delay-400 opacity-60" loading="eager" />
+            <img src="brand_assets/Reishi_front.png" alt="Reishi" class="absolute -right-4 top-12 w-28 drop-shadow-xl animate-fade-in-up delay-500 opacity-60" loading="eager" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 2: PRODUCT GRID
+         Conversion Score #3 (Product Discovery)
+    ══════════════════════════════════════════════ -->
+    <section id="products" class="py-20 sm:py-24 lg:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-14 reveal">
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-grey-900 tracking-heading leading-heading mb-4" data-i18n="products.title">Shop by Goal</h2>
+          <p class="text-grey-500 text-lg max-w-xl mx-auto" data-i18n="products.subtitle">Every mushroom has a superpower. Find yours.</p>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+          <!-- Lion's Mane -->
+          <a href="products/lions-mane.html" class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover block reveal">
+            <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-brand-50/40 to-transparent"></div>
+              <img src="brand_assets/Lions_mane_front.png" alt="Lion's Mane Spray" class="relative w-32 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="space-y-2">
+              <span class="text-xs font-body font-bold tracking-widest uppercase text-brand-600" data-i18n="product.lions_mane.tagline">FOCUS life</span>
+              <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.lions_mane.name">Lion's Mane</h3>
+              <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.lions_mane.benefit">Sharpen focus & support memory</p>
+              <div class="flex items-center justify-between pt-3 border-t border-warm-100">
+                <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
+                <span class="text-brand-600 font-body text-sm font-semibold group-hover:translate-x-0.5 transition-transform duration-200" data-i18n="products.view">Learn More →</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Cordyceps -->
+          <a href="products/cordyceps.html" class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover block reveal">
+            <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-earth-50/40 to-transparent"></div>
+              <img src="brand_assets/Cordycepts_front.png" alt="Cordyceps Spray" class="relative w-32 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="space-y-2">
+              <span class="text-xs font-body font-bold tracking-widest uppercase text-earth-500" data-i18n="product.cordyceps.tagline">ENERGY life</span>
+              <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.cordyceps.name">Cordyceps</h3>
+              <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.cordyceps.benefit">Boost natural energy & stamina</p>
+              <div class="flex items-center justify-between pt-3 border-t border-warm-100">
+                <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
+                <span class="text-earth-500 font-body text-sm font-semibold group-hover:translate-x-0.5 transition-transform duration-200" data-i18n="products.view">Learn More →</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Reishi -->
+          <a href="products/reishi.html" class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover block reveal">
+            <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-brand-50/30 to-transparent"></div>
+              <img src="brand_assets/Reishi_front.png" alt="Reishi Spray" class="relative w-32 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="space-y-2">
+              <span class="text-xs font-body font-bold tracking-widest uppercase text-brand-600" data-i18n="product.reishi.tagline">BALANCE life</span>
+              <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.reishi.name">Reishi</h3>
+              <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.reishi.benefit">Calm stress & strengthen immunity</p>
+              <div class="flex items-center justify-between pt-3 border-t border-warm-100">
+                <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
+                <span class="text-brand-600 font-body text-sm font-semibold group-hover:translate-x-0.5 transition-transform duration-200" data-i18n="products.view">Learn More →</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Shiitake -->
+          <a href="products/shiitake.html" class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover block reveal">
+            <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-earth-50/30 to-transparent"></div>
+              <img src="brand_assets/Shiitake_front.png" alt="Shiitake Spray" class="relative w-32 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="space-y-2">
+              <span class="text-xs font-body font-bold tracking-widest uppercase text-earth-600" data-i18n="product.shiitake.tagline">VITALITY life</span>
+              <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.shiitake.name">Shiitake</h3>
+              <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.shiitake.benefit">Support immune defense & vitality</p>
+              <div class="flex items-center justify-between pt-3 border-t border-warm-100">
+                <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
+                <span class="text-earth-600 font-body text-sm font-semibold group-hover:translate-x-0.5 transition-transform duration-200" data-i18n="products.view">Learn More →</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Chaga -->
+          <a href="products/chaga.html" class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover block reveal">
+            <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-warm-100/40 to-transparent"></div>
+              <img src="brand_assets/Chaga_front.jpg" alt="Chaga Spray" class="relative w-32 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="space-y-2">
+              <span class="text-xs font-body font-bold tracking-widest uppercase text-warm-600" data-i18n="product.chaga.tagline">SHIELD life</span>
+              <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.chaga.name">Chaga</h3>
+              <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.chaga.benefit">Antioxidant power & healthy aging</p>
+              <div class="flex items-center justify-between pt-3 border-t border-warm-100">
+                <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
+                <span class="text-warm-600 font-body text-sm font-semibold group-hover:translate-x-0.5 transition-transform duration-200" data-i18n="products.view">Learn More →</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Mix -->
+          <a href="products/mix.html" class="product-card group bg-white rounded-2xl p-6 shadow-product hover:shadow-product-hover block reveal">
+            <div class="relative bg-warm-50 rounded-xl p-6 mb-5 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-brand-50/20 via-earth-50/20 to-transparent"></div>
+              <img src="brand_assets/Mix_front.png" alt="Mix Spray" class="relative w-32 h-auto mx-auto transition-transform duration-500 ease-spring group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="space-y-2">
+              <span class="text-xs font-body font-bold tracking-widest uppercase text-brand-700" data-i18n="product.mix.tagline">COMPLETE life</span>
+              <h3 class="font-display text-xl font-bold text-grey-900 tracking-tight" data-i18n="product.mix.name">Mix</h3>
+              <p class="text-grey-500 text-sm leading-relaxed" data-i18n="product.mix.benefit">Full-spectrum daily wellness</p>
+              <div class="flex items-center justify-between pt-3 border-t border-warm-100">
+                <span class="text-grey-900 font-display text-xl font-bold">&euro;19.98</span>
+                <span class="text-brand-700 font-body text-sm font-semibold group-hover:translate-x-0.5 transition-transform duration-200" data-i18n="products.view">Learn More →</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 3: WHY SPRAY?
+         Conversion Score #5 (Value Proposition)
+    ══════════════════════════════════════════════ -->
+    <section class="relative py-20 sm:py-24 bg-white grain overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-50/50 rounded-full blur-3xl"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 reveal">
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-grey-900 tracking-heading leading-heading mb-4" data-i18n="why.title">Why Choose Spray?</h2>
+          <p class="text-grey-500 text-lg max-w-xl mx-auto" data-i18n="why.subtitle">A smarter way to absorb nature's best</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Fast Absorption -->
+          <div class="reveal bg-warm-50 rounded-2xl p-8 border border-warm-100/80 hover:border-brand-200 hover:shadow-elevated transition-[border-color,box-shadow] duration-300">
+            <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
+            </div>
+            <h3 class="font-display text-lg font-bold text-grey-900 mb-2 tracking-tight" data-i18n="why.fast.title">5× Faster Absorption</h3>
+            <p class="text-grey-500 text-sm leading-relaxed" data-i18n="why.fast.desc">Sublingual delivery bypasses the digestive system for rapid uptake</p>
+          </div>
+          <!-- Precise -->
+          <div class="reveal bg-warm-50 rounded-2xl p-8 border border-warm-100/80 hover:border-brand-200 hover:shadow-elevated transition-[border-color,box-shadow] duration-300">
+            <div class="w-12 h-12 bg-earth-100 rounded-xl flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-earth-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
+            </div>
+            <h3 class="font-display text-lg font-bold text-grey-900 mb-2 tracking-tight" data-i18n="why.precise.title">Precise Dosing</h3>
+            <p class="text-grey-500 text-sm leading-relaxed" data-i18n="why.precise.desc">Every spray delivers an exact measured amount — no guesswork</p>
+          </div>
+          <!-- No pills -->
+          <div class="reveal bg-warm-50 rounded-2xl p-8 border border-warm-100/80 hover:border-brand-200 hover:shadow-elevated transition-[border-color,box-shadow] duration-300">
+            <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"/></svg>
+            </div>
+            <h3 class="font-display text-lg font-bold text-grey-900 mb-2 tracking-tight" data-i18n="why.easy.title">No Pills to Swallow</h3>
+            <p class="text-grey-500 text-sm leading-relaxed" data-i18n="why.easy.desc">Perfect for those who struggle with capsules or tablets</p>
+          </div>
+          <!-- Portable -->
+          <div class="reveal bg-warm-50 rounded-2xl p-8 border border-warm-100/80 hover:border-brand-200 hover:shadow-elevated transition-[border-color,box-shadow] duration-300">
+            <div class="w-12 h-12 bg-earth-100 rounded-xl flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-earth-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+            </div>
+            <h3 class="font-display text-lg font-bold text-grey-900 mb-2 tracking-tight" data-i18n="why.portable.title">Take It Anywhere</h3>
+            <p class="text-grey-500 text-sm leading-relaxed" data-i18n="why.portable.desc">Pocket-sized, no water needed — fits your routine</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 4: TRUST STRIP
+         Conversion Score #4 (Trust Signals)
+    ══════════════════════════════════════════════ -->
+    <section class="py-10 bg-warm-50 border-y border-warm-200/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16 reveal">
+          <div class="flex items-center gap-2.5 text-grey-600">
+            <svg class="w-5 h-5 text-brand-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
+            <span class="text-sm font-medium whitespace-nowrap" data-i18n="trust.lab">Lab Tested</span>
+          </div>
+          <div class="flex items-center gap-2.5 text-grey-600">
+            <svg class="w-5 h-5 text-brand-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636"/><circle cx="12" cy="12" r="3"/></svg>
+            <span class="text-sm font-medium whitespace-nowrap" data-i18n="trust.natural">100% Natural</span>
+          </div>
+          <div class="flex items-center gap-2.5 text-grey-600">
+            <svg class="w-5 h-5 text-brand-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A8.966 8.966 0 0 1 3 12c0-1.264.26-2.467.732-3.558"/></svg>
+            <span class="text-sm font-medium whitespace-nowrap" data-i18n="trust.bulgaria">Made in Bulgaria</span>
+          </div>
+          <div class="flex items-center gap-2.5 text-grey-600">
+            <svg class="w-5 h-5 text-brand-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+            <span class="text-sm font-medium whitespace-nowrap" data-i18n="trust.guarantee">Satisfaction Guarantee</span>
+          </div>
+          <div class="flex items-center gap-2.5 text-grey-600">
+            <svg class="w-5 h-5 text-brand-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
+            <span class="text-sm font-medium whitespace-nowrap" data-i18n="trust.vegan">Vegan Friendly</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 5: HOW IT WORKS
+         Conversion Score #7 (Educational Content)
+    ══════════════════════════════════════════════ -->
+    <section class="py-20 sm:py-24 lg:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-grey-900 tracking-heading leading-heading mb-4" data-i18n="how.title">How It Works</h2>
+          <p class="text-grey-500 text-lg max-w-xl mx-auto" data-i18n="how.subtitle">Three simple steps to better wellness</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 max-w-4xl mx-auto">
+          <!-- Step 1 -->
+          <div class="text-center reveal">
+            <div class="w-20 h-20 bg-brand-50 border-2 border-brand-200 rounded-full flex items-center justify-center mx-auto mb-6">
+              <span class="font-display text-3xl font-bold text-brand-600">1</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-grey-900 mb-2 tracking-tight" data-i18n="how.step1.title">Shake</h3>
+            <p class="text-grey-500 text-sm leading-relaxed" data-i18n="how.step1.desc">Activate the natural compounds</p>
+          </div>
+          <!-- Step 2 -->
+          <div class="text-center reveal">
+            <div class="w-20 h-20 bg-earth-50 border-2 border-earth-200 rounded-full flex items-center justify-center mx-auto mb-6">
+              <span class="font-display text-3xl font-bold text-earth-600">2</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-grey-900 mb-2 tracking-tight" data-i18n="how.step2.title">Spray</h3>
+            <p class="text-grey-500 text-sm leading-relaxed" data-i18n="how.step2.desc">3–4 sprays under the tongue</p>
+          </div>
+          <!-- Step 3 -->
+          <div class="text-center reveal">
+            <div class="w-20 h-20 bg-brand-50 border-2 border-brand-200 rounded-full flex items-center justify-center mx-auto mb-6">
+              <span class="font-display text-3xl font-bold text-brand-600">3</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-grey-900 mb-2 tracking-tight" data-i18n="how.step3.title">Thrive</h3>
+            <p class="text-grey-500 text-sm leading-relaxed" data-i18n="how.step3.desc">Feel the difference in 2–4 weeks</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 6: BRAND STORY
+         Conversion Score #9 (Emotional Storytelling)
+    ══════════════════════════════════════════════ -->
+    <section class="relative py-24 sm:py-28 overflow-hidden grain">
+      <div class="absolute inset-0 bg-gradient-to-br from-grey-900 via-grey-800 to-grey-900"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-grey-900/80 via-transparent to-grey-900/60"></div>
+      <div class="absolute top-0 right-0 w-96 h-96 bg-brand-600/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 w-72 h-72 bg-earth-500/10 rounded-full blur-3xl"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl reveal">
+          <span class="inline-block text-brand-400 font-body text-sm font-semibold tracking-widest uppercase mb-4">Our Origin</span>
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-heading leading-heading mb-6" data-i18n="story.title">From Bulgarian Forests to Your Daily Ritual</h2>
+          <p class="text-warm-300 text-lg leading-body mb-8" data-i18n="story.text">Nestled in the heart of Bulgaria's pristine mountain forests, InnoVAherb was born from a deep respect for nature's ancient wisdom and a passion for modern extraction science. We source only the finest mushrooms, extracting their potent bioactive compounds to bring you supplements that truly make a difference.</p>
+          <a href="about.html" class="btn-press inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white/50 backdrop-blur-sm border border-white/20 text-white font-body font-semibold text-sm px-6 py-3 rounded-xl transition-colors duration-200">
+            <span data-i18n="story.cta">Learn Our Story</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 7: CUSTOMER REVIEWS
+         Conversion Score #2 (Social Proof reinforcement)
+    ══════════════════════════════════════════════ -->
+    <section class="py-20 sm:py-24 bg-warm-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 reveal">
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-grey-900 tracking-heading leading-heading mb-4" data-i18n="reviews.title">What Our Customers Say</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          <!-- Review 1 -->
+          <div class="reveal bg-white rounded-2xl p-8 shadow-elevated">
+            <div class="stars text-lg mb-4">★★★★★</div>
+            <p class="text-grey-700 leading-body mb-6 italic font-body" data-i18n="reviews.1.text">"I've noticed a real improvement in my focus since starting the Lion's Mane spray. Perfect for my morning work routine."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center text-brand-700 font-display font-bold text-sm">MK</div>
+              <div>
+                <p class="text-grey-900 font-body font-semibold text-sm" data-i18n="reviews.1.name">Maria K., Sofia</p>
+                <p class="text-grey-400 text-xs font-body">Verified Purchase</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="reveal bg-white rounded-2xl p-8 shadow-elevated">
+            <div class="stars text-lg mb-4">★★★★★</div>
+            <p class="text-grey-700 leading-body mb-6 italic font-body" data-i18n="reviews.2.text">"The Cordyceps spray gives me an amazing energy boost before workouts. No jitters, just clean natural energy."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-earth-100 rounded-full flex items-center justify-center text-earth-700 font-display font-bold text-sm">SD</div>
+              <div>
+                <p class="text-grey-900 font-body font-semibold text-sm" data-i18n="reviews.2.name">Stefan D., Plovdiv</p>
+                <p class="text-grey-400 text-xs font-body">Verified Purchase</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="reveal bg-white rounded-2xl p-8 shadow-elevated">
+            <div class="stars text-lg mb-4">★★★★★</div>
+            <p class="text-grey-700 leading-body mb-6 italic font-body" data-i18n="reviews.3.text">"Reishi has become part of my evening wind-down. I sleep better and feel more balanced throughout the day."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center text-brand-700 font-display font-bold text-sm">EV</div>
+              <div>
+                <p class="text-grey-900 font-body font-semibold text-sm" data-i18n="reviews.3.name">Elena V., Varna</p>
+                <p class="text-grey-400 text-xs font-body">Verified Purchase</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 8: NEWSLETTER
+         Conversion Score #6 (Urgency / Incentive)
+    ══════════════════════════════════════════════ -->
+    <section class="relative py-20 sm:py-24 overflow-hidden grain">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-600 via-brand-700 to-brand-800"></div>
+      <div class="absolute top-0 right-0 w-96 h-96 bg-brand-400/20 rounded-full blur-3xl"></div>
+
+      <div class="relative max-w-2xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="reveal font-display text-3xl sm:text-4xl font-bold text-white tracking-heading leading-heading mb-4" data-i18n="newsletter.title">Join the InnoVAherb Community</h2>
+        <p class="reveal text-brand-100 text-lg mb-8" data-i18n="newsletter.subtitle">Wellness tips, new launches, and exclusive offers — plus 10% off your first order.</p>
+        <form class="reveal flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onsubmit="event.preventDefault();">
+          <input type="email" required
+                 data-i18n-placeholder="newsletter.placeholder"
+                 placeholder="Enter your email"
+                 class="flex-1 px-5 py-3.5 rounded-xl bg-white/15 backdrop-blur-sm border border-white/25 text-white placeholder-white/60 font-body text-sm focus:outline-none focus:ring-2 focus:ring-white/40 transition-[box-shadow] duration-200" />
+          <button type="submit"
+                  class="btn-press px-6 py-3.5 bg-white text-brand-700 font-body font-bold text-sm rounded-xl hover:bg-warm-50 focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-700 transition-colors duration-200 whitespace-nowrap"
+                  data-i18n="newsletter.cta">
+            Get 10% Off
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer (injected by shared.js) -->
+  <div id="site-footer"></div>
+
+  <!-- Mobile Sticky CTA (Score #8 + #10) -->
+  <div id="mobile-sticky-cta" class="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-white/95 backdrop-blur-md border-t border-warm-200 px-4 py-3 shadow-floating">
+    <a href="#products" class="btn-press flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-body font-semibold text-sm py-3 rounded-xl transition-colors duration-200 w-full" data-i18n="hero.cta">
+      Shop Our Collection
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/shared.js"></script>
+
+  <!-- Scroll Reveal & Mobile Sticky Logic -->
+  <script>
+    // Intersection Observer for scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Mobile sticky CTA — show after scrolling past hero
+    const mobileCta = document.getElementById('mobile-sticky-cta');
+    if (mobileCta) {
+      let stickTicking = false;
+      window.addEventListener('scroll', () => {
+        if (!stickTicking) {
+          requestAnimationFrame(() => {
+            if (window.scrollY > 600) {
+              mobileCta.classList.add('visible');
+            } else {
+              mobileCta.classList.remove('visible');
+            }
+            stickTicking = false;
+          });
+          stickTicking = true;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
