@@ -61,7 +61,7 @@ export default function HomePage() {
           <div className="absolute right-0 top-0 h-[600px] w-[600px] translate-x-1/4 -translate-y-1/3 rounded-full bg-brand-100/30 blur-3xl" />
           <div className="absolute bottom-0 left-0 h-[400px] w-[400px] -translate-x-1/4 translate-y-1/4 rounded-full bg-earth-100/20 blur-3xl" />
 
-          <Container className="grid gap-6 pb-4 pt-3 sm:pb-5 sm:pt-4 lg:grid-cols-2 lg:items-center lg:gap-10 lg:pb-6 lg:pt-5">
+          <Container className="-mt-24 grid gap-6 pb-4 pt-3 sm:-mt-20 sm:pb-5 sm:pt-4 lg:-mt-16 lg:grid-cols-2 lg:items-center lg:gap-10 lg:pb-6 lg:pt-5">
             <div>
               <div className="animate-fade-in-up mb-4 inline-flex items-center gap-2 rounded-full border border-warm-200/60 bg-white/70 px-3.5 py-1 shadow-elevated backdrop-blur-sm">
                 <span className="stars text-sm">★★★★★</span>

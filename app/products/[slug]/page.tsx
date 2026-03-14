@@ -75,7 +75,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <div className="absolute inset-0 bg-gradient-to-br from-brand-50/50 via-warm-50 to-warm-100" />
           <div className="absolute right-0 top-0 h-[500px] w-[500px] translate-x-1/4 -translate-y-1/4 rounded-full bg-brand-100/20 blur-3xl" />
 
-          <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
+          <div className="mx-auto max-w-7xl -mt-24 px-4 py-5 sm:-mt-20 sm:px-6 sm:py-6 lg:-mt-16 lg:px-8 lg:py-8">
             <nav className="animate-fade-in-up mb-5 flex items-center gap-2 text-sm text-grey-400">
               <Link href="/" className="transition-colors hover:text-brand-600">Home</Link>
               <span>{">"}</span>
