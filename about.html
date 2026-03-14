@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — InnoVAherb</title>
+  <meta name="description" content="Learn about InnoVAherb — premium Bulgarian mushroom extract sprays. Our story, mission, and commitment to quality." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind -->
+  <script src="js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .grain::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+    .grain > * { position: relative; z-index: 2; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      opacity: 0;
+    }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .lang-btn.active,
+    .lang-btn.bg-white {
+      background: white;
+      color: #2e7d32;
+      box-shadow: 0 1px 3px rgba(107,123,110,0.12);
+    }
+  </style>
+</head>
+<body class="bg-warm-50 font-body text-grey-700 antialiased">
+
+  <!-- Header -->
+  <div id="site-header" style="min-height: 44px;"></div>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════════ -->
+    <section class="relative overflow-hidden grain">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-50 via-warm-50 to-warm-100"></div>
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-100/30 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4"></div>
+      <div class="absolute bottom-0 left-0 w-[350px] h-[350px] bg-earth-100/20 rounded-full blur-3xl translate-y-1/4 -translate-x-1/4"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div class="max-w-3xl mx-auto text-center">
+          <div class="animate-fade-in-up inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-warm-200/60 rounded-full px-3.5 py-1 mb-4 shadow-elevated">
+            <span class="text-brand-600 text-sm">🍄</span>
+            <span class="text-grey-600 text-sm font-medium" data-i18n="about.badge">Our Story</span>
+          </div>
+          <h1 class="animate-fade-in-up delay-100 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-grey-900 tracking-heading leading-heading mb-4" data-i18n="about.hero_title">Nature's Intelligence, Bulgarian Innovation</h1>
+          <p class="animate-fade-in-up delay-200 text-grey-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto" data-i18n="about.hero_subtitle">Born in the heart of Bulgaria's pristine mountain forests, InnoVAherb bridges ancient mushroom wisdom with modern extraction science.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         ORIGIN STORY
+    ══════════════════════════════════════════════ -->
+    <section class="py-5 sm:py-7">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center reveal">
+          <!-- Image -->
+          <div class="relative rounded-2xl overflow-hidden shadow-floating aspect-[4/3]">
+            <img src="brand_assets/Group_front.webp" alt="InnoVAherb mushroom extract products" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-grey-900/30 to-transparent"></div>
+          </div>
+          <!-- Text -->
+          <div>
+            <span class="inline-block text-brand-600 font-body font-semibold text-sm uppercase tracking-widest mb-2" data-i18n="about.origin_label">Our Origin</span>
+            <h2 class="font-display text-2xl sm:text-3xl font-bold text-grey-900 tracking-heading mb-4" data-i18n="about.origin_title">From Bulgarian Forests to Your Daily Ritual</h2>
+            <p class="text-grey-600 leading-relaxed mb-4" data-i18n="about.origin_p1">InnoVAherb was founded with a simple yet powerful idea: bring the remarkable health benefits of medicinal mushrooms to everyone through a convenient, fast-absorbing spray format.</p>
+            <p class="text-grey-600 leading-relaxed mb-4" data-i18n="about.origin_p2">Bulgaria has a rich tradition of mushroom foraging and natural medicine stretching back centuries. Our founders grew up surrounded by pristine mountain forests, learning the healing power of fungi from their grandparents.</p>
+            <p class="text-grey-600 leading-relaxed" data-i18n="about.origin_p3">Today, we combine that ancestral knowledge with cutting-edge dual extraction technology to create the most bioavailable mushroom supplements on the market.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         MISSION & VALUES
+    ══════════════════════════════════════════════ -->
+    <section class="py-5 sm:py-7 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-4 text-center reveal">
+          <span class="inline-block text-brand-600 font-body font-semibold text-sm uppercase tracking-widest mb-2" data-i18n="about.mission_label">Our Mission</span>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-grey-900 tracking-heading mb-3" data-i18n="about.mission_title">Three Pillars of Excellence</h2>
+          <p class="text-grey-600 max-w-2xl mx-auto" data-i18n="about.mission_subtitle">Everything we do is guided by our commitment to nature, science, and quality.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6 reveal">
+          <!-- Pillar 1: Nature -->
+          <div class="bg-warm-50 rounded-2xl p-5 border border-warm-200/60 text-center group hover:shadow-hover transition-shadow duration-300">
+            <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 1 0-8.862 12.872M12.75 3.031a9 9 0 0 1 6.69 14.036m0 0-.177-.529A2.25 2.25 0 0 0 17.128 15H16.5l-.324-.324a1.453 1.453 0 0 0-2.328.377l-.036.073a1.586 1.586 0 0 1-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 0 1-5.276 3.67m0 0a9 9 0 0 1-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-lg font-bold text-grey-900 mb-2" data-i18n="about.pillar1_title">Nature</h3>
+            <p class="text-grey-600 text-sm leading-relaxed" data-i18n="about.pillar1_desc">We source only the finest mushrooms from pristine environments and sustainable cultivation. Every ingredient is traceable back to its origin.</p>
+          </div>
+
+          <!-- Pillar 2: Science -->
+          <div class="bg-warm-50 rounded-2xl p-5 border border-warm-200/60 text-center group hover:shadow-hover transition-shadow duration-300">
+            <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-lg font-bold text-grey-900 mb-2" data-i18n="about.pillar2_title">Science</h3>
+            <p class="text-grey-600 text-sm leading-relaxed" data-i18n="about.pillar2_desc">Our dual extraction process maximizes bioactive compound availability. Every formula is backed by research and optimized for sublingual delivery.</p>
+          </div>
+
+          <!-- Pillar 3: Quality -->
+          <div class="bg-warm-50 rounded-2xl p-5 border border-warm-200/60 text-center group hover:shadow-hover transition-shadow duration-300">
+            <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-lg font-bold text-grey-900 mb-2" data-i18n="about.pillar3_title">Quality</h3>
+            <p class="text-grey-600 text-sm leading-relaxed" data-i18n="about.pillar3_desc">Every batch is third-party lab tested for purity and potency. We hold ourselves to the highest standards — no shortcuts, no compromises.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         SOURCING & QUALITY PROCESS
+    ══════════════════════════════════════════════ -->
+    <section class="py-5 sm:py-7">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-4 text-center reveal">
+          <span class="inline-block text-brand-600 font-body font-semibold text-sm uppercase tracking-widest mb-2" data-i18n="about.process_label">Our Process</span>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-grey-900 tracking-heading mb-3" data-i18n="about.process_title">From Mycelium to Your Wellness</h2>
+          <p class="text-grey-600 max-w-2xl mx-auto" data-i18n="about.process_subtitle">A rigorous 4-step journey that ensures every spray delivers maximum potency.</p>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 reveal">
+          <!-- Step 1 -->
+          <div class="relative bg-white rounded-2xl p-4 border border-warm-200/60 shadow-elevated">
+            <div class="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-bold mb-3">1</div>
+            <h3 class="font-display text-base font-bold text-grey-900 mb-1.5" data-i18n="about.step1_title">Sustainable Sourcing</h3>
+            <p class="text-grey-600 text-sm leading-relaxed" data-i18n="about.step1_desc">Carefully selected mushroom strains from controlled, pesticide-free environments in Bulgaria.</p>
+          </div>
+          <!-- Step 2 -->
+          <div class="relative bg-white rounded-2xl p-4 border border-warm-200/60 shadow-elevated">
+            <div class="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-bold mb-3">2</div>
+            <h3 class="font-display text-base font-bold text-grey-900 mb-1.5" data-i18n="about.step2_title">Dual Extraction</h3>
+            <p class="text-grey-600 text-sm leading-relaxed" data-i18n="about.step2_desc">Hot water and alcohol extraction captures both water-soluble and fat-soluble bioactive compounds.</p>
+          </div>
+          <!-- Step 3 -->
+          <div class="relative bg-white rounded-2xl p-4 border border-warm-200/60 shadow-elevated">
+            <div class="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-bold mb-3">3</div>
+            <h3 class="font-display text-base font-bold text-grey-900 mb-1.5" data-i18n="about.step3_title">Lab Testing</h3>
+            <p class="text-grey-600 text-sm leading-relaxed" data-i18n="about.step3_desc">Every batch undergoes third-party testing for purity, potency, heavy metals, and microbial safety.</p>
+          </div>
+          <!-- Step 4 -->
+          <div class="relative bg-white rounded-2xl p-4 border border-warm-200/60 shadow-elevated">
+            <div class="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-bold mb-3">4</div>
+            <h3 class="font-display text-base font-bold text-grey-900 mb-1.5" data-i18n="about.step4_title">Spray Formulation</h3>
+            <p class="text-grey-600 text-sm leading-relaxed" data-i18n="about.step4_desc">Precisely formulated for sublingual delivery — optimized for 5× faster absorption than capsules.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         NUMBERS / STATS
+    ══════════════════════════════════════════════ -->
+    <section class="py-5 sm:py-7 bg-grey-900 text-white relative overflow-hidden grain">
+      <div class="absolute inset-0 bg-gradient-to-br from-grey-900 via-grey-900 to-brand-700/20"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 text-center reveal">
+          <div>
+            <div class="font-display text-3xl sm:text-4xl font-bold text-brand-400 mb-1">6</div>
+            <div class="text-warm-300 text-sm font-medium" data-i18n="about.stat1">Unique Products</div>
+          </div>
+          <div>
+            <div class="font-display text-3xl sm:text-4xl font-bold text-brand-400 mb-1">2,000+</div>
+            <div class="text-warm-300 text-sm font-medium" data-i18n="about.stat2">Happy Customers</div>
+          </div>
+          <div>
+            <div class="font-display text-3xl sm:text-4xl font-bold text-brand-400 mb-1">10:1</div>
+            <div class="text-warm-300 text-sm font-medium" data-i18n="about.stat3">Extract Ratio</div>
+          </div>
+          <div>
+            <div class="font-display text-3xl sm:text-4xl font-bold text-brand-400 mb-1">100%</div>
+            <div class="text-warm-300 text-sm font-medium" data-i18n="about.stat4">Natural Ingredients</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         CTA
+    ══════════════════════════════════════════════ -->
+    <section class="py-5 sm:py-7">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-brand-600 to-brand-700 rounded-2xl p-6 sm:p-10 text-center text-white relative overflow-hidden grain reveal">
+          <div class="absolute top-0 right-0 w-[300px] h-[300px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+          <h2 class="relative font-display text-2xl sm:text-3xl font-bold tracking-heading mb-3" data-i18n="about.cta_title">Ready to Experience the Difference?</h2>
+          <p class="relative text-white/80 mb-5 max-w-xl mx-auto" data-i18n="about.cta_subtitle">Explore our collection of premium mushroom extract sprays and find the perfect match for your wellness goals.</p>
+          <a href="index.html#products" class="relative inline-flex items-center gap-2 bg-white text-brand-700 px-6 py-3 rounded-xl font-semibold text-sm hover:bg-warm-50 active:scale-[0.97] transition-transform duration-200 shadow-floating" data-i18n="about.cta_button">
+            Shop Our Collection
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/shared.js"></script>
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

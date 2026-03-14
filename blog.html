@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — InnoVAherb Journal</title>
+  <meta name="description" content="The InnoVAherb Journal — mushroom science, wellness tips, and the latest research on medicinal mushroom extracts." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind -->
+  <script src="js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .grain::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+    .grain > * { position: relative; z-index: 2; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      opacity: 0;
+    }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .blog-card {
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease-out;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .lang-btn.active,
+    .lang-btn.bg-white {
+      background: white;
+      color: #2e7d32;
+      box-shadow: 0 1px 3px rgba(107,123,110,0.12);
+    }
+  </style>
+</head>
+<body class="bg-warm-50 font-body text-grey-700 antialiased">
+
+  <!-- Header -->
+  <div id="site-header" style="min-height: 44px;"></div>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════════ -->
+    <section class="relative overflow-hidden grain">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-50 via-warm-50 to-warm-100"></div>
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-100/30 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
+        <div class="max-w-3xl mx-auto text-center">
+          <div class="animate-fade-in-up inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-warm-200/60 rounded-full px-3.5 py-1 mb-4 shadow-elevated">
+            <span class="text-brand-600 text-sm">📖</span>
+            <span class="text-grey-600 text-sm font-medium" data-i18n="blog.badge">The InnoVAherb Journal</span>
+          </div>
+          <h1 class="animate-fade-in-up delay-100 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-grey-900 tracking-heading leading-heading mb-4" data-i18n="blog.hero_title">Mushroom Science & Wellness Insights</h1>
+          <p class="animate-fade-in-up delay-200 text-grey-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto" data-i18n="blog.hero_subtitle">Explore the fascinating world of medicinal mushrooms, wellness tips, and the latest research behind our products.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         CATEGORY FILTERS
+    ══════════════════════════════════════════════ -->
+    <section class="py-6 border-b border-warm-200/60 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap items-center gap-2 justify-center">
+          <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-brand-600 text-white shadow-sm" data-i18n="blog.filter_all">All Posts</button>
+          <button class="px-4 py-1.5 rounded-full text-sm font-medium text-grey-600 bg-warm-50 border border-warm-200/60 hover:bg-warm-100 transition-colors duration-200" data-i18n="blog.filter_science">Mushroom Science</button>
+          <button class="px-4 py-1.5 rounded-full text-sm font-medium text-grey-600 bg-warm-50 border border-warm-200/60 hover:bg-warm-100 transition-colors duration-200" data-i18n="blog.filter_wellness">Wellness Tips</button>
+          <button class="px-4 py-1.5 rounded-full text-sm font-medium text-grey-600 bg-warm-50 border border-warm-200/60 hover:bg-warm-100 transition-colors duration-200" data-i18n="blog.filter_recipes">Recipes</button>
+          <button class="px-4 py-1.5 rounded-full text-sm font-medium text-grey-600 bg-warm-50 border border-warm-200/60 hover:bg-warm-100 transition-colors duration-200" data-i18n="blog.filter_news">Company News</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         FEATURED POST
+    ══════════════════════════════════════════════ -->
+    <section class="py-5 sm:py-7">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <a href="#" class="block group reveal">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 bg-white rounded-2xl border border-warm-200/60 shadow-elevated overflow-hidden blog-card">
+            <!-- Image -->
+            <div class="relative aspect-[16/10] lg:aspect-auto overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-brand-600/80 to-brand-700/60"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center text-white p-6">
+                  <span class="text-5xl sm:text-6xl mb-3 block">🍄</span>
+                  <span class="font-display text-xl sm:text-2xl font-bold" data-i18n="blog.featured_img">Mushroom Science</span>
+                </div>
+              </div>
+            </div>
+            <!-- Content -->
+            <div class="p-5 sm:p-6 lg:py-8 flex flex-col justify-center">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-2.5 py-0.5 bg-brand-50 text-brand-700 text-xs font-semibold rounded-full" data-i18n="blog.cat_science">Mushroom Science</span>
+                <span class="text-grey-400 text-xs" data-i18n="blog.featured_date">March 10, 2026</span>
+              </div>
+              <h2 class="font-display text-xl sm:text-2xl font-bold text-grey-900 tracking-heading mb-2 group-hover:text-brand-600 transition-colors duration-200" data-i18n="blog.featured_title">The Science Behind Lion's Mane: How NGF Support Enhances Cognitive Function</h2>
+              <p class="text-grey-600 text-sm leading-relaxed mb-4" data-i18n="blog.featured_excerpt">Discover how Lion's Mane mushroom stimulates Nerve Growth Factor (NGF) production and what the latest neuroscience research reveals about its remarkable cognitive benefits.</p>
+              <span class="text-brand-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all duration-200" data-i18n="blog.read_more">
+                Read Article →
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         ARTICLE GRID
+    ══════════════════════════════════════════════ -->
+    <section class="pb-10 sm:pb-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+
+          <!-- Article 1 -->
+          <a href="#" class="block group reveal">
+            <div class="bg-white rounded-2xl border border-warm-200/60 shadow-elevated overflow-hidden blog-card h-full">
+              <div class="relative aspect-[16/10] overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-earth-500/70 to-earth-600/50"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="text-4xl">⚡</span>
+                </div>
+              </div>
+              <div class="p-4">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="px-2.5 py-0.5 bg-earth-50 text-earth-600 text-xs font-semibold rounded-full" data-i18n="blog.cat_wellness">Wellness Tips</span>
+                  <span class="text-grey-400 text-xs" data-i18n="blog.art1_date">March 5, 2026</span>
+                </div>
+                <h3 class="font-display text-base font-bold text-grey-900 mb-1.5 group-hover:text-brand-600 transition-colors duration-200" data-i18n="blog.art1_title">Cordyceps for Athletes: Pre-Workout Natural Energy Explained</h3>
+                <p class="text-grey-600 text-sm leading-relaxed" data-i18n="blog.art1_excerpt">How professional athletes are using Cordyceps mushroom to boost VO2 max, enhance oxygen utilization, and improve endurance naturally.</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Article 2 -->
+          <a href="#" class="block group reveal">
+            <div class="bg-white rounded-2xl border border-warm-200/60 shadow-elevated overflow-hidden blog-card h-full">
+              <div class="relative aspect-[16/10] overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-purple-500/70 to-purple-700/50"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="text-4xl">😴</span>
+                </div>
+              </div>
+              <div class="p-4">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="px-2.5 py-0.5 bg-purple-50 text-purple-600 text-xs font-semibold rounded-full" data-i18n="blog.cat_wellness2">Wellness Tips</span>
+                  <span class="text-grey-400 text-xs" data-i18n="blog.art2_date">February 28, 2026</span>
+                </div>
+                <h3 class="font-display text-base font-bold text-grey-900 mb-1.5 group-hover:text-brand-600 transition-colors duration-200" data-i18n="blog.art2_title">Reishi and Sleep: The Natural Path to Better Rest</h3>
+                <p class="text-grey-600 text-sm leading-relaxed" data-i18n="blog.art2_excerpt">Learn why Reishi has been called the "mushroom of immortality" and how its triterpene compounds promote deeper, more restorative sleep.</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Article 3 -->
+          <a href="#" class="block group reveal">
+            <div class="bg-white rounded-2xl border border-warm-200/60 shadow-elevated overflow-hidden blog-card h-full">
+              <div class="relative aspect-[16/10] overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-500/70 to-brand-700/50"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="text-4xl">🔬</span>
+                </div>
+              </div>
+              <div class="p-4">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="px-2.5 py-0.5 bg-brand-50 text-brand-700 text-xs font-semibold rounded-full" data-i18n="blog.cat_science2">Mushroom Science</span>
+                  <span class="text-grey-400 text-xs" data-i18n="blog.art3_date">February 20, 2026</span>
+                </div>
+                <h3 class="font-display text-base font-bold text-grey-900 mb-1.5 group-hover:text-brand-600 transition-colors duration-200" data-i18n="blog.art3_title">Spray vs. Capsule: Why Sublingual Delivery Wins</h3>
+                <p class="text-grey-600 text-sm leading-relaxed" data-i18n="blog.art3_excerpt">A deep dive into bioavailability research comparing sublingual sprays to traditional capsules and powders. The results may surprise you.</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Article 4 -->
+          <a href="#" class="block group reveal">
+            <div class="bg-white rounded-2xl border border-warm-200/60 shadow-elevated overflow-hidden blog-card h-full">
+              <div class="relative aspect-[16/10] overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-amber-500/70 to-amber-700/50"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="text-4xl">🛡️</span>
+                </div>
+              </div>
+              <div class="p-4">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="px-2.5 py-0.5 bg-amber-50 text-amber-700 text-xs font-semibold rounded-full" data-i18n="blog.cat_science3">Mushroom Science</span>
+                  <span class="text-grey-400 text-xs" data-i18n="blog.art4_date">February 14, 2026</span>
+                </div>
+                <h3 class="font-display text-base font-bold text-grey-900 mb-1.5 group-hover:text-brand-600 transition-colors duration-200" data-i18n="blog.art4_title">Chaga: The King of Antioxidants in the Mushroom Kingdom</h3>
+                <p class="text-grey-600 text-sm leading-relaxed" data-i18n="blog.art4_excerpt">Explore Chaga's extraordinary ORAC score and discover why this birch tree fungus is considered one of nature's most potent antioxidant sources.</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Article 5 -->
+          <a href="#" class="block group reveal">
+            <div class="bg-white rounded-2xl border border-warm-200/60 shadow-elevated overflow-hidden blog-card h-full">
+              <div class="relative aspect-[16/10] overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-rose-500/70 to-rose-700/50"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="text-4xl">❤️</span>
+                </div>
+              </div>
+              <div class="p-4">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="px-2.5 py-0.5 bg-rose-50 text-rose-600 text-xs font-semibold rounded-full" data-i18n="blog.cat_wellness3">Wellness Tips</span>
+                  <span class="text-grey-400 text-xs" data-i18n="blog.art5_date">February 7, 2026</span>
+                </div>
+                <h3 class="font-display text-base font-bold text-grey-900 mb-1.5 group-hover:text-brand-600 transition-colors duration-200" data-i18n="blog.art5_title">Shiitake for Heart Health: What the Research Shows</h3>
+                <p class="text-grey-600 text-sm leading-relaxed" data-i18n="blog.art5_excerpt">A look at eritadenine and how Shiitake mushroom compounds support healthy cholesterol levels and cardiovascular function.</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Article 6 -->
+          <a href="#" class="block group reveal">
+            <div class="bg-white rounded-2xl border border-warm-200/60 shadow-elevated overflow-hidden blog-card h-full">
+              <div class="relative aspect-[16/10] overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-teal-500/70 to-teal-700/50"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="text-4xl">🌿</span>
+                </div>
+              </div>
+              <div class="p-4">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="px-2.5 py-0.5 bg-teal-50 text-teal-600 text-xs font-semibold rounded-full" data-i18n="blog.cat_news">Company News</span>
+                  <span class="text-grey-400 text-xs" data-i18n="blog.art6_date">January 30, 2026</span>
+                </div>
+                <h3 class="font-display text-base font-bold text-grey-900 mb-1.5 group-hover:text-brand-600 transition-colors duration-200" data-i18n="blog.art6_title">Our Sustainability Commitment: 2026 Goals and Beyond</h3>
+                <p class="text-grey-600 text-sm leading-relaxed" data-i18n="blog.art6_excerpt">InnoVAherb's roadmap to carbon-neutral production, sustainable sourcing, and our partnership with Bulgarian forest conservation projects.</p>
+              </div>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex items-center justify-center gap-2 mt-8 reveal">
+          <span class="w-9 h-9 rounded-lg bg-brand-600 text-white flex items-center justify-center text-sm font-semibold">1</span>
+          <a href="#" class="w-9 h-9 rounded-lg bg-white border border-warm-200/60 text-grey-600 flex items-center justify-center text-sm font-medium hover:bg-warm-50 transition-colors duration-200">2</a>
+          <a href="#" class="w-9 h-9 rounded-lg bg-white border border-warm-200/60 text-grey-600 flex items-center justify-center text-sm font-medium hover:bg-warm-50 transition-colors duration-200">3</a>
+          <span class="text-grey-400 text-sm px-1">…</span>
+          <a href="#" class="w-9 h-9 rounded-lg bg-white border border-warm-200/60 text-grey-600 flex items-center justify-center text-sm font-medium hover:bg-warm-50 transition-colors duration-200">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         NEWSLETTER CTA
+    ══════════════════════════════════════════════ -->
+    <section class="py-5 sm:py-7 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-xl mx-auto text-center reveal">
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-grey-900 tracking-heading mb-3" data-i18n="blog.newsletter_title">Never Miss an Article</h2>
+          <p class="text-grey-600 mb-5" data-i18n="blog.newsletter_subtitle">Subscribe to the InnoVAherb Journal for the latest mushroom science, wellness tips, and exclusive offers.</p>
+          <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input type="email" placeholder="Enter your email" data-i18n-placeholder="newsletter.placeholder" class="flex-1 px-4 py-2.5 rounded-xl border border-warm-200 bg-warm-50 text-grey-700 text-sm placeholder:text-grey-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-colors duration-200" />
+            <button type="submit" class="px-5 py-2.5 bg-brand-600 text-white rounded-xl font-semibold text-sm hover:bg-brand-700 active:scale-[0.97] transition-transform duration-200 shadow-elevated whitespace-nowrap" data-i18n="blog.subscribe_btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/shared.js"></script>
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

@@ -269,6 +269,150 @@ const translations = {
   'pp.mix.review2.name': { en: 'Yana B., Plovdiv', bg: 'Яна Б., Пловдив' },
   'pp.mix.review3.text': { en: 'I\'ve tried individual mushroom supplements before, but the synergistic effect of the Mix is noticeably stronger.', bg: 'Пробвала съм отделни гъбени добавки, но синергичният ефект на Микса е забележимо по-силен.' },
   'pp.mix.review3.name': { en: 'Tsvetelina D., Varna', bg: 'Цветелина Д., Варна' },
+
+  // ══════════════════════════════════════════════
+  // ABOUT PAGE
+  // ══════════════════════════════════════════════
+  'about.badge': { en: 'Our Story', bg: 'Нашата история' },
+  'about.hero_title': { en: 'Nature\'s Intelligence, Bulgarian Innovation', bg: 'Интелигентността на природата, българска иновация' },
+  'about.hero_subtitle': { en: 'Born in the heart of Bulgaria\'s pristine mountain forests, InnoVAherb bridges ancient mushroom wisdom with modern extraction science.', bg: 'Родена в сърцето на девствените български планински гори, InnoVAherb свързва древната мъдрост за гъбите с модерната наука за екстракция.' },
+
+  'about.origin_label': { en: 'Our Origin', bg: 'Нашият произход' },
+  'about.origin_title': { en: 'From Bulgarian Forests to Your Daily Ritual', bg: 'От българските гори до вашия ежедневен ритуал' },
+  'about.origin_p1': { en: 'InnoVAherb was founded with a simple yet powerful idea: bring the remarkable health benefits of medicinal mushrooms to everyone through a convenient, fast-absorbing spray format.', bg: 'InnoVAherb беше основана с проста, но мощна идея: да донесем забележителните здравословни ползи от лечебните гъби на всеки чрез удобен, бързо усвояващ се спрей формат.' },
+  'about.origin_p2': { en: 'Bulgaria has a rich tradition of mushroom foraging and natural medicine stretching back centuries. Our founders grew up surrounded by pristine mountain forests, learning the healing power of fungi from their grandparents.', bg: 'България има богата традиция в събирането на гъби и природната медицина, простираща се векове назад. Нашите основатели израснаха заобиколени от девствени планински гори, научавайки лечебната сила на гъбите от своите баби и дядовци.' },
+  'about.origin_p3': { en: 'Today, we combine that ancestral knowledge with cutting-edge dual extraction technology to create the most bioavailable mushroom supplements on the market.', bg: 'Днес ние комбинираме това наследствено знание с авангардна технология за двойна екстракция, за да създадем най-бионаличните гъбени добавки на пазара.' },
+
+  'about.mission_label': { en: 'Our Mission', bg: 'Нашата мисия' },
+  'about.mission_title': { en: 'Three Pillars of Excellence', bg: 'Три стълба на съвършенството' },
+  'about.mission_subtitle': { en: 'Everything we do is guided by our commitment to nature, science, and quality.', bg: 'Всичко, което правим, е водено от нашия ангажимент към природата, науката и качеството.' },
+  'about.pillar1_title': { en: 'Nature', bg: 'Природа' },
+  'about.pillar1_desc': { en: 'We source only the finest mushrooms from pristine environments and sustainable cultivation. Every ingredient is traceable back to its origin.', bg: 'Набавяме само най-качествените гъби от девствени среди и устойчиво отглеждане. Всяка съставка е проследима до нейния произход.' },
+  'about.pillar2_title': { en: 'Science', bg: 'Наука' },
+  'about.pillar2_desc': { en: 'Our dual extraction process maximizes bioactive compound availability. Every formula is backed by research and optimized for sublingual delivery.', bg: 'Нашият процес на двойна екстракция максимизира наличността на биоактивни съединения. Всяка формула е подкрепена от изследвания и оптимизирана за сублингвално доставяне.' },
+  'about.pillar3_title': { en: 'Quality', bg: 'Качество' },
+  'about.pillar3_desc': { en: 'Every batch is third-party lab tested for purity and potency. We hold ourselves to the highest standards — no shortcuts, no compromises.', bg: 'Всяка партида е тествана от трета страна за чистота и ефикасност. Придържаме се към най-високите стандарти — без компромиси.' },
+
+  'about.process_label': { en: 'Our Process', bg: 'Нашият процес' },
+  'about.process_title': { en: 'From Mycelium to Your Wellness', bg: 'От мицела до вашето здраве' },
+  'about.process_subtitle': { en: 'A rigorous 4-step journey that ensures every spray delivers maximum potency.', bg: 'Строг 4-стъпков процес, който гарантира, че всяко впръскване доставя максимална ефикасност.' },
+  'about.step1_title': { en: 'Sustainable Sourcing', bg: 'Устойчиво снабдяване' },
+  'about.step1_desc': { en: 'Carefully selected mushroom strains from controlled, pesticide-free environments in Bulgaria.', bg: 'Внимателно подбрани гъбени щамове от контролирани, безпестицидни среди в България.' },
+  'about.step2_title': { en: 'Dual Extraction', bg: 'Двойна екстракция' },
+  'about.step2_desc': { en: 'Hot water and alcohol extraction captures both water-soluble and fat-soluble bioactive compounds.', bg: 'Екстракция с гореща вода и алкохол улавя както водоразтворими, така и мастноразтворими биоактивни съединения.' },
+  'about.step3_title': { en: 'Lab Testing', bg: 'Лабораторно тестване' },
+  'about.step3_desc': { en: 'Every batch undergoes third-party testing for purity, potency, heavy metals, and microbial safety.', bg: 'Всяка партида преминава тестване от трета страна за чистота, ефикасност, тежки метали и микробиологична безопасност.' },
+  'about.step4_title': { en: 'Spray Formulation', bg: 'Спрей формулиране' },
+  'about.step4_desc': { en: 'Precisely formulated for sublingual delivery — optimized for 5× faster absorption than capsules.', bg: 'Прецизно формулиран за сублингвално доставяне — оптимизиран за 5× по-бързо усвояване от капсулите.' },
+
+  'about.stat1': { en: 'Unique Products', bg: 'Уникални продукта' },
+  'about.stat2': { en: 'Happy Customers', bg: 'Доволни клиенти' },
+  'about.stat3': { en: 'Extract Ratio', bg: 'Съотношение на екстракт' },
+  'about.stat4': { en: 'Natural Ingredients', bg: 'Натурални съставки' },
+
+  'about.cta_title': { en: 'Ready to Experience the Difference?', bg: 'Готови ли сте да усетите разликата?' },
+  'about.cta_subtitle': { en: 'Explore our collection of premium mushroom extract sprays and find the perfect match for your wellness goals.', bg: 'Разгледайте нашата колекция от премиум гъбени екстрактни спрейове и намерете перфектното съответствие за вашите здравни цели.' },
+  'about.cta_button': { en: 'Shop Our Collection', bg: 'Разгледайте колекцията' },
+
+  // ══════════════════════════════════════════════
+  // BLOG PAGE
+  // ══════════════════════════════════════════════
+  'blog.badge': { en: 'The InnoVAherb Journal', bg: 'Журналът на InnoVAherb' },
+  'blog.hero_title': { en: 'Mushroom Science & Wellness Insights', bg: 'Наука за гъбите и съвети за здраве' },
+  'blog.hero_subtitle': { en: 'Explore the fascinating world of medicinal mushrooms, wellness tips, and the latest research behind our products.', bg: 'Разгледайте завладяващия свят на лечебните гъби, съвети за здраве и най-новите изследвания зад нашите продукти.' },
+
+  'blog.filter_all': { en: 'All Posts', bg: 'Всички' },
+  'blog.filter_science': { en: 'Mushroom Science', bg: 'Наука за гъбите' },
+  'blog.filter_wellness': { en: 'Wellness Tips', bg: 'Здравни съвети' },
+  'blog.filter_recipes': { en: 'Recipes', bg: 'Рецепти' },
+  'blog.filter_news': { en: 'Company News', bg: 'Новини' },
+
+  'blog.featured_img': { en: 'Mushroom Science', bg: 'Наука за гъбите' },
+  'blog.cat_science': { en: 'Mushroom Science', bg: 'Наука за гъбите' },
+  'blog.featured_date': { en: 'March 10, 2026', bg: '10 март 2026' },
+  'blog.featured_title': { en: 'The Science Behind Lion\'s Mane: How NGF Support Enhances Cognitive Function', bg: 'Науката зад Лъвската грива: Как подкрепата на NGF подобрява когнитивните функции' },
+  'blog.featured_excerpt': { en: 'Discover how Lion\'s Mane mushroom stimulates Nerve Growth Factor (NGF) production and what the latest neuroscience research reveals about its remarkable cognitive benefits.', bg: 'Открийте как гъбата Лъвска грива стимулира производството на фактор за растеж на нервите (NGF) и какво разкриват най-новите неврологични изследвания за нейните забележителни когнитивни ползи.' },
+  'blog.read_more': { en: 'Read Article →', bg: 'Прочетете статията →' },
+
+  'blog.cat_wellness': { en: 'Wellness Tips', bg: 'Здравни съвети' },
+  'blog.art1_date': { en: 'March 5, 2026', bg: '5 март 2026' },
+  'blog.art1_title': { en: 'Cordyceps for Athletes: Pre-Workout Natural Energy Explained', bg: 'Кордицепс за спортисти: Естествена енергия преди тренировка' },
+  'blog.art1_excerpt': { en: 'How professional athletes are using Cordyceps mushroom to boost VO2 max, enhance oxygen utilization, and improve endurance naturally.', bg: 'Как професионалните спортисти използват гъбата Кордицепс за повишаване на VO2 max, подобряване на кислородното усвояване и издръжливостта.' },
+
+  'blog.cat_wellness2': { en: 'Wellness Tips', bg: 'Здравни съвети' },
+  'blog.art2_date': { en: 'February 28, 2026', bg: '28 февруари 2026' },
+  'blog.art2_title': { en: 'Reishi and Sleep: The Natural Path to Better Rest', bg: 'Рейши и сънят: Естественият път към по-добра почивка' },
+  'blog.art2_excerpt': { en: 'Learn why Reishi has been called the "mushroom of immortality" and how its triterpene compounds promote deeper, more restorative sleep.', bg: 'Научете защо Рейши е наречена „гъбата на безсмъртието" и как нейните тритерпенови съединения насърчават по-дълбок, по-възстановителен сън.' },
+
+  'blog.cat_science2': { en: 'Mushroom Science', bg: 'Наука за гъбите' },
+  'blog.art3_date': { en: 'February 20, 2026', bg: '20 февруари 2026' },
+  'blog.art3_title': { en: 'Spray vs. Capsule: Why Sublingual Delivery Wins', bg: 'Спрей срещу капсула: Защо сублингвалното доставяне печели' },
+  'blog.art3_excerpt': { en: 'A deep dive into bioavailability research comparing sublingual sprays to traditional capsules and powders. The results may surprise you.', bg: 'Задълбочен анализ на изследванията за бионаличност, сравняващ сублингвални спрейове с традиционни капсули и прахове.' },
+
+  'blog.cat_science3': { en: 'Mushroom Science', bg: 'Наука за гъбите' },
+  'blog.art4_date': { en: 'February 14, 2026', bg: '14 февруари 2026' },
+  'blog.art4_title': { en: 'Chaga: The King of Antioxidants in the Mushroom Kingdom', bg: 'Чага: Кралят на антиоксидантите в царството на гъбите' },
+  'blog.art4_excerpt': { en: 'Explore Chaga\'s extraordinary ORAC score and discover why this birch tree fungus is considered one of nature\'s most potent antioxidant sources.', bg: 'Разгледайте изключителния ORAC резултат на Чага и открийте защо тази гъба се счита за един от най-мощните естествени източници на антиоксиданти.' },
+
+  'blog.cat_wellness3': { en: 'Wellness Tips', bg: 'Здравни съвети' },
+  'blog.art5_date': { en: 'February 7, 2026', bg: '7 февруари 2026' },
+  'blog.art5_title': { en: 'Shiitake for Heart Health: What the Research Shows', bg: 'Шийтаке за здравето на сърцето: Какво показват изследванията' },
+  'blog.art5_excerpt': { en: 'A look at eritadenine and how Shiitake mushroom compounds support healthy cholesterol levels and cardiovascular function.', bg: 'Поглед към еритаденина и как съединенията на гъбата Шийтаке подкрепят здравословните нива на холестерол и сърдечно-съдовата функция.' },
+
+  'blog.cat_news': { en: 'Company News', bg: 'Новини' },
+  'blog.art6_date': { en: 'January 30, 2026', bg: '30 януари 2026' },
+  'blog.art6_title': { en: 'Our Sustainability Commitment: 2026 Goals and Beyond', bg: 'Нашият ангажимент за устойчивост: Цели за 2026 и отвъд' },
+  'blog.art6_excerpt': { en: 'InnoVAherb\'s roadmap to carbon-neutral production, sustainable sourcing, and our partnership with Bulgarian forest conservation projects.', bg: 'Пътната карта на InnoVAherb към въглеродно неутрално производство, устойчиво снабдяване и партньорството ни с проекти за опазване на българските гори.' },
+
+  'blog.newsletter_title': { en: 'Never Miss an Article', bg: 'Не пропускайте статия' },
+  'blog.newsletter_subtitle': { en: 'Subscribe to the InnoVAherb Journal for the latest mushroom science, wellness tips, and exclusive offers.', bg: 'Абонирайте се за журнала на InnoVAherb за най-новата наука за гъбите, здравни съвети и ексклузивни оферти.' },
+  'blog.subscribe_btn': { en: 'Subscribe', bg: 'Абонирайте се' },
+
+  // ══════════════════════════════════════════════
+  // CONTACT PAGE
+  // ══════════════════════════════════════════════
+  'contact.badge': { en: 'Get In Touch', bg: 'Свържете се с нас' },
+  'contact.hero_title': { en: 'We\'d Love to Hear From You', bg: 'Ще се радваме да чуем от вас' },
+  'contact.hero_subtitle': { en: 'Have questions about our products, need help with an order, or just want to say hello? Our team is here for you.', bg: 'Имате въпроси за нашите продукти, нужда от помощ с поръчка или просто искате да кажете здравей? Нашият екип е тук за вас.' },
+
+  'contact.form_title': { en: 'Send Us a Message', bg: 'Изпратете ни съобщение' },
+  'contact.label_name': { en: 'Full Name', bg: 'Пълно име' },
+  'contact.placeholder_name': { en: 'Your name', bg: 'Вашето име' },
+  'contact.label_email': { en: 'Email Address', bg: 'Имейл адрес' },
+  'contact.placeholder_email': { en: 'your@email.com', bg: 'вашият@имейл.com' },
+  'contact.label_subject': { en: 'Subject', bg: 'Тема' },
+  'contact.subject_default': { en: 'Select a topic', bg: 'Изберете тема' },
+  'contact.subject_products': { en: 'Product Questions', bg: 'Въпроси за продукти' },
+  'contact.subject_orders': { en: 'Orders & Shipping', bg: 'Поръчки и доставка' },
+  'contact.subject_returns': { en: 'Returns & Refunds', bg: 'Връщане и възстановяване' },
+  'contact.subject_wholesale': { en: 'Wholesale Inquiry', bg: 'Запитване за едро' },
+  'contact.subject_other': { en: 'Other', bg: 'Друго' },
+  'contact.label_message': { en: 'Message', bg: 'Съобщение' },
+  'contact.placeholder_message': { en: 'How can we help you?', bg: 'Как можем да ви помогнем?' },
+  'contact.submit_btn': { en: 'Send Message', bg: 'Изпратете съобщение' },
+
+  'contact.email_title': { en: 'Email', bg: 'Имейл' },
+  'contact.email_desc': { en: 'We\'ll respond within 24 hours', bg: 'Ще отговорим в рамките на 24 часа' },
+  'contact.phone_title': { en: 'Phone', bg: 'Телефон' },
+  'contact.phone_desc': { en: 'Mon–Fri, 9:00–18:00 EET', bg: 'Пон–Пет, 9:00–18:00 EET' },
+  'contact.location_title': { en: 'Location', bg: 'Локация' },
+  'contact.location_address': { en: 'Sofia, Bulgaria', bg: 'София, България' },
+  'contact.location_note': { en: 'European shipping available', bg: 'Доставка в Европа' },
+  'contact.social_title': { en: 'Follow Us', bg: 'Последвайте ни' },
+
+  'contact.map_placeholder': { en: 'Map integration coming soon', bg: 'Интеграция с карта очаквайте скоро' },
+  'contact.map_location': { en: 'Sofia, Bulgaria • European Union', bg: 'София, България • Европейски съюз' },
+
+  'contact.faq_title': { en: 'Common Questions', bg: 'Често задавани въпроси' },
+  'contact.faq_subtitle': { en: 'Quick answers before reaching out.', bg: 'Бързи отговори преди да се свържете с нас.' },
+  'contact.faq1_q': { en: 'What are your shipping times?', bg: 'Какви са сроковете за доставка?' },
+  'contact.faq1_a': { en: 'We ship within 1–2 business days. Standard delivery within Bulgaria takes 2–3 days, and European orders typically arrive within 5–7 business days. Free shipping on orders over €50.', bg: 'Изпращаме в рамките на 1–2 работни дни. Стандартната доставка в България отнема 2–3 дни, а европейските поръчки обикновено пристигат в рамките на 5–7 работни дни. Безплатна доставка за поръчки над €50.' },
+  'contact.faq2_q': { en: 'What is your return policy?', bg: 'Каква е вашата политика за връщане?' },
+  'contact.faq2_a': { en: 'We offer a 30-day satisfaction guarantee. If you\'re not happy with your purchase, contact us for a full refund on unopened products or a partial refund on opened items.', bg: 'Предлагаме 30-дневна гаранция за удовлетворение. Ако не сте доволни от покупката си, свържете се с нас за пълно възстановяване за неотворени продукти или частично възстановяване за отворени.' },
+  'contact.faq3_q': { en: 'Do you offer wholesale pricing?', bg: 'Предлагате ли цени за едро?' },
+  'contact.faq3_a': { en: 'Yes! We work with health food stores, pharmacies, and wellness centers. Select "Wholesale Inquiry" in the contact form above, and our team will provide you with a custom quote.', bg: 'Да! Работим с магазини за здравословни храни, аптеки и уелнес центрове. Изберете „Запитване за едро" в контактната форма по-горе и нашият екип ще ви предостави индивидуална оферта.' },
+  'contact.faq4_q': { en: 'Which payment methods do you accept?', bg: 'Какви методи за плащане приемате?' },
+  'contact.faq4_a': { en: 'We accept all major credit and debit cards (Visa, Mastercard, American Express), PayPal, and bank transfers for Bulgarian customers. All payments are processed securely.', bg: 'Приемаме всички основни кредитни и дебитни карти (Visa, Mastercard, American Express), PayPal и банкови преводи за български клиенти. Всички плащания се обработват сигурно.' },
 };
 
 // ── Language Engine ──
