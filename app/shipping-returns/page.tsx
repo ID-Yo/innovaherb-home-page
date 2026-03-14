@@ -24,13 +24,13 @@ export default function ShippingReturnsPage() {
             <section className="rounded-[2rem] bg-white p-6 shadow-elevated">
               <h2 className="font-display text-3xl text-grey-900">Shipping</h2>
               <p className="mt-4 text-sm leading-7 text-grey-600">
-                The first e-commerce release serves Bulgaria only. Orders over €50 receive free shipping. Orders below that threshold use a fixed shipping fee that is shown at checkout.
+                We currently deliver across Bulgaria. Orders over EUR 50 receive free shipping, while orders below that threshold show a flat delivery fee at checkout before payment.
               </p>
             </section>
             <section className="rounded-[2rem] bg-white p-6 shadow-elevated">
               <h2 className="font-display text-3xl text-grey-900">Returns</h2>
               <p className="mt-4 text-sm leading-7 text-grey-600">
-                Returns and refund approvals are handled manually by the support team in v1. The admin console tracks every order status transition and internal support note.
+                If you need help with a return or refund, contact our support team and we will guide you through the next steps as quickly as possible.
               </p>
             </section>
           </div>

@@ -72,7 +72,7 @@ export function CheckoutForm() {
       <div className="space-y-6 rounded-[2rem] border border-warm-200 bg-white p-6 shadow-elevated">
         <div>
           <h2 className="font-display text-3xl text-grey-900">Guest checkout</h2>
-          <p className="mt-2 text-sm text-grey-600">Orders are available for Bulgaria addresses only in v1.</p>
+          <p className="mt-2 text-sm text-grey-600">Enter your delivery details below. We currently ship within Bulgaria.</p>
         </div>
         <div className="grid gap-4 md:grid-cols-2">
           {[
@@ -99,7 +99,7 @@ export function CheckoutForm() {
       </div>
       <aside className="rounded-[2rem] border border-warm-200 bg-white p-6 shadow-elevated">
         <h2 className="font-display text-3xl text-grey-900">Order total</h2>
-        <p className="mt-4 text-4xl font-semibold text-grey-900">€{(total / 100).toFixed(2)}</p>
+        <p className="mt-4 text-4xl font-semibold text-grey-900">EUR {(total / 100).toFixed(2)}</p>
         <p className="mt-4 text-sm text-grey-600">Secure card payments are handled by Stripe Checkout.</p>
         <button
           type="submit"

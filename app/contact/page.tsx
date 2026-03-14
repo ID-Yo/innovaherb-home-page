@@ -20,7 +20,7 @@ export default function ContactPage() {
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-600">Support</p>
             <h1 className="mt-4 font-display text-5xl text-grey-900">Need help with a product or order?</h1>
             <p className="mt-6 text-base leading-8 text-grey-600">
-              Reach out for product questions, wholesale requests, or order support. For v1, the storefront supports Bulgaria checkout and manual fulfillment updates by the internal operations team.
+              Reach out for product questions, wholesale requests, or order support. We currently deliver across Bulgaria and are happy to help with shipping, product selection, and after-purchase care.
             </p>
             <dl className="mt-8 grid gap-5 sm:grid-cols-2">
               <div className="rounded-[1.5rem] bg-warm-50 p-5">
@@ -38,7 +38,7 @@ export default function ContactPage() {
             <div className="mt-6 space-y-5 text-sm leading-7 text-grey-600">
               <div>
                 <h3 className="font-semibold text-grey-900">Shipping coverage</h3>
-                <p>Bulgaria only in the first e-commerce release.</p>
+                <p>We currently ship orders across Bulgaria.</p>
               </div>
               <div>
                 <h3 className="font-semibold text-grey-900">Payments</h3>

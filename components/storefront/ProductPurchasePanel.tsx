@@ -161,7 +161,7 @@ export function ProductPurchasePanel({
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="font-display text-2xl font-bold text-grey-900">{formatEuro(product.priceCents * 2)}</p>
-              <p className="text-xs text-grey-500">Two bottles gets the order close to or above the free-shipping threshold.</p>
+              <p className="text-xs text-grey-500">Two bottles usually take the order to free shipping while creating a more complete daily routine.</p>
             </div>
             <button
               type="button"

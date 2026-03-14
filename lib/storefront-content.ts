@@ -45,7 +45,7 @@ export const homeOfferCards = [
   {
     eyebrow: "Best first order",
     title: "Start with the 5-Mushroom Mix",
-    text: "The easiest low-friction entry point for first-time buyers who want one bottle that covers multiple goals.",
+    text: "The easiest starting point for first-time buyers who want one bottle that covers multiple goals.",
     cta: "Shop the Mix",
     href: "/products/mix",
     badge: "Best seller",
@@ -53,7 +53,7 @@ export const homeOfferCards = [
   {
     eyebrow: "Free shipping unlock",
     title: "Build a two-bottle routine",
-    text: "Most customers pair a focused daytime spray with one evening or all-day support formula to pass the free-shipping threshold faster.",
+    text: "Most customers pair a focused daytime spray with one evening or all-day support formula to build a more complete routine and qualify for free shipping.",
     cta: "Browse pairings",
     href: "/#products",
     badge: "Most popular",
@@ -155,7 +155,7 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
     usageTitle: "Best for mornings, active days, and pre-workout energy support.",
     ingredientHighlights: ["Cordyceps extract 10:1", "Purified water", "Vegetable glycerin", "Natural preservative"],
     fullIngredients: "Purified water, Cordyceps extract 10:1, vegetable glycerin, natural preservative, citric acid.",
-    conversionNote: "Cordyceps converts best as part of a two-bottle order, especially when paired with Lion's Mane or the Mix for broader support.",
+    conversionNote: "Cordyceps is a strong choice in a two-bottle order, especially when paired with Lion's Mane or the Mix for broader support.",
     bundleTitle: "Energy + Focus pair",
     bundleText: "Pair Cordyceps with Lion's Mane for a stronger daytime routine that feels complete from the first order.",
     reviews: [
@@ -242,7 +242,7 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
     usageTitle: "Best for morning routines focused on resilience and everyday support.",
     ingredientHighlights: ["Chaga extract 10:1", "Purified water", "Vegetable glycerin", "Natural preservative"],
     fullIngredients: "Purified water, Chaga extract 10:1, vegetable glycerin, natural preservative, citric acid.",
-    conversionNote: "Chaga is easier to convert when shoppers see it as part of a broader routine rather than a stand-alone first product.",
+    conversionNote: "Chaga makes the most sense for customers who want to build a broader routine rather than start with a single narrow goal.",
     bundleTitle: "Resilience support pair",
     bundleText: "Pair Chaga with Shiitake for a broader, steady routine built around everyday support.",
     reviews: [
@@ -277,7 +277,7 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
       "Chaga extract",
     ],
     fullIngredients: "Purified water, Lion's Mane extract, Cordyceps extract, Reishi extract, Shiitake extract, Chaga extract, vegetable glycerin, natural preservative, citric acid.",
-    conversionNote: "The Mix is the highest-converting first order because it removes decision friction and gives new customers one obvious starting point.",
+    conversionNote: "The Mix is the easiest first order because it gives new customers one clear starting point with broad everyday support.",
     bundleTitle: "Best-selling starter routine",
     bundleText: "Pair the Mix with Lion's Mane or Cordyceps if you want one broad base plus one focused daytime formula.",
     reviews: [
