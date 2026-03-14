@@ -5,6 +5,7 @@ import { products } from "@/lib/products";
 import {
   homeConversionPoints,
   homeHowItWorks,
+  homeOfferCards,
   homeReviews,
   homeTrustPoints,
 } from "@/lib/storefront-content";
@@ -60,7 +61,7 @@ export default function HomePage() {
           <div className="absolute right-0 top-0 h-[600px] w-[600px] translate-x-1/4 -translate-y-1/3 rounded-full bg-brand-100/30 blur-3xl" />
           <div className="absolute bottom-0 left-0 h-[400px] w-[400px] -translate-x-1/4 translate-y-1/4 rounded-full bg-earth-100/20 blur-3xl" />
 
-          <Container className="grid gap-8 pb-5 pt-5 sm:pb-6 sm:pt-6 lg:grid-cols-2 lg:items-center lg:gap-12 lg:pb-8 lg:pt-8">
+          <Container className="-mt-24 grid gap-6 pb-4 pt-3 sm:-mt-20 sm:pb-5 sm:pt-4 lg:-mt-16 lg:grid-cols-2 lg:items-center lg:gap-10 lg:pb-6 lg:pt-5">
             <div>
               <div className="animate-fade-in-up mb-4 inline-flex items-center gap-2 rounded-full border border-warm-200/60 bg-white/70 px-3.5 py-1 shadow-elevated backdrop-blur-sm">
                 <span className="stars text-sm">★★★★★</span>
@@ -98,6 +99,19 @@ export default function HomePage() {
                   <p className="mt-2 text-sm text-grey-600">Start with the 5-Mushroom Mix if you are unsure.</p>
                 </div>
               </div>
+
+              <div className="mt-5 rounded-2xl border border-brand-100/80 bg-white/75 p-4 shadow-elevated backdrop-blur-sm">
+                <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">Recommended first purchase</p>
+                <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="font-display text-xl font-bold text-grey-900">Start with the 5-Mushroom Mix</p>
+                    <p className="mt-1 text-sm text-grey-600">The easiest entry point for shoppers who want one bottle to cover more than one goal.</p>
+                  </div>
+                  <Link href="/products/mix" className="btn-press inline-flex items-center justify-center rounded-xl bg-brand-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-800">
+                    Shop the best seller
+                  </Link>
+                </div>
+              </div>
             </div>
 
             <div className="animate-fade-in-up delay-300">
@@ -113,7 +127,7 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section id="products" className="py-6 sm:py-8">
+        <section id="products" className="py-5 sm:py-6">
           <Container>
             <div className="mb-4 text-center sm:mb-5">
               <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
@@ -132,7 +146,41 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section className="bg-white py-6 sm:py-8">
+        <section className="bg-white py-5 sm:py-6">
+          <Container>
+            <div className="mb-4 text-center sm:mb-5">
+              <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
+                Choose the Best First Order
+              </h2>
+              <p className="mx-auto mt-2 max-w-2xl text-base text-grey-500">
+                Pick the buying path that feels easiest for you: a best-selling all-in-one spray, a two-bottle routine, or a single formula matched to one clear goal.
+              </p>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-3 lg:gap-5">
+              {homeOfferCards.map((card, index) => (
+                <div
+                  key={card.title}
+                  className={`rounded-xl border p-5 shadow-elevated sm:rounded-2xl sm:p-6 ${index === 0 ? "border-brand-200 bg-brand-50/70" : "border-warm-200/70 bg-warm-50"}`}
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">{card.eyebrow}</p>
+                    <span className={`rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest ${index === 0 ? "bg-brand-700 text-white" : "bg-white text-grey-600"}`}>
+                      {card.badge}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 font-display text-2xl font-bold text-grey-900">{card.title}</h3>
+                  <p className="mt-3 text-sm leading-body text-grey-600">{card.text}</p>
+                  <Link href={card.href} className={`btn-press mt-5 inline-flex rounded-xl px-5 py-3 text-sm font-semibold transition-colors ${index === 0 ? "bg-brand-700 text-white hover:bg-brand-800" : "border border-warm-200 bg-white text-grey-800 hover:bg-warm-50"}`}>
+                    {card.cta}
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        <section className="bg-white py-5 sm:py-6">
           <Container>
             <div className="mb-4 text-center sm:mb-5">
               <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
@@ -153,7 +201,7 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section className="border-y border-warm-200/50 bg-warm-50 py-6 sm:py-8">
+        <section className="border-y border-warm-200/50 bg-warm-50 py-5 sm:py-6">
           <Container>
             <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-8 lg:gap-14">
               {homeTrustPoints.map((point) => (
@@ -166,7 +214,7 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section className="bg-white py-6 sm:py-8">
+        <section className="bg-white py-5 sm:py-6">
           <Container>
             <div className="mb-4 text-center sm:mb-5">
               <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
@@ -193,7 +241,7 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section className="grain relative overflow-hidden py-8 sm:py-10">
+        <section className="grain relative overflow-hidden py-6 sm:py-8">
           <div className="absolute inset-0 bg-gradient-to-br from-grey-900 via-brand-800/90 to-grey-900" />
           <div className="absolute inset-0 bg-gradient-to-t from-grey-900/80 via-transparent to-grey-900/40" />
           <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-brand-600/15 blur-3xl" />
@@ -231,7 +279,7 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section className="bg-warm-50 py-6 sm:py-8">
+        <section className="bg-warm-50 py-5 sm:py-6">
           <Container>
             <div className="mb-4 text-center sm:mb-5">
               <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
@@ -259,7 +307,7 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section className="grain relative overflow-hidden py-6 sm:py-8">
+        <section className="grain relative overflow-hidden py-5 sm:py-6">
           <div className="absolute inset-0 bg-gradient-to-br from-brand-600 via-brand-700 to-brand-800" />
           <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-brand-400/20 blur-3xl" />
 
