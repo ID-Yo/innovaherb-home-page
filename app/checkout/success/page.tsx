@@ -8,6 +8,7 @@ export const metadata = buildMetadata({
   title: "Order received | InnoVAherb",
   description: "Your InnoVAherb order has been received and is awaiting payment confirmation.",
   path: "/checkout/success",
+  index: false,
 });
 
 export default function CheckoutSuccessPage() {

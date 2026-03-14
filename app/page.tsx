@@ -4,6 +4,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { products } from "@/lib/products";
 import {
   homeConversionPoints,
+  homeFaqs,
   homeHowItWorks,
   homeOfferCards,
   homeReviews,
@@ -16,9 +17,9 @@ import { Container } from "@/components/ui/Container";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata = buildMetadata({
-  title: "Mushroom Extract Sprays | Natural Bulgarian Adaptogens | InnoVAherb",
+  title: "Bulgarian Mushroom Extract Sprays | InnoVAherb",
   description:
-    "Shop Lion's Mane, Cordyceps, Reishi, Shiitake, Chaga, and the 5-Mushroom Mix. Premium Bulgarian mushroom extract sprays built for focus, energy, immunity, and vitality.",
+    "Shop Bulgarian mushroom extract sprays for focus, energy, balance, vitality, and immunity. Explore six InnoVAherb formulas with secure checkout.",
   path: "/",
 });
 
@@ -42,6 +43,18 @@ export default function HomePage() {
           position: index + 1,
           url: absoluteUrl(`/products/${product.slug}`),
           name: product.localized.en.name,
+        })),
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${absoluteUrl("/")}#faq`,
+        mainEntity: homeFaqs.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
         })),
       },
     ],
@@ -69,11 +82,11 @@ export default function HomePage() {
               </div>
 
               <h1 className="animate-fade-in-up delay-100 mb-4 font-display text-3xl font-bold tracking-heading text-grey-900 sm:text-4xl lg:text-5xl xl:text-6xl">
-                Nature's Intelligence, One Spray at a Time
+                Bulgarian Mushroom Extract Sprays for Daily Focus, Energy, and Vitality
               </h1>
 
               <p className="animate-fade-in-up delay-200 mb-6 max-w-xl text-base leading-body text-grey-600 sm:text-lg">
-                Premium Bulgarian mushroom extracts in a revolutionary spray format. Faster absorption. Precise dosing. Pure results.
+                Discover premium Bulgarian mushroom extract sprays for focus, energy, balance, immunity, and full-spectrum daily support in a faster, easier oral format.
               </p>
 
               <div className="animate-fade-in-up delay-300 flex flex-wrap gap-3">
@@ -112,6 +125,9 @@ export default function HomePage() {
                   </Link>
                 </div>
               </div>
+              <p className="mt-4 max-w-2xl text-sm leading-body text-grey-600">
+                InnoVAherb mushroom extract sprays are designed for shoppers who want a simpler wellness routine, cleaner daily dosing, and formulas matched to clear goals like mental clarity, natural energy, evening balance, and everyday resilience.
+              </p>
             </div>
 
             <div className="animate-fade-in-up delay-300">
@@ -267,13 +283,13 @@ export default function HomePage() {
             </div>
             <div className="hidden items-center justify-center gap-3 lg:flex">
               <div className="h-44 w-32 rotate-[-3deg] overflow-hidden rounded-2xl border border-white/10 shadow-floating">
-                <img src="/brand_assets/Cordycepts_front.webp" alt="Cordyceps" className="h-full w-full object-cover" />
+                <img src="/brand_assets/Cordycepts_front.webp" alt="Cordyceps mushroom extract spray bottle by InnoVAherb" className="h-full w-full object-cover" />
               </div>
               <div className="-mt-6 h-48 w-36 overflow-hidden rounded-2xl border border-white/10 shadow-floating">
-                <img src="/brand_assets/Shiitake_front.webp" alt="Shiitake" className="h-full w-full object-cover" />
+                <img src="/brand_assets/Shiitake_front.webp" alt="Shiitake mushroom extract spray bottle by InnoVAherb" className="h-full w-full object-cover" />
               </div>
               <div className="h-44 w-32 rotate-[3deg] overflow-hidden rounded-2xl border border-white/10 shadow-floating">
-                <img src="/brand_assets/Chaga_front.webp" alt="Chaga" className="h-full w-full object-cover" />
+                <img src="/brand_assets/Chaga_front.webp" alt="Chaga mushroom extract spray bottle by InnoVAherb" className="h-full w-full object-cover" />
               </div>
             </div>
           </Container>
@@ -329,6 +345,35 @@ export default function HomePage() {
                 Get 10% Off
               </button>
             </form>
+          </Container>
+        </section>
+
+        <section className="bg-white py-5 sm:py-6">
+          <Container className="max-w-4xl">
+            <div className="mb-4 text-center sm:mb-5">
+              <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
+                Frequently Asked Questions About Our Mushroom Extract Sprays
+              </h2>
+              <p className="mx-auto mt-2 max-w-2xl text-base text-grey-500">
+                Find quick answers about how InnoVAherb sprays work, which formula to start with, and how delivery works in Bulgaria.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              {homeFaqs.map((item, index) => (
+                <details key={item.question} className="overflow-hidden rounded-xl border border-warm-100/80 bg-warm-50" open={index === 0}>
+                  <summary className="flex cursor-pointer list-none items-center justify-between p-5 text-left">
+                    <span className="pr-4 font-semibold text-grey-900">{item.question}</span>
+                    <span className="faq-chevron text-grey-400">⌄</span>
+                  </summary>
+                  <div className="faq-answer">
+                    <div>
+                      <p className="px-5 pb-5 text-sm leading-body text-grey-600">{item.answer}</p>
+                    </div>
+                  </div>
+                </details>
+              ))}
+            </div>
           </Container>
         </section>
       </main>

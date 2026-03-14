@@ -86,6 +86,29 @@ export const homeHowItWorks = [
   },
 ];
 
+export const homeFaqs = [
+  {
+    question: "What makes InnoVAherb different from capsules or powders?",
+    answer:
+      "InnoVAherb uses a fast, convenient spray format that is easier to carry, easier to dose, and easier to repeat every day than capsules, teas, or powder blends.",
+  },
+  {
+    question: "Which mushroom spray should I start with?",
+    answer:
+      "Most first-time customers start with the 5-Mushroom Mix for broader support, then add a more focused formula such as Lion's Mane, Cordyceps, or Reishi based on their main goal.",
+  },
+  {
+    question: "Do you ship across Bulgaria?",
+    answer:
+      "Yes. InnoVAherb currently ships within Bulgaria, and orders above EUR 50 qualify for free shipping.",
+  },
+  {
+    question: "How do I use the sprays each day?",
+    answer:
+      "Shake the bottle, spray 3 to 4 times under the tongue, hold briefly, and use consistently as part of your daily routine.",
+  },
+];
+
 type ProductSalesContent = {
   rating: number;
   reviewCount: number;

@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "InnoVAherb",
-  title: "Mushroom Extract Sprays for Focus and Vitality | InnoVAherb",
+  title: "Bulgarian Mushroom Extract Sprays | InnoVAherb",
   description:
-    "Explore premium Bulgarian mushroom extract sprays for focus, energy, immunity, and daily vitality. Shop six natural formulas and secure checkout for Bulgaria.",
+    "Shop Bulgarian mushroom extract sprays for focus, energy, balance, vitality, and immunity. Explore six InnoVAherb formulas with secure checkout.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
     "https://innovaherb-home-page.vercel.app",

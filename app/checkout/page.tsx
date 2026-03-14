@@ -8,6 +8,7 @@ export const metadata = buildMetadata({
   title: "Checkout | InnoVAherb",
   description: "Complete your InnoVAherb order with secure card checkout and Bulgaria-only shipping.",
   path: "/checkout",
+  index: false,
 });
 
 export default function CheckoutPage() {

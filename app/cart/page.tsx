@@ -8,6 +8,7 @@ export const metadata = buildMetadata({
   title: "Cart | InnoVAherb",
   description: "Review the products in your InnoVAherb cart before secure Stripe checkout.",
   path: "/cart",
+  index: false,
 });
 
 export default function CartPage() {

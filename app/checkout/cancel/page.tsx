@@ -8,6 +8,7 @@ export const metadata = buildMetadata({
   title: "Checkout canceled | InnoVAherb",
   description: "You canceled the checkout session before completing payment.",
   path: "/checkout/cancel",
+  index: false,
 });
 
 export default function CheckoutCancelPage() {

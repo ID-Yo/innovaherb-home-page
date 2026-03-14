@@ -21,7 +21,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           <Link href="/" className="group flex-shrink-0">
             <img
               src="/brand_assets/Innoherb_logo_FIN-01-cropped-no-background.png"
-              alt="InnoVAherb"
+              alt="InnoVAherb logo"
               className="h-7 w-auto transition-transform duration-300 group-hover:scale-105 sm:h-8 lg:h-9"
             />
           </Link>

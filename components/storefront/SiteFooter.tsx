@@ -10,7 +10,7 @@ export function SiteFooter() {
           <div>
             <img
               src="/brand_assets/Innoherb_logo_FIN-01-cropped-no-background.png"
-              alt="InnoVAherb"
+              alt="InnoVAherb logo"
               className="mb-4 h-8 w-auto brightness-0 invert opacity-80"
             />
             <p className="mb-6 max-w-xs text-sm leading-relaxed text-warm-300">

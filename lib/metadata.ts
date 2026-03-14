@@ -5,10 +5,12 @@ export function buildMetadata({
   title,
   description,
   path,
+  index = true,
 }: {
   title: string;
   description: string;
   path: string;
+  index?: boolean;
 }): Metadata {
   return {
     title,
@@ -16,11 +18,8 @@ export function buildMetadata({
     metadataBase: new URL(siteConfig.url),
     alternates: {
       canonical: absoluteUrl(path),
-      languages: {
-        "en-US": absoluteUrl(path),
-        "bg-BG": `${absoluteUrl(path)}?lang=bg`,
-      },
     },
+    robots: index ? undefined : { index: false, follow: false },
     openGraph: {
       title,
       description,

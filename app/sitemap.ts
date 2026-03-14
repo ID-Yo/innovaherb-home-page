@@ -8,8 +8,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/blog",
     "/contact",
-    "/cart",
-    "/checkout",
     "/shipping-returns",
     "/privacy-policy",
     "/terms",

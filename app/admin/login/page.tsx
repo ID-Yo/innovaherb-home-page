@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   title: "Admin Login | InnoVAherb",
   description: "Log in to the InnoVAherb internal admin console for order operations and support.",
   path: "/admin/login",
+  index: false,
 });
 
 export default async function AdminLoginPage({

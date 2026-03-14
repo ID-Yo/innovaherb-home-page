@@ -11,7 +11,7 @@ export function ProductCard({ product, locale }: { product: Product; locale: Loc
       <Link href={`/products/${product.slug}`} className="block">
         <div className="relative mb-3 flex h-36 items-center justify-center overflow-hidden rounded-lg bg-warm-50 sm:h-40 sm:rounded-xl lg:h-44">
           <div className="absolute inset-0 bg-gradient-to-br from-brand-50/40 to-transparent" />
-          <img src={product.image} alt={copy.name} className="relative max-h-full w-auto transition-transform duration-500 ease-spring group-hover:scale-105" />
+          <img src={product.image} alt={`${copy.name} mushroom extract spray by InnoVAherb`} className="relative max-h-full w-auto transition-transform duration-500 ease-spring group-hover:scale-105" />
         </div>
         <div className="space-y-0.5 sm:space-y-1">
           <span className={`text-[10px] font-bold uppercase tracking-widest sm:text-xs ${product.accentClass}`}>{copy.tagline}</span>
