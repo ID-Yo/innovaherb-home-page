@@ -1,8 +1,13 @@
 import Link from "next/link";
 import Script from "next/script";
-import { homeBodyCopy } from "@/lib/copy";
-import { products } from "@/lib/products";
 import { buildMetadata } from "@/lib/metadata";
+import { products } from "@/lib/products";
+import {
+  homeConversionPoints,
+  homeHowItWorks,
+  homeReviews,
+  homeTrustPoints,
+} from "@/lib/storefront-content";
 import { SiteHeader } from "@/components/storefront/SiteHeader";
 import { SiteFooter } from "@/components/storefront/SiteFooter";
 import { ProductCard } from "@/components/storefront/ProductCard";
@@ -10,9 +15,9 @@ import { Container } from "@/components/ui/Container";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata = buildMetadata({
-  title: "Mushroom Extract Sprays for Focus and Vitality | InnoVAherb",
+  title: "Mushroom Extract Sprays | Natural Bulgarian Adaptogens | InnoVAherb",
   description:
-    "Explore premium Bulgarian mushroom extract sprays for focus, energy, immunity, and daily vitality. Shop six natural formulas and secure checkout for Bulgaria.",
+    "Shop Lion's Mane, Cordyceps, Reishi, Shiitake, Chaga, and the 5-Mushroom Mix. Premium Bulgarian mushroom extract sprays built for focus, energy, immunity, and vitality.",
   path: "/",
 });
 
@@ -28,25 +33,16 @@ export default function HomePage() {
         logo: absoluteUrl("/brand_assets/Innoherb_logo_FIN-01-cropped-no-background.png"),
       },
       {
-        "@type": "CollectionPage",
-        "@id": `${absoluteUrl("/")}#collection`,
-        name: "InnoVAherb mushroom extract sprays",
-        about: "Mushroom extract sprays for focus, energy, immunity, and daily vitality.",
-        url: absoluteUrl("/"),
-      },
-      ...products.map((product) => ({
-        "@type": "Product",
-        name: product.localized.en.name,
-        sku: product.sku,
-        image: absoluteUrl(product.image),
-        offers: {
-          "@type": "Offer",
-          priceCurrency: "EUR",
-          price: (product.priceCents / 100).toFixed(2),
-          availability: "https://schema.org/InStock",
+        "@type": "ItemList",
+        "@id": `${absoluteUrl("/")}#products`,
+        name: "InnoVAherb Mushroom Extract Sprays",
+        itemListElement: products.map((product, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
           url: absoluteUrl(`/products/${product.slug}`),
-        },
-      })),
+          name: product.localized.en.name,
+        })),
+      },
     ],
   };
 
@@ -59,78 +55,232 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <main>
-        <section className="grain overflow-hidden bg-gradient-to-br from-brand-50 via-warm-50 to-white">
-          <Container className="grid gap-12 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-28">
-            <div className="relative z-10 max-w-3xl">
-              <div className="inline-flex items-center rounded-full border border-warm-200 bg-white/80 px-4 py-2 text-sm font-semibold text-brand-700">
-                Bulgaria-made mushroom extract sprays
+        <section className="grain relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-50 via-warm-50 to-warm-100" />
+          <div className="absolute right-0 top-0 h-[600px] w-[600px] translate-x-1/4 -translate-y-1/3 rounded-full bg-brand-100/30 blur-3xl" />
+          <div className="absolute bottom-0 left-0 h-[400px] w-[400px] -translate-x-1/4 translate-y-1/4 rounded-full bg-earth-100/20 blur-3xl" />
+
+          <Container className="grid gap-8 pb-5 pt-5 sm:pb-6 sm:pt-6 lg:grid-cols-2 lg:items-center lg:gap-12 lg:pb-8 lg:pt-8">
+            <div>
+              <div className="animate-fade-in-up mb-4 inline-flex items-center gap-2 rounded-full border border-warm-200/60 bg-white/70 px-3.5 py-1 shadow-elevated backdrop-blur-sm">
+                <span className="stars text-sm">★★★★★</span>
+                <span className="text-sm font-medium text-grey-600">Trusted by 2,000+ customers across Europe</span>
               </div>
-              <h1 className="mt-6 font-display text-5xl leading-tight text-grey-900 sm:text-6xl">
-                Mushroom extract sprays for focus, energy, immunity, and daily vitality.
+
+              <h1 className="animate-fade-in-up delay-100 mb-4 font-display text-3xl font-bold tracking-heading text-grey-900 sm:text-4xl lg:text-5xl xl:text-6xl">
+                Nature's Intelligence, One Spray at a Time
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-grey-600">
-                InnoVAherb turns premium Bulgarian mushroom extracts into easy daily oral sprays. Shop six natural formulas designed for focus, stamina, balance, vitality, antioxidant support, and full-spectrum wellness.
+
+              <p className="animate-fade-in-up delay-200 mb-6 max-w-xl text-base leading-body text-grey-600 sm:text-lg">
+                Premium Bulgarian mushroom extracts in a revolutionary spray format. Faster absorption. Precise dosing. Pure results.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link href="#products" className="rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white">
-                  Shop the collection
+
+              <div className="animate-fade-in-up delay-300 flex flex-wrap gap-3">
+                <Link href="/#products" className="btn-press inline-flex items-center gap-2 rounded-xl bg-brand-600 px-7 py-3.5 text-sm font-semibold text-white shadow-hover transition-colors duration-200 hover:bg-brand-700">
+                  Shop Our Collection
                 </Link>
-                <Link href="/shipping-returns" className="rounded-full border border-warm-200 bg-white px-6 py-3 text-sm font-semibold text-grey-900">
-                  Shipping and returns
+                <Link href="/shipping-returns" className="btn-press inline-flex items-center gap-2 rounded-xl border border-warm-200 bg-white/80 px-7 py-3.5 text-sm font-semibold text-grey-800 transition-colors duration-200 hover:bg-white">
+                  Shipping and Returns
                 </Link>
               </div>
-              <dl className="mt-10 grid gap-4 sm:grid-cols-3">
-                <div className="rounded-[1.5rem] border border-white/60 bg-white/70 p-4">
-                  <dt className="text-xs font-bold uppercase tracking-[0.3em] text-brand-600">Fast routine</dt>
-                  <dd className="mt-2 text-sm text-grey-600">No capsules, no preparation, and no complicated stacks.</dd>
+
+              <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                <div className="rounded-xl border border-white/60 bg-white/70 p-4 shadow-elevated">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">Free shipping</p>
+                  <p className="mt-2 text-sm text-grey-600">On Bulgaria orders over EUR 50.</p>
                 </div>
-                <div className="rounded-[1.5rem] border border-white/60 bg-white/70 p-4">
-                  <dt className="text-xs font-bold uppercase tracking-[0.3em] text-brand-600">Bulgaria only</dt>
-                  <dd className="mt-2 text-sm text-grey-600">V1 shipping coverage is limited to Bulgaria for reliable fulfillment.</dd>
+                <div className="rounded-xl border border-white/60 bg-white/70 p-4 shadow-elevated">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">Daily ritual</p>
+                  <p className="mt-2 text-sm text-grey-600">Spray in seconds, no capsules or prep.</p>
                 </div>
-                <div className="rounded-[1.5rem] border border-white/60 bg-white/70 p-4">
-                  <dt className="text-xs font-bold uppercase tracking-[0.3em] text-brand-600">Guest checkout</dt>
-                  <dd className="mt-2 text-sm text-grey-600">Secure Stripe checkout with cards and no customer account required.</dd>
+                <div className="rounded-xl border border-white/60 bg-white/70 p-4 shadow-elevated">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">Best seller</p>
+                  <p className="mt-2 text-sm text-grey-600">Start with the 5-Mushroom Mix if you are unsure.</p>
                 </div>
-              </dl>
+              </div>
             </div>
-            <div className="relative">
-              <div className="absolute -left-8 top-1/2 h-52 w-52 -translate-y-1/2 rounded-full bg-brand-100 blur-3xl" />
-              <img src="/brand_assets/Group_front.webp" alt="InnoVAherb mushroom spray collection" className="relative z-10 mx-auto max-h-[540px] w-auto" />
+
+            <div className="animate-fade-in-up delay-300">
+              <div className="relative overflow-hidden rounded-2xl shadow-floating lg:rounded-3xl">
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/10 to-transparent" />
+                <img
+                  src="/brand_assets/Group_front.webp"
+                  alt="InnoVAherb Mushroom Extract Spray Collection"
+                  className="w-full object-cover"
+                />
+              </div>
             </div>
           </Container>
         </section>
 
-        <section className="py-20">
-          <Container className="grid gap-6 lg:grid-cols-5">
-            <div className="lg:col-span-2">
-              <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-600">Why the spray format matters</p>
-              <h2 className="mt-4 font-display text-4xl text-grey-900">A simpler mushroom wellness routine for real life.</h2>
-            </div>
-            <div className="space-y-5 text-base leading-8 text-grey-600 lg:col-span-3">
-              {homeBodyCopy.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-          </Container>
-        </section>
-
-        <section id="products" className="py-20">
+        <section id="products" className="py-6 sm:py-8">
           <Container>
-            <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-600">Shop by goal</p>
-                <h2 className="mt-3 font-display text-4xl text-grey-900">Natural mushroom sprays with one clear role each.</h2>
-              </div>
-              <p className="max-w-xl text-sm leading-7 text-grey-600">
-                Each bottle is priced equally, which keeps the collection easy to compare. Choose one based on the result you want, or start with the 5-mushroom blend if you want the broadest daily routine.
+            <div className="mb-4 text-center sm:mb-5">
+              <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
+                Shop by Goal
+              </h2>
+              <p className="mx-auto mt-2 max-w-xl text-base text-grey-500">
+                Every mushroom has a role. Pick the result you want, or start with the Mix if you want the easiest first order.
               </p>
             </div>
-            <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 lg:gap-5">
               {products.map((product) => (
                 <ProductCard key={product.slug} product={product} locale="en" />
               ))}
             </div>
+          </Container>
+        </section>
+
+        <section className="bg-white py-6 sm:py-8">
+          <Container>
+            <div className="mb-4 text-center sm:mb-5">
+              <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
+                Why Customers Choose the Spray Format
+              </h2>
+              <p className="mx-auto mt-2 max-w-xl text-base text-grey-500">
+                The best supplement is the one you actually keep using. That is why the InnoVAherb range is built around speed, simplicity, and consistency.
+              </p>
+            </div>
+            <div className="grid gap-4 md:grid-cols-3 lg:gap-5">
+              {homeConversionPoints.map((point) => (
+                <div key={point.title} className="rounded-xl border border-warm-200/70 bg-warm-50 p-5 shadow-elevated sm:rounded-2xl sm:p-6">
+                  <h3 className="font-display text-xl font-bold text-grey-900">{point.title}</h3>
+                  <p className="mt-3 text-sm leading-body text-grey-600">{point.text}</p>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        <section className="border-y border-warm-200/50 bg-warm-50 py-6 sm:py-8">
+          <Container>
+            <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-8 lg:gap-14">
+              {homeTrustPoints.map((point) => (
+                <div key={point} className="flex items-center gap-2 text-grey-600">
+                  <span className="h-2.5 w-2.5 rounded-full bg-brand-600" />
+                  <span className="whitespace-nowrap text-xs font-medium sm:text-sm">{point}</span>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        <section className="bg-white py-6 sm:py-8">
+          <Container>
+            <div className="mb-4 text-center sm:mb-5">
+              <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
+                How It Works
+              </h2>
+              <p className="mx-auto mt-2 max-w-xl text-base text-grey-500">
+                Three simple steps to build a mushroom routine that actually fits modern life.
+              </p>
+            </div>
+
+            <div className="mx-auto grid max-w-3xl grid-cols-3 gap-4 sm:gap-8 lg:gap-12">
+              {homeHowItWorks.map((item, index) => (
+                <div key={item.title} className="text-center">
+                  <div className={`mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full border-2 sm:mb-4 sm:h-16 sm:w-16 ${index === 1 ? "border-earth-200 bg-earth-50" : "border-brand-200 bg-brand-50"}`}>
+                    <span className={`font-display text-xl font-bold sm:text-2xl ${index === 1 ? "text-earth-600" : "text-brand-600"}`}>
+                      {item.step}
+                    </span>
+                  </div>
+                  <h3 className="font-display text-base font-bold text-grey-900 sm:text-lg">{item.title}</h3>
+                  <p className="mt-1 text-xs leading-relaxed text-grey-500 sm:text-sm">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        <section className="grain relative overflow-hidden py-8 sm:py-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-grey-900 via-brand-800/90 to-grey-900" />
+          <div className="absolute inset-0 bg-gradient-to-t from-grey-900/80 via-transparent to-grey-900/40" />
+          <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-brand-600/15 blur-3xl" />
+          <div className="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-earth-500/15 blur-3xl" />
+
+          <Container className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-10">
+            <div>
+              <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-brand-400 sm:text-sm">
+                Our Origin
+              </span>
+              <h2 className="font-display text-2xl font-bold tracking-heading text-white sm:text-3xl lg:text-4xl">
+                From Bulgarian Forests to Your Daily Ritual
+              </h2>
+              <p className="mt-4 text-sm leading-body text-warm-200 sm:text-base">
+                InnoVAherb was created to turn the quiet strength of medicinal mushrooms into a modern daily habit. We use Bulgarian-sourced ingredients and a premium spray format so customers get a cleaner, more practical route to focus, energy, balance, vitality, and full-spectrum wellness.
+              </p>
+              <p className="mt-4 text-sm leading-body text-warm-200 sm:text-base">
+                The goal is not complexity. It is repeatability. Every bottle is built to be easy to understand, easy to use, and easy to keep buying because the routine genuinely fits real life.
+              </p>
+              <Link href="/about" className="btn-press mt-6 inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-900/30 transition-colors duration-200 hover:bg-brand-500">
+                Learn Our Story
+              </Link>
+            </div>
+            <div className="hidden items-center justify-center gap-3 lg:flex">
+              <div className="h-44 w-32 rotate-[-3deg] overflow-hidden rounded-2xl border border-white/10 shadow-floating">
+                <img src="/brand_assets/Cordycepts_front.webp" alt="Cordyceps" className="h-full w-full object-cover" />
+              </div>
+              <div className="-mt-6 h-48 w-36 overflow-hidden rounded-2xl border border-white/10 shadow-floating">
+                <img src="/brand_assets/Shiitake_front.webp" alt="Shiitake" className="h-full w-full object-cover" />
+              </div>
+              <div className="h-44 w-32 rotate-[3deg] overflow-hidden rounded-2xl border border-white/10 shadow-floating">
+                <img src="/brand_assets/Chaga_front.webp" alt="Chaga" className="h-full w-full object-cover" />
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        <section className="bg-warm-50 py-6 sm:py-8">
+          <Container>
+            <div className="mb-4 text-center sm:mb-5">
+              <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
+                What Our Customers Say
+              </h2>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-3 lg:gap-5">
+              {homeReviews.map((review, index) => (
+                <div key={review.name} className="rounded-xl bg-white p-5 shadow-elevated sm:rounded-2xl sm:p-6">
+                  <div className="stars mb-2 text-base">★★★★★</div>
+                  <p className="mb-4 text-sm italic leading-body text-grey-700">{review.text}</p>
+                  <div className="flex items-center gap-3">
+                    <div className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold ${index === 1 ? "bg-earth-100 text-earth-700" : "bg-brand-100 text-brand-700"}`}>
+                      {review.initials}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-grey-900">{review.name}</p>
+                      <p className="text-xs text-grey-400">Verified Purchase</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        <section className="grain relative overflow-hidden py-6 sm:py-8">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-600 via-brand-700 to-brand-800" />
+          <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-brand-400/20 blur-3xl" />
+
+          <Container className="relative max-w-2xl text-center">
+            <h2 className="font-display text-2xl font-bold tracking-heading text-white sm:text-3xl">
+              Join the InnoVAherb Community
+            </h2>
+            <p className="mb-6 mt-3 text-sm text-brand-100 sm:text-base">
+              Wellness tips, product drops, and offers for customers who want to build a better routine around natural mushroom support.
+            </p>
+            <form className="mx-auto flex max-w-lg flex-col gap-3 sm:flex-row">
+              <input
+                type="email"
+                required
+                placeholder="Enter your email"
+                className="flex-1 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/40"
+              />
+              <button type="submit" className="btn-press rounded-xl bg-white px-5 py-3 text-sm font-bold text-brand-700 transition-colors duration-200 hover:bg-warm-50">
+                Get 10% Off
+              </button>
+            </form>
           </Container>
         </section>
       </main>
