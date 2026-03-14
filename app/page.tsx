@@ -5,6 +5,7 @@ import { products } from "@/lib/products";
 import {
   homeConversionPoints,
   homeHowItWorks,
+  homeOfferCards,
   homeReviews,
   homeTrustPoints,
 } from "@/lib/storefront-content";
@@ -98,6 +99,19 @@ export default function HomePage() {
                   <p className="mt-2 text-sm text-grey-600">Start with the 5-Mushroom Mix if you are unsure.</p>
                 </div>
               </div>
+
+              <div className="mt-5 rounded-2xl border border-brand-100/80 bg-white/75 p-4 shadow-elevated backdrop-blur-sm">
+                <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">Highest converting first order</p>
+                <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="font-display text-xl font-bold text-grey-900">Start with the 5-Mushroom Mix</p>
+                    <p className="mt-1 text-sm text-grey-600">The easiest entry point for shoppers who want one bottle to cover more than one goal.</p>
+                  </div>
+                  <Link href="/products/mix" className="btn-press inline-flex items-center justify-center rounded-xl bg-brand-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-800">
+                    Shop the best seller
+                  </Link>
+                </div>
+              </div>
             </div>
 
             <div className="animate-fade-in-up delay-300">
@@ -127,6 +141,40 @@ export default function HomePage() {
             <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 lg:gap-5">
               {products.map((product) => (
                 <ProductCard key={product.slug} product={product} locale="en" />
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        <section className="bg-white py-6 sm:py-8">
+          <Container>
+            <div className="mb-4 text-center sm:mb-5">
+              <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
+                Choose the Best First Order
+              </h2>
+              <p className="mx-auto mt-2 max-w-2xl text-base text-grey-500">
+                The design stays simple, but the offer structure should remove hesitation. These are the three buying paths that convert fastest.
+              </p>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-3 lg:gap-5">
+              {homeOfferCards.map((card, index) => (
+                <div
+                  key={card.title}
+                  className={`rounded-xl border p-5 shadow-elevated sm:rounded-2xl sm:p-6 ${index === 0 ? "border-brand-200 bg-brand-50/70" : "border-warm-200/70 bg-warm-50"}`}
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">{card.eyebrow}</p>
+                    <span className={`rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest ${index === 0 ? "bg-brand-700 text-white" : "bg-white text-grey-600"}`}>
+                      {card.badge}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 font-display text-2xl font-bold text-grey-900">{card.title}</h3>
+                  <p className="mt-3 text-sm leading-body text-grey-600">{card.text}</p>
+                  <Link href={card.href} className={`btn-press mt-5 inline-flex rounded-xl px-5 py-3 text-sm font-semibold transition-colors ${index === 0 ? "bg-brand-700 text-white hover:bg-brand-800" : "border border-warm-200 bg-white text-grey-800 hover:bg-warm-50"}`}>
+                    {card.cta}
+                  </Link>
+                </div>
               ))}
             </div>
           </Container>
