@@ -1,15 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, ShoppingBag, X } from "lucide-react";
 import { useState } from "react";
 import { Locale } from "@/lib/types";
 import { LocaleToggle } from "@/components/storefront/LocaleToggle";
 import { CartIndicator } from "@/components/storefront/cart-indicator";
+import { useCart } from "@/components/storefront/CartProvider";
 import { Container } from "@/components/ui/Container";
 
 export function SiteHeader({ locale }: { locale: Locale }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { itemCount } = useCart();
 
   return (
     <>
@@ -19,9 +22,13 @@ export function SiteHeader({ locale }: { locale: Locale }) {
       <header className="sticky top-0 z-50 border-b border-warm-200/60 bg-warm-50/95 backdrop-blur-md">
         <Container className="flex h-14 items-center justify-between lg:h-16">
           <Link href="/" className="group flex-shrink-0">
-            <img
+            <Image
               src="/brand_assets/Innoherb_logo_FIN-01-cropped-no-background.png"
               alt="InnoVAherb logo"
+              width={1090}
+              height={190}
+              sizes="184px"
+              priority
               className="h-7 w-auto transition-transform duration-300 group-hover:scale-105 sm:h-8 lg:h-9"
             />
           </Link>
@@ -46,10 +53,10 @@ export function SiteHeader({ locale }: { locale: Locale }) {
             <Link
               href="/cart"
               className="relative rounded-full p-2 text-grey-700 transition-colors hover:bg-warm-100"
-              aria-label="Cart"
+              aria-label={`Cart (${itemCount} item${itemCount === 1 ? "" : "s"})`}
             >
               <ShoppingBag className="h-5 w-5" />
-              <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-brand-600 px-1 text-[0.625rem] font-bold text-white">
+              <span aria-hidden="true" className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-brand-600 px-1 text-[0.625rem] font-bold text-white">
                 <CartIndicator />
               </span>
             </Link>

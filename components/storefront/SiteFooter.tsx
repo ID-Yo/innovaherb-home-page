@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { products } from "@/lib/products";
 
@@ -8,9 +9,12 @@ export function SiteFooter() {
       <Container>
         <div className="grid gap-12 border-b border-grey-700/50 pb-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div>
-            <img
+            <Image
               src="/brand_assets/Innoherb_logo_FIN-01-cropped-no-background.png"
               alt="InnoVAherb logo"
+              width={1090}
+              height={190}
+              sizes="184px"
               className="mb-4 h-8 w-auto brightness-0 invert opacity-80"
             />
             <p className="mb-6 max-w-xs text-sm leading-relaxed text-warm-300">
@@ -23,7 +27,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h4 className="font-display text-lg font-semibold tracking-heading text-white">Shop</h4>
+            <p className="font-display text-lg font-semibold tracking-heading text-white">Shop</p>
             <ul className="mt-4 space-y-2.5 text-sm">
               {products.map((product) => (
                 <li key={product.slug}>
@@ -36,7 +40,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h4 className="font-display text-lg font-semibold tracking-heading text-white">Company</h4>
+            <p className="font-display text-lg font-semibold tracking-heading text-white">Company</p>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li><Link href="/about" className="text-warm-300 transition-colors hover:text-white">About Us</Link></li>
               <li><Link href="/blog" className="text-warm-300 transition-colors hover:text-white">Blog</Link></li>
@@ -45,7 +49,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h4 className="font-display text-lg font-semibold tracking-heading text-white">Support</h4>
+            <p className="font-display text-lg font-semibold tracking-heading text-white">Support</p>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li><Link href="/shipping-returns" className="text-warm-300 transition-colors hover:text-white">Shipping and Returns</Link></li>
               <li><Link href="/privacy-policy" className="text-warm-300 transition-colors hover:text-white">Privacy Policy</Link></li>

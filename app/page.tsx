@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Script from "next/script";
+import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import { products } from "@/lib/products";
 import {
@@ -133,9 +134,13 @@ export default function HomePage() {
             <div className="animate-fade-in-up delay-300">
               <div className="relative overflow-hidden rounded-2xl shadow-floating lg:rounded-3xl">
                 <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/10 to-transparent" />
-                <img
+                <Image
                   src="/brand_assets/Group_front.webp"
                   alt="InnoVAherb Mushroom Extract Spray Collection"
+                  width={1437}
+                  height={660}
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  priority
                   className="w-full object-cover"
                 />
               </div>
@@ -283,13 +288,13 @@ export default function HomePage() {
             </div>
             <div className="hidden items-center justify-center gap-3 lg:flex">
               <div className="h-44 w-32 rotate-[-3deg] overflow-hidden rounded-2xl border border-white/10 shadow-floating">
-                <img src="/brand_assets/Cordycepts_front.webp" alt="Cordyceps mushroom extract spray bottle by InnoVAherb" className="h-full w-full object-cover" />
+                <Image src="/brand_assets/Cordycepts_front.webp" alt="Cordyceps mushroom extract spray bottle by InnoVAherb" width={1000} height={1000} sizes="128px" className="h-full w-full object-cover" />
               </div>
               <div className="-mt-6 h-48 w-36 overflow-hidden rounded-2xl border border-white/10 shadow-floating">
-                <img src="/brand_assets/Shiitake_front.webp" alt="Shiitake mushroom extract spray bottle by InnoVAherb" className="h-full w-full object-cover" />
+                <Image src="/brand_assets/Shiitake_front.webp" alt="Shiitake mushroom extract spray bottle by InnoVAherb" width={1000} height={1000} sizes="144px" className="h-full w-full object-cover" />
               </div>
               <div className="h-44 w-32 rotate-[3deg] overflow-hidden rounded-2xl border border-white/10 shadow-floating">
-                <img src="/brand_assets/Chaga_front.webp" alt="Chaga mushroom extract spray bottle by InnoVAherb" className="h-full w-full object-cover" />
+                <Image src="/brand_assets/Chaga_front.webp" alt="Chaga mushroom extract spray bottle by InnoVAherb" width={1000} height={1000} sizes="128px" className="h-full w-full object-cover" />
               </div>
             </div>
           </Container>
@@ -314,7 +319,7 @@ export default function HomePage() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-grey-900">{review.name}</p>
-                      <p className="text-xs text-grey-400">Verified Purchase</p>
+                      <p className="text-xs text-grey-500">Verified Purchase</p>
                     </div>
                   </div>
                 </div>
