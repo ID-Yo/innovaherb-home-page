@@ -17,10 +17,22 @@ export async function middleware(request: NextRequest) {
   }
 
   const response = NextResponse.next();
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseAnonKey) {
+    if (request.nextUrl.pathname.startsWith("/admin") && !request.nextUrl.pathname.startsWith("/admin/login")) {
+      const url = new URL("/admin/login", request.url);
+      url.searchParams.set("redirectedFrom", request.nextUrl.pathname);
+      return NextResponse.redirect(url);
+    }
+
+    return response;
+  }
 
   const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL || "",
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "",
+    supabaseUrl,
+    supabaseAnonKey,
     {
       cookies: {
         getAll() {
