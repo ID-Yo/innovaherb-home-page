@@ -72,12 +72,12 @@ export default function HomePage() {
       <main>
         <section className="grain relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-brand-50 via-warm-50 to-warm-100" />
-          <div className="absolute right-0 top-0 h-[600px] w-[600px] translate-x-1/4 -translate-y-1/3 rounded-full bg-brand-100/30 blur-3xl" />
-          <div className="absolute bottom-0 left-0 h-[400px] w-[400px] -translate-x-1/4 translate-y-1/4 rounded-full bg-earth-100/20 blur-3xl" />
+          <div className="absolute right-0 top-0 hidden h-[600px] w-[600px] translate-x-1/4 -translate-y-1/3 rounded-full bg-brand-100/30 blur-3xl sm:block" />
+          <div className="absolute bottom-0 left-0 hidden h-[400px] w-[400px] -translate-x-1/4 translate-y-1/4 rounded-full bg-earth-100/20 blur-3xl sm:block" />
 
           <Container className="-mt-24 grid gap-6 pb-4 pt-3 sm:-mt-20 sm:pb-5 sm:pt-4 lg:-mt-16 lg:grid-cols-2 lg:items-center lg:gap-10 lg:pb-6 lg:pt-5">
             <div>
-              <div className="animate-fade-in-up mb-4 inline-flex items-center gap-2 rounded-full border border-warm-200/60 bg-white/70 px-3.5 py-1 shadow-elevated backdrop-blur-sm">
+              <div className="animate-fade-in-up mb-4 inline-flex items-center gap-2 rounded-full border border-warm-200/60 bg-white/70 px-3.5 py-1 shadow-elevated sm:backdrop-blur-sm">
                 <span className="stars text-sm">★★★★★</span>
                 <span className="text-sm font-medium text-grey-600">Trusted by 2,000+ customers across Europe</span>
               </div>
@@ -114,7 +114,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="mt-5 rounded-2xl border border-brand-100/80 bg-white/75 p-4 shadow-elevated backdrop-blur-sm">
+              <div className="mt-5 rounded-2xl border border-brand-100/80 bg-white/75 p-4 shadow-elevated sm:backdrop-blur-sm">
                 <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">Recommended first purchase</p>
                 <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
@@ -140,6 +140,7 @@ export default function HomePage() {
                   width={1437}
                   height={660}
                   sizes="(min-width: 1024px) 50vw, 100vw"
+                  quality={72}
                   priority
                   className="w-full object-cover"
                 />
@@ -265,8 +266,8 @@ export default function HomePage() {
         <section className="grain relative overflow-hidden py-6 sm:py-8">
           <div className="absolute inset-0 bg-gradient-to-br from-grey-900 via-brand-800/90 to-grey-900" />
           <div className="absolute inset-0 bg-gradient-to-t from-grey-900/80 via-transparent to-grey-900/40" />
-          <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-brand-600/15 blur-3xl" />
-          <div className="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-earth-500/15 blur-3xl" />
+          <div className="absolute right-0 top-0 hidden h-[500px] w-[500px] rounded-full bg-brand-600/15 blur-3xl sm:block" />
+          <div className="absolute bottom-0 left-0 hidden h-96 w-96 rounded-full bg-earth-500/15 blur-3xl sm:block" />
 
           <Container className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-10">
             <div>
@@ -288,13 +289,13 @@ export default function HomePage() {
             </div>
             <div className="hidden items-center justify-center gap-3 lg:flex">
               <div className="h-44 w-32 rotate-[-3deg] overflow-hidden rounded-2xl border border-white/10 shadow-floating">
-                <Image src="/brand_assets/Cordycepts_front.webp" alt="Cordyceps mushroom extract spray bottle by InnoVAherb" width={1000} height={1000} sizes="128px" className="h-full w-full object-cover" />
+                <Image src="/brand_assets/Cordycepts_front.webp" alt="Cordyceps mushroom extract spray bottle by InnoVAherb" width={1000} height={1000} sizes="128px" quality={72} className="h-full w-full object-cover" />
               </div>
               <div className="-mt-6 h-48 w-36 overflow-hidden rounded-2xl border border-white/10 shadow-floating">
-                <Image src="/brand_assets/Shiitake_front.webp" alt="Shiitake mushroom extract spray bottle by InnoVAherb" width={1000} height={1000} sizes="144px" className="h-full w-full object-cover" />
+                <Image src="/brand_assets/Shiitake_front.webp" alt="Shiitake mushroom extract spray bottle by InnoVAherb" width={1000} height={1000} sizes="144px" quality={72} className="h-full w-full object-cover" />
               </div>
               <div className="h-44 w-32 rotate-[3deg] overflow-hidden rounded-2xl border border-white/10 shadow-floating">
-                <Image src="/brand_assets/Chaga_front.webp" alt="Chaga mushroom extract spray bottle by InnoVAherb" width={1000} height={1000} sizes="128px" className="h-full w-full object-cover" />
+                <Image src="/brand_assets/Chaga_front.webp" alt="Chaga mushroom extract spray bottle by InnoVAherb" width={1000} height={1000} sizes="128px" quality={72} className="h-full w-full object-cover" />
               </div>
             </div>
           </Container>
@@ -330,7 +331,7 @@ export default function HomePage() {
 
         <section className="grain relative overflow-hidden py-5 sm:py-6">
           <div className="absolute inset-0 bg-gradient-to-br from-brand-600 via-brand-700 to-brand-800" />
-          <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-brand-400/20 blur-3xl" />
+          <div className="absolute right-0 top-0 hidden h-96 w-96 rounded-full bg-brand-400/20 blur-3xl sm:block" />
 
           <Container className="relative max-w-2xl text-center">
             <h2 className="font-display text-2xl font-bold tracking-heading text-white sm:text-3xl">

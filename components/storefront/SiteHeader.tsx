@@ -19,7 +19,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
       <div className="bg-brand-700 px-4 py-1.5 text-center text-xs tracking-wide text-white">
         Get 10% off your first order when you start with two bottles or more.
       </div>
-      <header className="sticky top-0 z-50 border-b border-warm-200/60 bg-warm-50/95 backdrop-blur-md">
+      <header className="sticky top-0 z-50 border-b border-warm-200/60 bg-warm-50/95 sm:backdrop-blur-md">
         <Container className="flex h-14 items-center justify-between lg:h-16">
           <Link href="/" className="group flex-shrink-0">
             <Image
@@ -28,6 +28,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
               width={1090}
               height={190}
               sizes="184px"
+              quality={65}
               priority
               className="h-7 w-auto transition-transform duration-300 group-hover:scale-105 sm:h-8 lg:h-9"
             />

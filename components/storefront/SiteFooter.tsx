@@ -15,6 +15,7 @@ export function SiteFooter() {
               width={1090}
               height={190}
               sizes="184px"
+              quality={65}
               className="mb-4 h-8 w-auto brightness-0 invert opacity-80"
             />
             <p className="mb-6 max-w-xs text-sm leading-relaxed text-warm-300">

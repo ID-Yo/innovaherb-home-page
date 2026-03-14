@@ -114,3 +114,23 @@ details[open] .faq-chevron {
 .faq-chevron {
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+@media (max-width: 767px) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .grain::before {
+    opacity: 0.35;
+  }
+
+  .animate-fade-in-up {
+    animation: none;
+    opacity: 1;
+  }
+
+  .product-card:hover {
+    transform: none;
+    box-shadow: inherit;
+  }
+}

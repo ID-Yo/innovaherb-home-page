@@ -18,6 +18,7 @@ export function ProductCard({ product, locale }: { product: Product; locale: Loc
             width={1000}
             height={1000}
             sizes="(min-width: 1024px) 144px, (min-width: 640px) 160px, 160px"
+            quality={72}
             className="relative max-h-full w-auto transition-transform duration-500 ease-spring group-hover:scale-105"
           />
         </div>
