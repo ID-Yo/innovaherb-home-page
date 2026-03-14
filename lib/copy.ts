@@ -1,0 +1,7 @@
+export const homeBodyCopy = [
+  "InnoVAherb develops premium mushroom extract sprays in Bulgaria for people who want a simpler daily wellness ritual. Instead of capsules, tablets, or complicated stacks, the range uses fast oral sprays designed to fit active routines.",
+  "Each formula is focused on a practical need: Lion's Mane for focus, Cordyceps for energy, Reishi for balance, Shiitake for vitality, Chaga for antioxidant support, and a 5-mushroom blend for broad daily support. The range is built for modern shoppers who want clean ingredient lists, clear positioning, and convenient dosing.",
+  "The spray format matters because it removes friction from repeat use. Customers can keep a bottle at home, at work, or in a gym bag and use it in seconds. That convenience supports consistency, and consistency is what turns a supplement purchase into a daily habit.",
+  "The site is structured as a storefront as well as a brand page. It explains how oral spray delivery works, highlights the product lineup, and gives visitors a direct path to explore ingredients, usage, and ordering. Product discovery starts with the goal the customer wants to solve, not with technical language alone.",
+  "For first-time buyers, the product collection is intentionally simple. Each spray shares the same price point and the same brand promise: natural Bulgarian mushroom extracts presented in a premium, easy-to-use format. That clarity makes comparison and checkout faster.",
+];

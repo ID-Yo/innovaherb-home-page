@@ -4,3 +4,7 @@ temporary screenshots/
 .DS_Store
 
 .vercel
+.next
+playwright-report
+test-results
+.env.local
