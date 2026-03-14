@@ -48,7 +48,7 @@ export function ProductPurchasePanel({
     product.stock <= 12
       ? `Low stock: only ${product.stock} left in this batch.`
       : product.stock <= 24
-        ? `Popular choice: ${product.stock} units currently available.`
+        ? `${product.stock} units available from the current batch.`
         : "Ships from Bulgaria in 1 business day.";
 
   const buyNow = () => {
@@ -136,19 +136,19 @@ export function ProductPurchasePanel({
             </button>
           </div>
           <p className="mt-3 text-xs leading-6 text-grey-500">
-            Bulgaria-only delivery in v1. Free shipping on orders above EUR 50.
+            Currently shipping within Bulgaria. Free shipping on orders above EUR 50.
           </p>
         </div>
 
         <div className="mt-4 rounded-2xl border border-brand-200/70 bg-brand-50/70 p-5 shadow-elevated">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">Higher converting bundle</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">Recommended pair</p>
               <h3 className="mt-2 font-display text-2xl font-bold text-grey-900">{sales.bundleTitle}</h3>
               <p className="mt-3 text-sm leading-body text-grey-600">{sales.bundleText}</p>
             </div>
             <span className="rounded-full bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-grey-600">
-              Free shipping path
+              Popular pair
             </span>
           </div>
           <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-grey-600">

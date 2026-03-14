@@ -75,7 +75,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <div className="absolute inset-0 bg-gradient-to-br from-brand-50/50 via-warm-50 to-warm-100" />
           <div className="absolute right-0 top-0 h-[500px] w-[500px] translate-x-1/4 -translate-y-1/4 rounded-full bg-brand-100/20 blur-3xl" />
 
-          <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+          <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
             <nav className="animate-fade-in-up mb-5 flex items-center gap-2 text-sm text-grey-400">
               <Link href="/" className="transition-colors hover:text-brand-600">Home</Link>
               <span>{">"}</span>
@@ -97,7 +97,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </div>
         </section>
 
-        <section className="border-y border-warm-200/50 bg-warm-50 py-5 sm:py-6">
+        <section className="border-y border-warm-200/50 bg-warm-50 py-4 sm:py-5">
           <div className="mx-auto grid max-w-7xl gap-3 px-4 sm:grid-cols-4 sm:px-6 lg:px-8">
             {sales.quickBenefits.map((benefit) => (
               <div key={benefit} className="rounded-xl bg-white px-4 py-3 text-sm font-medium text-grey-700 shadow-elevated">
@@ -110,7 +110,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </div>
         </section>
 
-        <section className="bg-white py-5 sm:py-7">
+        <section className="bg-white py-4 sm:py-6">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
               <div>
@@ -165,7 +165,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
                 <details className="overflow-hidden rounded-xl border border-warm-100/80 bg-warm-50">
                   <summary className="flex cursor-pointer list-none items-center justify-between p-5 text-left">
-                    <span className="font-semibold text-grey-900">Why the spray format sells</span>
+                    <span className="font-semibold text-grey-900">Why customers prefer the spray format</span>
                     <span className="faq-chevron text-grey-400">⌄</span>
                   </summary>
                   <div className="faq-answer">
@@ -181,7 +181,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </div>
         </section>
 
-        <section className="bg-warm-50 py-5 sm:py-7">
+        <section className="bg-warm-50 py-4 sm:py-6">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="mb-4 text-center font-display text-xl font-bold tracking-heading text-grey-900 sm:text-2xl">
               Customer Reviews
@@ -213,7 +213,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </div>
         </section>
 
-        <section className="bg-white py-5 sm:py-7">
+        <section className="bg-white py-4 sm:py-6">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
             <h2 className="mb-4 text-center font-display text-xl font-bold tracking-heading text-grey-900 sm:text-2xl">
               Frequently Asked Questions
@@ -237,7 +237,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </div>
         </section>
 
-        <section className="bg-warm-50 py-5 sm:py-7">
+        <section className="bg-warm-50 py-4 sm:py-6">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-center font-display text-xl font-bold tracking-heading text-grey-900 sm:text-2xl">
               Complete Your Wellness Routine
