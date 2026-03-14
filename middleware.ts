@@ -2,6 +2,20 @@ import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 
 export async function middleware(request: NextRequest) {
+  if (request.nextUrl.pathname === "/index.html") {
+    return NextResponse.redirect(new URL("/", request.url), 308);
+  }
+
+  if (
+    request.nextUrl.pathname.startsWith("/_next") ||
+    request.nextUrl.pathname.startsWith("/api") ||
+    request.nextUrl.pathname.startsWith("/brand_assets") ||
+    request.nextUrl.pathname.startsWith("/icons") ||
+    request.nextUrl.pathname === "/favicon.ico"
+  ) {
+    return NextResponse.next();
+  }
+
   const response = NextResponse.next();
 
   const supabase = createServerClient(
@@ -37,5 +51,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: ["/:path*"],
 };
