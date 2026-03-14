@@ -9,18 +9,18 @@
     if (!header) return;
     header.innerHTML = `
     <!-- Promo Strip -->
-    <div id="promo-strip" class="bg-brand-700 text-white text-center py-2 px-4 text-sm font-body tracking-wide">
+    <div id="promo-strip" class="bg-brand-700 text-white text-center py-1.5 px-4 text-xs font-body tracking-wide">
       <span data-i18n="promo.text">Get 10% off your first order — Subscribe to our newsletter</span>
     </div>
     <!-- Main Header -->
     <header id="main-header" class="bg-warm-50/95 backdrop-blur-md border-b border-warm-200/60 sticky top-0 z-50 transition-[box-shadow,padding] duration-300 ease-out">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-18 lg:h-20">
+        <div class="flex items-center justify-between h-14 lg:h-16">
           <!-- Logo -->
           <a href="${basePath}/index.html" class="flex-shrink-0 group">
             <img src="${basePath}/brand_assets/Innoherb_logo_FIN-01-cropped-no-background.png"
                  alt="InnoVAherb"
-                 class="h-8 sm:h-9 lg:h-10 w-auto transition-transform duration-300 ease-spring group-hover:scale-105"
+                 class="h-7 sm:h-8 lg:h-9 w-auto transition-transform duration-300 ease-spring group-hover:scale-105"
             />
           </a>
 
