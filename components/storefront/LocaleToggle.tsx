@@ -8,7 +8,20 @@ export function LocaleToggle({ locale }: { locale: Locale }) {
   const pathname = usePathname();
 
   const setLocale = (value: Locale) => {
-    router.replace(value === "bg" ? `${pathname}?lang=bg` : pathname);
+    const params = typeof window !== "undefined"
+      ? new URLSearchParams(window.location.search)
+      : new URLSearchParams();
+
+    if (value === "bg") {
+      params.set("lang", "bg");
+    } else {
+      params.delete("lang");
+    }
+
+    const query = params.toString();
+    const hash = typeof window !== "undefined" ? window.location.hash : "";
+    const nextPath = query ? `${pathname}?${query}` : pathname;
+    router.replace(`${nextPath}${hash}`);
   };
 
   return (

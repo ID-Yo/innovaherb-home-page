@@ -27,6 +27,7 @@ import { SiteFooter } from "@/components/storefront/SiteFooter";
 import { ProductCard } from "@/components/storefront/ProductCard";
 import { Container } from "@/components/ui/Container";
 import { absoluteUrl } from "@/lib/site";
+import { getLocale, withLocale } from "@/lib/i18n";
 
 export const metadata = buildMetadata({
   title: "Bulgarian Mushroom Extract Sprays | InnoVAherb",
@@ -35,7 +36,54 @@ export const metadata = buildMetadata({
   path: "/",
 });
 
-export default function HomePage() {
+export default async function HomePage({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const locale = getLocale(await searchParams);
+  const t =
+    locale === "bg"
+      ? {
+          trusted: "Доверие от над 2,000 клиенти в Европа",
+          title: "Български гъбени екстракт спрейове за ежедневен фокус, енергия и виталност",
+          subtitle: "Открийте премиум български гъбени екстракт спрейове за фокус, енергия, баланс, имунитет и цялостна ежедневна подкрепа в по-бърз и удобен орален формат.",
+          shop: "Разгледай колекцията",
+          how: "Как работи",
+          firstPurchase: "Препоръчителна първа покупка",
+          firstPurchaseTitle: "Започнете с Микс 5 гъби",
+          firstPurchaseText: "Най-лесната отправна точка, ако искате една бутилка да покрива повече от една цел.",
+          firstPurchaseCta: "Към бестселъра",
+          imageText: "InnoVAherb гъбените екстракт спрейове са създадени за хора, които търсят по-лесна уелнес рутина, по-чисто ежедневно дозиране и формули, насочени към ясни цели като умствена яснота, естествена енергия, вечерен баланс и ежедневна устойчивост.",
+          shopByGoal: "Изберете по цел",
+          shopByGoalText: "Всяка гъба има своя роля. Изберете резултата, който търсите, или започнете с Микса, ако искате най-лесната първа поръчка.",
+          freeShipping: "Безплатна доставка",
+          freeShippingText: "За поръчки в България над 50 EUR.",
+          ritual: "Ежедневен ритуал",
+          ritualText: "Впръсквате за секунди, без капсули и без подготовка.",
+          bestSeller: "Най-продаван",
+          bestSellerText: "Започнете с Микс 5 гъби, ако не сте сигурни.",
+        }
+      : {
+          trusted: "Trusted by 2,000+ customers across Europe",
+          title: "Bulgarian Mushroom Extract Sprays for Daily Focus, Energy, and Vitality",
+          subtitle: "Discover premium Bulgarian mushroom extract sprays for focus, energy, balance, immunity, and full-spectrum daily support in a faster, easier oral format.",
+          shop: "Shop Our Collection",
+          how: "How It Works",
+          firstPurchase: "Recommended first purchase",
+          firstPurchaseTitle: "Start with the 5-Mushroom Mix",
+          firstPurchaseText: "The easiest entry point for shoppers who want one bottle to cover more than one goal.",
+          firstPurchaseCta: "Shop the best seller",
+          imageText: "InnoVAherb mushroom extract sprays are designed for shoppers who want a simpler wellness routine, cleaner daily dosing, and formulas matched to clear goals like mental clarity, natural energy, evening balance, and everyday resilience.",
+          shopByGoal: "Shop by Goal",
+          shopByGoalText: "Every mushroom has a role. Pick the result you want, or start with the Mix if you want the easiest first order.",
+          freeShipping: "Free shipping",
+          freeShippingText: "On Bulgaria orders over EUR 50.",
+          ritual: "Daily ritual",
+          ritualText: "Spray in seconds, no capsules or prep.",
+          bestSeller: "Best seller",
+          bestSellerText: "Start with the 5-Mushroom Mix if you are unsure.",
+        };
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -74,7 +122,7 @@ export default function HomePage() {
 
   return (
     <>
-      <SiteHeader locale="en" />
+      <SiteHeader locale={locale} />
       <Script
         id="home-structured-data"
         type="application/ld+json"
@@ -90,23 +138,23 @@ export default function HomePage() {
             <div>
               <div className="animate-fade-in-up mb-4 inline-flex items-center gap-2 rounded-full border border-warm-200/60 bg-white/70 px-3.5 py-1 shadow-elevated sm:backdrop-blur-sm">
                 <span className="stars text-sm">★★★★★</span>
-                <span className="text-sm font-medium text-grey-600">Trusted by 2,000+ customers across Europe</span>
+                <span className="text-sm font-medium text-grey-600">{t.trusted}</span>
               </div>
 
               <h1 className="animate-fade-in-up delay-100 mb-4 font-display text-3xl font-bold tracking-heading text-grey-900 sm:text-4xl lg:text-5xl xl:text-6xl">
-                Bulgarian Mushroom Extract Sprays for Daily Focus, Energy, and Vitality
+                {t.title}
               </h1>
 
               <p className="animate-fade-in-up delay-200 mb-6 max-w-xl text-base leading-body text-grey-600 sm:text-lg">
-                Discover premium Bulgarian mushroom extract sprays for focus, energy, balance, immunity, and full-spectrum daily support in a faster, easier oral format.
+                {t.subtitle}
               </p>
 
               <div className="animate-fade-in-up delay-300 flex flex-wrap gap-3">
-                <Link href="/#products" className="btn-press inline-flex items-center gap-2 rounded-xl bg-brand-600 px-7 py-3.5 text-sm font-semibold text-white shadow-hover transition-colors duration-200 hover:bg-brand-700">
-                  Shop Our Collection
+                <Link href={withLocale("/#products", locale)} className="btn-press inline-flex items-center gap-2 rounded-xl bg-brand-600 px-7 py-3.5 text-sm font-semibold text-white shadow-hover transition-colors duration-200 hover:bg-brand-700">
+                  {t.shop}
                 </Link>
-                <Link href="/#how" className="btn-press inline-flex items-center gap-2 rounded-xl border border-warm-200 bg-white/80 px-7 py-3.5 text-sm font-semibold text-grey-800 transition-colors duration-200 hover:bg-white">
-                  How It Works
+                <Link href={withLocale("/#how", locale)} className="btn-press inline-flex items-center gap-2 rounded-xl border border-warm-200 bg-white/80 px-7 py-3.5 text-sm font-semibold text-grey-800 transition-colors duration-200 hover:bg-white">
+                  {t.how}
                   <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                   </svg>
@@ -115,34 +163,32 @@ export default function HomePage() {
 
               <div className="mt-6 grid gap-3 sm:grid-cols-3">
                 <div className="rounded-xl border border-white/60 bg-white/70 p-4 shadow-elevated">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">Free shipping</p>
-                  <p className="mt-2 text-sm text-grey-600">On Bulgaria orders over EUR 50.</p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">{t.freeShipping}</p>
+                  <p className="mt-2 text-sm text-grey-600">{t.freeShippingText}</p>
                 </div>
                 <div className="rounded-xl border border-white/60 bg-white/70 p-4 shadow-elevated">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">Daily ritual</p>
-                  <p className="mt-2 text-sm text-grey-600">Spray in seconds, no capsules or prep.</p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">{t.ritual}</p>
+                  <p className="mt-2 text-sm text-grey-600">{t.ritualText}</p>
                 </div>
                 <div className="rounded-xl border border-white/60 bg-white/70 p-4 shadow-elevated">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">Best seller</p>
-                  <p className="mt-2 text-sm text-grey-600">Start with the 5-Mushroom Mix if you are unsure.</p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">{t.bestSeller}</p>
+                  <p className="mt-2 text-sm text-grey-600">{t.bestSellerText}</p>
                 </div>
               </div>
 
               <div className="mt-5 rounded-2xl border border-brand-100/80 bg-white/75 p-4 shadow-elevated sm:backdrop-blur-sm">
-                <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">Recommended first purchase</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">{t.firstPurchase}</p>
                 <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
-                    <p className="font-display text-xl font-bold text-grey-900">Start with the 5-Mushroom Mix</p>
-                    <p className="mt-1 text-sm text-grey-600">The easiest entry point for shoppers who want one bottle to cover more than one goal.</p>
+                    <p className="font-display text-xl font-bold text-grey-900">{t.firstPurchaseTitle}</p>
+                    <p className="mt-1 text-sm text-grey-600">{t.firstPurchaseText}</p>
                   </div>
-                  <Link href="/products/mix" className="btn-press inline-flex items-center justify-center rounded-xl bg-brand-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-800">
-                    Shop the best seller
+                  <Link href={withLocale("/products/mix", locale)} className="btn-press inline-flex items-center justify-center rounded-xl bg-brand-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-800">
+                    {t.firstPurchaseCta}
                   </Link>
                 </div>
               </div>
-              <p className="mt-4 max-w-2xl text-sm leading-body text-grey-600">
-                InnoVAherb mushroom extract sprays are designed for shoppers who want a simpler wellness routine, cleaner daily dosing, and formulas matched to clear goals like mental clarity, natural energy, evening balance, and everyday resilience.
-              </p>
+              <p className="mt-4 max-w-2xl text-sm leading-body text-grey-600 lg:hidden">{t.imageText}</p>
             </div>
 
             <div className="animate-fade-in-up delay-300">
@@ -159,6 +205,7 @@ export default function HomePage() {
                   className="w-full object-cover"
                 />
               </div>
+              <p className="mt-4 hidden text-sm leading-body text-grey-600 lg:block">{t.imageText}</p>
             </div>
           </Container>
         </section>
@@ -167,16 +214,16 @@ export default function HomePage() {
           <Container>
             <div className="mb-4 text-center sm:mb-5">
               <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
-                Shop by Goal
+                {t.shopByGoal}
               </h2>
               <p className="mx-auto mt-2 max-w-xl text-base text-grey-500">
-                Every mushroom has a role. Pick the result you want, or start with the Mix if you want the easiest first order.
+                {t.shopByGoalText}
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 lg:gap-5">
               {products.map((product) => (
-                <ProductCard key={product.slug} product={product} locale="en" />
+                <ProductCard key={product.slug} product={product} locale={locale} />
               ))}
             </div>
           </Container>

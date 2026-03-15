@@ -2,19 +2,58 @@ import Link from "next/link";
 import Script from "next/script";
 import { notFound } from "next/navigation";
 import { SiteFooter } from "@/components/storefront/SiteFooter";
+import { ProductPurchasePanel, RecommendedPairCard } from "@/components/storefront/ProductPurchasePanel";
 import { SiteHeader } from "@/components/storefront/SiteHeader";
-import { ProductPurchasePanel } from "@/components/storefront/ProductPurchasePanel";
 import { buildMetadata } from "@/lib/metadata";
+import { getLocale, withLocale } from "@/lib/i18n";
 import { getProductBySlug, products } from "@/lib/products";
 import { productSalesContent } from "@/lib/storefront-content";
 import { absoluteUrl } from "@/lib/site";
+
+const extraFaqs = {
+  en: [
+    {
+      question: "How much liquid is in one bottle?",
+      answer: "Each InnoVAherb spray contains 35 ml and is designed for a simple daily routine with around 30 servings.",
+    },
+    {
+      question: "Is the spray easy to carry?",
+      answer: "Yes. The 35 ml bottle fits easily into a bag, desk drawer, or gym kit, so your routine stays practical.",
+    },
+    {
+      question: "What is the best pairing for this spray?",
+      answer: "Many customers combine one focused daytime spray with a broader or evening-support formula to cover more than one daily goal.",
+    },
+  ],
+  bg: [
+    {
+      question: "Колко течност има в една бутилка?",
+      answer: "Всеки спрей InnoVAherb съдържа 35 мл и е създаден за лесна ежедневна рутина с около 30 приема.",
+    },
+    {
+      question: "Лесно ли се носи със себе си?",
+      answer: "Да. Бутилката от 35 мл се побира лесно в чанта, бюро или спортен сак, за да е удобна навсякъде.",
+    },
+    {
+      question: "С кой друг спрей се комбинира най-добре?",
+      answer: "Много клиенти комбинират една дневна формула с по-широка или вечерна подкрепа, за да покрият повече от една ежедневна цел.",
+    },
+  ],
+} as const;
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
   const { slug } = await params;
+  const locale = getLocale(await searchParams);
   const product = getProductBySlug(slug);
 
   if (!product) {
@@ -26,25 +65,73 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return buildMetadata({
-    title: product.localized.en.seoTitle,
-    description: product.localized.en.seoDescription,
+    title: product.localized[locale].seoTitle,
+    description: product.localized[locale].seoDescription,
     path: `/products/${slug}`,
   });
 }
 
-export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ProductPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
   const { slug } = await params;
+  const locale = getLocale(await searchParams);
   const product = getProductBySlug(slug);
 
   if (!product) {
     notFound();
   }
 
-  const copy = product.localized.en;
+  const copy = product.localized[locale];
   const sales = productSalesContent[product.slug];
+  const faqItems = [...sales.faq, ...extraFaqs[locale]].slice(0, 8);
   const pairedProducts = sales.pairsWith
     .map((pairedSlug) => getProductBySlug(pairedSlug))
     .filter((value): value is NonNullable<typeof value> => Boolean(value));
+  const featuredPairSlug = sales.pairsWith[0];
+
+  const t =
+    locale === "bg"
+      ? {
+          home: "Начало",
+          products: "Продукти",
+          whyBuy: `Защо клиентите избират ${copy.name}`,
+          keyBenefits: "Основни ползи",
+          howToUse: "Как се използва",
+          activeIngredients: "Активни съставки",
+          fullIngredients: "Пълен списък на съставките",
+          sprayFormat: "Защо клиентите предпочитат спрей формата",
+          sprayFormatText:
+            "Спрей форматът намалява усилието. По-лесно се носи, по-лесно се помни и по-лесно се използва всеки ден от шкаф, пълен с капсули.",
+          reviews: "Отзиви от клиенти",
+          reviewCount: "отзива",
+          faq: "Често задавани въпроси",
+          pairSection: "Допълнете ежедневната си рутина",
+          pairSectionText: "Съчетава се отлично с продукти, които покриват различна ежедневна цел.",
+          learnMore: "Виж продукта",
+        }
+      : {
+          home: "Home",
+          products: "Products",
+          whyBuy: `Why customers buy ${copy.name}`,
+          keyBenefits: "Key benefits",
+          howToUse: "How to use",
+          activeIngredients: "Active ingredients",
+          fullIngredients: "Full ingredient list",
+          sprayFormat: "Why customers prefer the spray format",
+          sprayFormatText:
+            "The spray format lowers friction. It is easier to carry, easier to remember, and easier to use consistently than a cabinet full of capsules.",
+          reviews: "Customer Reviews",
+          reviewCount: "reviews",
+          faq: "Frequently Asked Questions",
+          pairSection: "Complete Your Wellness Routine",
+          pairSectionText: "Pairs especially well with products that cover a different daily goal.",
+          learnMore: "Learn More",
+        };
 
   const productSchema = {
     "@context": "https://schema.org",
@@ -64,7 +151,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <SiteHeader locale="en" />
+      <SiteHeader locale={locale} />
       <Script
         id={`${product.slug}-schema`}
         type="application/ld+json"
@@ -77,9 +164,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
           <div className="mx-auto max-w-7xl -mt-24 px-4 py-5 sm:-mt-20 sm:px-6 sm:py-6 lg:-mt-16 lg:px-8 lg:py-8">
             <nav className="animate-fade-in-up mb-5 flex items-center gap-2 text-sm text-grey-400">
-              <Link href="/" className="transition-colors hover:text-brand-600">Home</Link>
+              <Link href={withLocale("/", locale)} className="transition-colors hover:text-brand-600">{t.home}</Link>
               <span>{">"}</span>
-              <Link href="/#products" className="transition-colors hover:text-brand-600">Products</Link>
+              <Link href={withLocale("/#products", locale)} className="transition-colors hover:text-brand-600">{t.products}</Link>
               <span>{">"}</span>
               <span className="font-medium text-grey-700">{copy.name}</span>
             </nav>
@@ -90,9 +177,17 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                   <div className="absolute inset-0 bg-gradient-to-br from-brand-50/30 to-transparent" />
                   <img src={product.image} alt={copy.name} className="relative mx-auto w-full max-w-xs" />
                 </div>
+                <RecommendedPairCard
+                  locale={locale}
+                  product={product}
+                  pairSlug={featuredPairSlug}
+                  title={sales.bundleTitle}
+                  text={sales.bundleText}
+                  className="mt-5 hidden lg:block"
+                />
               </div>
 
-              <ProductPurchasePanel product={product} copy={copy} />
+              <ProductPurchasePanel product={product} copy={copy} locale={locale} />
             </div>
           </div>
         </section>
@@ -114,13 +209,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
               <div>
-                <h2 className="font-display text-xl font-bold tracking-heading text-grey-900 sm:text-2xl">
-                  Why customers buy {copy.name}
-                </h2>
+                <h2 className="font-display text-xl font-bold tracking-heading text-grey-900 sm:text-2xl">{t.whyBuy}</h2>
                 <p className="mt-3 leading-body text-grey-600">{copy.heroDescription}</p>
                 <div className="mt-5 grid gap-4 sm:grid-cols-2">
                   <div className="rounded-2xl border border-warm-200/70 bg-warm-50 p-5">
-                    <h3 className="font-body text-sm font-semibold uppercase tracking-[0.2em] text-brand-600">Key benefits</h3>
+                    <h3 className="font-body text-sm font-semibold uppercase tracking-[0.2em] text-brand-600">{t.keyBenefits}</h3>
                     <ul className="mt-4 space-y-3 text-sm leading-body text-grey-600">
                       {copy.benefits.map((benefit) => (
                         <li key={benefit}>- {benefit}</li>
@@ -128,7 +221,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                     </ul>
                   </div>
                   <div className="rounded-2xl border border-warm-200/70 bg-warm-50 p-5">
-                    <h3 className="font-body text-sm font-semibold uppercase tracking-[0.2em] text-brand-600">How to use</h3>
+                    <h3 className="font-body text-sm font-semibold uppercase tracking-[0.2em] text-brand-600">{t.howToUse}</h3>
                     <ul className="mt-4 space-y-3 text-sm leading-body text-grey-600">
                       {copy.usage.map((step) => (
                         <li key={step}>- {step}</li>
@@ -141,7 +234,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <div className="space-y-3">
                 <details className="overflow-hidden rounded-xl border border-warm-100/80 bg-warm-50" open>
                   <summary className="flex cursor-pointer list-none items-center justify-between p-5 text-left">
-                    <span className="font-semibold text-grey-900">Active ingredients</span>
+                    <span className="font-semibold text-grey-900">{t.activeIngredients}</span>
                     <span className="faq-chevron text-grey-400">⌄</span>
                   </summary>
                   <div className="faq-answer">
@@ -153,7 +246,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
                 <details className="overflow-hidden rounded-xl border border-warm-100/80 bg-warm-50">
                   <summary className="flex cursor-pointer list-none items-center justify-between p-5 text-left">
-                    <span className="font-semibold text-grey-900">Full ingredient list</span>
+                    <span className="font-semibold text-grey-900">{t.fullIngredients}</span>
                     <span className="faq-chevron text-grey-400">⌄</span>
                   </summary>
                   <div className="faq-answer">
@@ -165,14 +258,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
                 <details className="overflow-hidden rounded-xl border border-warm-100/80 bg-warm-50">
                   <summary className="flex cursor-pointer list-none items-center justify-between p-5 text-left">
-                    <span className="font-semibold text-grey-900">Why customers prefer the spray format</span>
+                    <span className="font-semibold text-grey-900">{t.sprayFormat}</span>
                     <span className="faq-chevron text-grey-400">⌄</span>
                   </summary>
                   <div className="faq-answer">
                     <div>
-                      <p className="px-5 pb-5 text-sm leading-body text-grey-600">
-                        The spray format lowers friction. It is easier to carry, easier to remember, and easier to use consistently than a cabinet full of capsules.
-                      </p>
+                      <p className="px-5 pb-5 text-sm leading-body text-grey-600">{t.sprayFormatText}</p>
                     </div>
                   </div>
                 </details>
@@ -183,14 +274,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
         <section className="bg-warm-50 py-4 sm:py-6">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="mb-4 text-center font-display text-xl font-bold tracking-heading text-grey-900 sm:text-2xl">
-              Customer Reviews
-            </h2>
+            <h2 className="mb-4 text-center font-display text-xl font-bold tracking-heading text-grey-900 sm:text-2xl">{t.reviews}</h2>
 
             <div className="mb-4 flex items-center justify-center gap-3">
               <span className="stars text-xl">★★★★★</span>
               <span className="font-semibold text-grey-700">{sales.rating.toFixed(1)}</span>
-              <span className="text-sm text-grey-400">· {sales.reviewCount} reviews</span>
+              <span className="text-sm text-grey-400">· {sales.reviewCount} {t.reviewCount}</span>
             </div>
 
             <div className="mx-auto mb-8 max-w-xs">
@@ -234,13 +323,10 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </section>
 
         <section className="bg-white py-4 sm:py-6">
-          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            <h2 className="mb-4 text-center font-display text-xl font-bold tracking-heading text-grey-900 sm:text-2xl">
-              Frequently Asked Questions
-            </h2>
-
-            <div className="space-y-3">
-              {sales.faq.map((item, index) => (
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="mb-4 text-center font-display text-xl font-bold tracking-heading text-grey-900 sm:text-2xl">{t.faq}</h2>
+            <div className="grid gap-3 lg:grid-cols-2">
+              {faqItems.map((item, index) => (
                 <details key={item.question} className="overflow-hidden rounded-xl border border-warm-100/80 bg-warm-50" open={index === 0}>
                   <summary className="flex cursor-pointer list-none items-center justify-between p-5 text-left">
                     <span className="pr-4 font-semibold text-grey-900">{item.question}</span>
@@ -259,35 +345,31 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
         <section className="bg-warm-50 py-4 sm:py-6">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-center font-display text-xl font-bold tracking-heading text-grey-900 sm:text-2xl">
-              Complete Your Wellness Routine
-            </h2>
-            <p className="mb-6 mt-3 text-center text-grey-500">
-              Pairs especially well with products that cover a different daily goal.
-            </p>
+            <h2 className="text-center font-display text-xl font-bold tracking-heading text-grey-900 sm:text-2xl">{t.pairSection}</h2>
+            <p className="mb-6 mt-3 text-center text-grey-500">{t.pairSectionText}</p>
 
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
               {pairedProducts.map((paired) => (
                 <Link
                   key={paired.slug}
-                  href={`/products/${paired.slug}`}
+                  href={withLocale(`/products/${paired.slug}`, locale)}
                   className="product-card group block rounded-2xl bg-white p-5 shadow-product"
                 >
                   <div className="relative mb-3 overflow-hidden rounded-xl bg-warm-50 p-3">
-                    <img src={paired.image} alt={paired.localized.en.name} className="mx-auto h-auto w-28 transition-transform duration-500 ease-spring" />
+                    <img src={paired.image} alt={paired.localized[locale].name} className="mx-auto h-auto w-28 transition-transform duration-500 ease-spring" />
                   </div>
                   <span className={`text-xs font-bold uppercase tracking-widest ${paired.accentClass}`}>
-                    {paired.localized.en.tagline}
+                    {paired.localized[locale].tagline}
                   </span>
                   <h3 className="mt-1 font-display text-lg font-bold tracking-tight text-grey-900">
-                    {paired.localized.en.name}
+                    {paired.localized[locale].name}
                   </h3>
                   <div className="mt-3 flex items-center justify-between border-t border-warm-100 pt-3">
                     <span className="font-display text-lg font-bold text-grey-900">
                       EUR {(paired.priceCents / 100).toFixed(2)}
                     </span>
                     <span className="inline-flex items-center gap-1 text-sm font-semibold text-brand-600 transition-[gap] duration-200 group-hover:gap-2">
-                      Learn More
+                      {t.learnMore}
                       <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                       </svg>

@@ -138,6 +138,26 @@ export const homeFaqs = [
     answer:
       "Shake the bottle, spray 3 to 4 times under the tongue, hold briefly, and use consistently as part of your daily routine.",
   },
+  {
+    question: "How much extract is in each spray bottle?",
+    answer:
+      "Every InnoVAherb bottle contains 35 ml and is designed for around 30 daily servings when used as directed.",
+  },
+  {
+    question: "Can I combine two sprays in one routine?",
+    answer:
+      "Yes. Many customers combine one daytime formula with one evening or broader-support formula to match more than one goal without overcomplicating the routine.",
+  },
+  {
+    question: "How quickly do customers notice a difference?",
+    answer:
+      "Some customers notice the routine benefits within the first days, but the best results usually come after 2 to 4 weeks of consistent daily use.",
+  },
+  {
+    question: "Are the sprays easy to carry and use on the go?",
+    answer:
+      "Yes. The compact 35 ml format fits easily into a bag, desk drawer, or gym kit, making it easier to stay consistent every day.",
+  },
 ];
 
 type ProductSalesContent = {
@@ -170,7 +190,7 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
   "lions-mane": {
     rating: 4.9,
     reviewCount: 142,
-    volume: "30ml",
+    volume: "35 ml",
     shortPitch: "A premium Lion's Mane spray designed for focus, memory support, and sharper workday performance in a fast sublingual format.",
     trustBadges: ["Lab tested", "No capsules", "Fast oral spray", "30-day guarantee"],
     quickBenefits: [
@@ -181,7 +201,7 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
     usageTitle: "Best for high-focus mornings, study sessions, and mentally demanding days.",
     ingredientHighlights: ["Lion's Mane extract 10:1", "Purified water", "Vegetable glycerin", "Natural preservative"],
     fullIngredients: "Purified water, Lion's Mane extract 10:1, vegetable glycerin, natural preservative, citric acid.",
-    conversionNote: "Most first-time customers pair Lion's Mane with Cordyceps or Mix to unlock free shipping and cover both focus and all-day support.",
+    conversionNote: "Many customers pair Lion's Mane with Cordyceps or Mix to support both sharper focus and broader daytime balance in one routine.",
     bundleTitle: "Focus + Energy starter pair",
     bundleText: "Pair Lion's Mane with Cordyceps for a sharper morning and stronger all-day drive.",
     ratingDist: { five: 82, four: 13, three: 4, two: 1, one: 0 },
@@ -205,7 +225,7 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
   "cordyceps": {
     rating: 4.9,
     reviewCount: 126,
-    volume: "30ml",
+    volume: "35 ml",
     shortPitch: "Cordyceps delivers clean daily energy and stamina support in a compact spray that fits training days and demanding schedules.",
     trustBadges: ["Lab tested", "Natural energy", "Fast oral spray", "30-day guarantee"],
     quickBenefits: [
@@ -216,7 +236,7 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
     usageTitle: "Best for mornings, active days, and pre-workout energy support.",
     ingredientHighlights: ["Cordyceps extract 10:1", "Purified water", "Vegetable glycerin", "Natural preservative"],
     fullIngredients: "Purified water, Cordyceps extract 10:1, vegetable glycerin, natural preservative, citric acid.",
-    conversionNote: "Cordyceps is a strong choice in a two-bottle order, especially when paired with Lion's Mane or the Mix for broader support.",
+    conversionNote: "Cordyceps works especially well with Lion's Mane or the Mix when you want both cleaner energy and broader daytime support.",
     bundleTitle: "Energy + Focus pair",
     bundleText: "Pair Cordyceps with Lion's Mane for a stronger daytime routine that feels complete from the first order.",
     ratingDist: { five: 87, four: 10, three: 2, two: 1, one: 0 },
@@ -240,7 +260,7 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
   reishi: {
     rating: 4.9,
     reviewCount: 134,
-    volume: "30ml",
+    volume: "35 ml",
     shortPitch: "Reishi is built for evening balance, calmer routines, and smoother recovery when stress starts to accumulate.",
     trustBadges: ["Lab tested", "Evening routine", "Fast oral spray", "30-day guarantee"],
     quickBenefits: [
@@ -251,7 +271,7 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
     usageTitle: "Best for late afternoons, evening routines, and recovery-focused days.",
     ingredientHighlights: ["Reishi extract 10:1", "Purified water", "Vegetable glycerin", "Natural preservative"],
     fullIngredients: "Purified water, Reishi extract 10:1, vegetable glycerin, natural preservative, citric acid.",
-    conversionNote: "Reishi works best when customers stack it with a daytime spray, which makes it a strong second bottle for free-shipping orders.",
+    conversionNote: "Reishi pairs naturally with a daytime spray when you want calmer evenings without changing the rest of your daily routine.",
     bundleTitle: "Day + Night balance pair",
     bundleText: "Pair Reishi with Lion's Mane for focus in the day and calmer recovery in the evening.",
     ratingDist: { five: 74, four: 18, three: 6, two: 2, one: 0 },
@@ -275,7 +295,7 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
   shiitake: {
     rating: 4.8,
     reviewCount: 109,
-    volume: "30ml",
+    volume: "35 ml",
     shortPitch: "Shiitake supports everyday vitality and makes a practical, no-fuss addition to a consistent wellness routine.",
     trustBadges: ["Lab tested", "Daily vitality", "Fast oral spray", "30-day guarantee"],
     quickBenefits: [
@@ -286,7 +306,7 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
     usageTitle: "Best for daily wellness support at any time of day.",
     ingredientHighlights: ["Shiitake extract 10:1", "Purified water", "Vegetable glycerin", "Natural preservative"],
     fullIngredients: "Purified water, Shiitake extract 10:1, vegetable glycerin, natural preservative, citric acid.",
-    conversionNote: "Shiitake performs best as a dependable daily-support bottle, often paired with Chaga or Mix in first-time orders.",
+    conversionNote: "Shiitake is a dependable everyday-support spray that customers often pair with Chaga or Mix for a broader routine.",
     bundleTitle: "Vitality + Resilience pair",
     bundleText: "Pair Shiitake with Chaga for a simple daily-support stack that feels grounded and easy to repeat.",
     ratingDist: { five: 80, four: 15, three: 4, two: 1, one: 0 },
@@ -310,7 +330,7 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
   chaga: {
     rating: 4.8,
     reviewCount: 97,
-    volume: "30ml",
+    volume: "35 ml",
     shortPitch: "Chaga is positioned for antioxidant-rich daily support and a more resilient wellness routine with simple morning use.",
     trustBadges: ["Lab tested", "Antioxidant support", "Fast oral spray", "30-day guarantee"],
     quickBenefits: [
@@ -321,7 +341,7 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
     usageTitle: "Best for morning routines focused on resilience and everyday support.",
     ingredientHighlights: ["Chaga extract 10:1", "Purified water", "Vegetable glycerin", "Natural preservative"],
     fullIngredients: "Purified water, Chaga extract 10:1, vegetable glycerin, natural preservative, citric acid.",
-    conversionNote: "Chaga makes the most sense for customers who want to build a broader routine rather than start with a single narrow goal.",
+    conversionNote: "Chaga is a strong choice when you want antioxidant-focused support and an easy product to layer into a broader daily routine.",
     bundleTitle: "Resilience support pair",
     bundleText: "Pair Chaga with Shiitake for a broader, steady routine built around everyday support.",
     ratingDist: { five: 89, four: 8, three: 2, two: 1, one: 0 },
@@ -345,7 +365,7 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
   mix: {
     rating: 4.9,
     reviewCount: 158,
-    volume: "30ml",
+    volume: "35 ml",
     shortPitch: "The 5-Mushroom Mix is the simplest all-in-one option for shoppers who want full-spectrum support without choosing just one role.",
     trustBadges: ["Lab tested", "Best seller", "Fast oral spray", "30-day guarantee"],
     quickBenefits: [
@@ -362,7 +382,7 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
       "Chaga extract",
     ],
     fullIngredients: "Purified water, Lion's Mane extract, Cordyceps extract, Reishi extract, Shiitake extract, Chaga extract, vegetable glycerin, natural preservative, citric acid.",
-    conversionNote: "The Mix is the easiest first order because it gives new customers one clear starting point with broad everyday support.",
+    conversionNote: "The Mix is the easiest first order when you want one bottle that supports more than one goal without overthinking the choice.",
     bundleTitle: "Best-selling starter routine",
     bundleText: "Pair the Mix with Lion's Mane or Cordyceps if you want one broad base plus one focused daytime formula.",
     ratingDist: { five: 88, four: 9, three: 2, two: 1, one: 0 },

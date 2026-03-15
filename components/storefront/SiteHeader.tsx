@@ -9,19 +9,38 @@ import { LocaleToggle } from "@/components/storefront/LocaleToggle";
 import { CartIndicator } from "@/components/storefront/cart-indicator";
 import { useCart } from "@/components/storefront/CartProvider";
 import { Container } from "@/components/ui/Container";
+import { withLocale } from "@/lib/i18n";
 
 export function SiteHeader({ locale }: { locale: Locale }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const { itemCount } = useCart();
+  const t =
+    locale === "bg"
+      ? {
+          promo: "Вземете 10% отстъпка от първата поръчка при два или повече продукта.",
+          products: "Продукти",
+          about: "За нас",
+          blog: "Блог",
+          contacts: "Контакти",
+          cart: `Количка (${itemCount} ${itemCount === 1 ? "артикул" : "артикула"})`,
+        }
+      : {
+          promo: "Get 10% off your first order when you start with two bottles or more.",
+          products: "Products",
+          about: "About Us",
+          blog: "Blog",
+          contacts: "Contacts",
+          cart: `Cart (${itemCount} item${itemCount === 1 ? "" : "s"})`,
+        };
 
   return (
     <>
       <div className="bg-brand-700 px-4 py-1.5 text-center text-xs tracking-wide text-white">
-        Get 10% off your first order when you start with two bottles or more.
+        {t.promo}
       </div>
       <header className="sticky top-0 z-50 border-b border-warm-200/60 bg-warm-50/95 sm:backdrop-blur-md">
         <Container className="flex h-14 items-center justify-between lg:h-16">
-          <Link href="/" className="group flex-shrink-0">
+          <Link href={withLocale("/", locale)} className="group flex-shrink-0">
             <Image
               src="/brand_assets/Innoherb_logo_FIN-01-cropped-no-background.png"
               alt="InnoVAherb logo"
@@ -35,26 +54,26 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           </Link>
 
           <nav className="hidden items-center gap-8 lg:flex">
-            <Link href="/#products" className="text-[0.9375rem] font-medium tracking-tight text-grey-700 transition-colors hover:text-brand-600">
-              Products
+            <Link href={withLocale("/#products", locale)} className="text-[0.9375rem] font-medium tracking-tight text-grey-700 transition-colors hover:text-brand-600">
+              {t.products}
             </Link>
-            <Link href="/about" className="text-[0.9375rem] font-medium tracking-tight text-grey-700 transition-colors hover:text-brand-600">
-              About Us
+            <Link href={withLocale("/about", locale)} className="text-[0.9375rem] font-medium tracking-tight text-grey-700 transition-colors hover:text-brand-600">
+              {t.about}
             </Link>
-            <Link href="/blog" className="text-[0.9375rem] font-medium tracking-tight text-grey-700 transition-colors hover:text-brand-600">
-              Blog
+            <Link href={withLocale("/blog", locale)} className="text-[0.9375rem] font-medium tracking-tight text-grey-700 transition-colors hover:text-brand-600">
+              {t.blog}
             </Link>
-            <Link href="/contact" className="text-[0.9375rem] font-medium tracking-tight text-grey-700 transition-colors hover:text-brand-600">
-              Contacts
+            <Link href={withLocale("/contact", locale)} className="text-[0.9375rem] font-medium tracking-tight text-grey-700 transition-colors hover:text-brand-600">
+              {t.contacts}
             </Link>
           </nav>
 
           <div className="flex items-center gap-3">
             <LocaleToggle locale={locale} />
             <Link
-              href="/cart"
+              href={withLocale("/cart", locale)}
               className="relative rounded-full p-2 text-grey-700 transition-colors hover:bg-warm-100"
-              aria-label={`Cart (${itemCount} item${itemCount === 1 ? "" : "s"})`}
+              aria-label={t.cart}
             >
               <ShoppingBag className="h-5 w-5" />
               <span aria-hidden="true" className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-brand-600 px-1 text-[0.625rem] font-bold text-white">
@@ -74,17 +93,17 @@ export function SiteHeader({ locale }: { locale: Locale }) {
         {menuOpen ? (
           <div className="border-t border-warm-200/60 bg-warm-50 lg:hidden">
             <nav className="space-y-1 px-6 py-6">
-              <Link href="/#products" className="block rounded-xl px-4 py-3 font-medium text-grey-800 transition-colors hover:bg-brand-50 hover:text-brand-700" onClick={() => setMenuOpen(false)}>
-                Products
+              <Link href={withLocale("/#products", locale)} className="block rounded-xl px-4 py-3 font-medium text-grey-800 transition-colors hover:bg-brand-50 hover:text-brand-700" onClick={() => setMenuOpen(false)}>
+                {t.products}
               </Link>
-              <Link href="/about" className="block rounded-xl px-4 py-3 font-medium text-grey-800 transition-colors hover:bg-brand-50 hover:text-brand-700" onClick={() => setMenuOpen(false)}>
-                About Us
+              <Link href={withLocale("/about", locale)} className="block rounded-xl px-4 py-3 font-medium text-grey-800 transition-colors hover:bg-brand-50 hover:text-brand-700" onClick={() => setMenuOpen(false)}>
+                {t.about}
               </Link>
-              <Link href="/blog" className="block rounded-xl px-4 py-3 font-medium text-grey-800 transition-colors hover:bg-brand-50 hover:text-brand-700" onClick={() => setMenuOpen(false)}>
-                Blog
+              <Link href={withLocale("/blog", locale)} className="block rounded-xl px-4 py-3 font-medium text-grey-800 transition-colors hover:bg-brand-50 hover:text-brand-700" onClick={() => setMenuOpen(false)}>
+                {t.blog}
               </Link>
-              <Link href="/contact" className="block rounded-xl px-4 py-3 font-medium text-grey-800 transition-colors hover:bg-brand-50 hover:text-brand-700" onClick={() => setMenuOpen(false)}>
-                Contacts
+              <Link href={withLocale("/contact", locale)} className="block rounded-xl px-4 py-3 font-medium text-grey-800 transition-colors hover:bg-brand-50 hover:text-brand-700" onClick={() => setMenuOpen(false)}>
+                {t.contacts}
               </Link>
             </nav>
           </div>
