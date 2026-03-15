@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { DM_Sans, Cormorant_Garamond } from "next/font/google";
 import { CartProvider } from "@/components/storefront/CartProvider";
+import { ChatWidget } from "@/components/storefront/ChatWidget";
 import { buildMetadata } from "@/lib/metadata";
 
 const bodyFont = DM_Sans({
@@ -29,7 +30,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${bodyFont.variable} ${displayFont.variable} ${bodyFont.className}`}>
-        <CartProvider>{children}</CartProvider>
+        <CartProvider>
+          {children}
+          <ChatWidget />
+        </CartProvider>
       </body>
     </html>
   );

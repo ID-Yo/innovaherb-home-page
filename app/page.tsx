@@ -5,7 +5,6 @@ import { buildMetadata } from "@/lib/metadata";
 import { products } from "@/lib/products";
 import {
   homeAggregateReview,
-  homeConversionPoints,
   homeFaqs,
   homeHowItWorks,
   homeOfferCards,
@@ -263,21 +262,21 @@ export default async function HomePage({
           </Container>
         </section>
 
-        <section className="bg-white py-5 sm:py-6">
+        <section className="border-y border-warm-100 bg-white py-8 sm:py-12">
           <Container>
-            <div className="mb-4 text-center sm:mb-5">
-              <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
-                Why Customers Choose the Spray Format
-              </h2>
-              <p className="mx-auto mt-2 max-w-xl text-base text-grey-500">
-                The best supplement is the one you actually keep using. That is why the InnoVAherb range is built around speed, simplicity, and consistency.
-              </p>
-            </div>
-            <div className="grid gap-4 md:grid-cols-3 lg:gap-5">
-              {homeConversionPoints.map((point) => (
-                <div key={point.title} className="rounded-xl border border-warm-200/70 bg-warm-50 p-5 shadow-elevated sm:rounded-2xl sm:p-6">
-                  <h3 className="font-display text-xl font-bold text-grey-900">{point.title}</h3>
-                  <p className="mt-3 text-sm leading-body text-grey-600">{point.text}</p>
+            <div className="grid grid-cols-3 divide-x divide-warm-200/70">
+              {([
+                { num: "2,000+", sub: "happy customers", accent: false },
+                { num: "€0.67",  sub: "per day, per bottle", accent: true  },
+                { num: "1 day",  sub: "shipping from Bulgaria", accent: false },
+              ] as const).map(({ num, sub, accent }) => (
+                <div key={sub} className="px-4 text-center sm:px-8 lg:px-12">
+                  <p className={`font-display text-3xl font-bold leading-none sm:text-4xl lg:text-5xl ${accent ? "text-brand-600" : "text-grey-900"}`}>
+                    {num}
+                  </p>
+                  <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-grey-400 sm:text-xs">
+                    {sub}
+                  </p>
                 </div>
               ))}
             </div>
