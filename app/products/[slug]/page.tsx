@@ -187,10 +187,30 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               Customer Reviews
             </h2>
 
-            <div className="mb-6 flex items-center justify-center gap-3">
+            <div className="mb-4 flex items-center justify-center gap-3">
               <span className="stars text-xl">★★★★★</span>
               <span className="font-semibold text-grey-700">{sales.rating.toFixed(1)}</span>
               <span className="text-sm text-grey-400">· {sales.reviewCount} reviews</span>
+            </div>
+
+            <div className="mx-auto mb-8 max-w-xs">
+              <div className="space-y-1.5">
+                {([
+                  [5, "five"],
+                  [4, "four"],
+                  [3, "three"],
+                  [2, "two"],
+                  [1, "one"],
+                ] as const).map(([star, key]) => (
+                  <div key={star} className="flex items-center gap-2.5">
+                    <span className="w-5 shrink-0 text-right text-xs text-grey-400">{star}★</span>
+                    <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-warm-100">
+                      <div className="h-full rounded-full bg-amber-400" style={{ width: `${sales.ratingDist[key]}%` }} />
+                    </div>
+                    <span className="w-8 shrink-0 text-xs text-grey-400">{sales.ratingDist[key]}%</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="grid gap-4 md:grid-cols-3 lg:gap-6">
@@ -251,7 +271,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 <Link
                   key={paired.slug}
                   href={`/products/${paired.slug}`}
-                  className="product-card block rounded-2xl bg-white p-5 shadow-product"
+                  className="product-card group block rounded-2xl bg-white p-5 shadow-product"
                 >
                   <div className="relative mb-3 overflow-hidden rounded-xl bg-warm-50 p-3">
                     <img src={paired.image} alt={paired.localized.en.name} className="mx-auto h-auto w-28 transition-transform duration-500 ease-spring" />
@@ -266,7 +286,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                     <span className="font-display text-lg font-bold text-grey-900">
                       EUR {(paired.priceCents / 100).toFixed(2)}
                     </span>
-                    <span className="text-sm font-semibold text-brand-600">Learn More</span>
+                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-brand-600 transition-[gap] duration-200 group-hover:gap-2">
+                      Learn More
+                      <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                      </svg>
+                    </span>
                   </div>
                 </Link>
               ))}

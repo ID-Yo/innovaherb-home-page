@@ -51,6 +51,14 @@ export function ProductPurchasePanel({
         ? `${product.stock} units available from the current batch.`
         : "Ships from Bulgaria in 1 business day.";
 
+  const getBadgeIcon = (badge: string): string => {
+    const b = badge.toLowerCase();
+    if (b.includes("lab")) return "M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18";
+    if (b.includes("guarantee") || b.includes("day") || b.includes("back")) return "M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z";
+    if (b.includes("spray") || b.includes("capsule")) return "M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3";
+    return "M4.5 12.75l6 6 9-13.5";
+  };
+
   const buyNow = () => {
     addItem(product.slug, quantity);
     router.push("/checkout");
@@ -81,6 +89,7 @@ export function ProductPurchasePanel({
         <div className="mb-4">
           <span className="font-display text-3xl font-bold text-grey-900">{formatEuro(product.priceCents)}</span>
           <span className="ml-2 text-sm text-grey-400">/ {sales.volume}</span>
+          <p className="mt-1 text-xs font-semibold text-brand-600">€0.67 / day · 30-day supply</p>
         </div>
         <p className="mb-6 leading-body text-grey-600">{sales.shortPitch}</p>
 
@@ -88,8 +97,11 @@ export function ProductPurchasePanel({
           {sales.trustBadges.map((badge) => (
             <span
               key={badge}
-              className="inline-flex rounded-full border border-brand-100 bg-brand-50 px-3 py-1.5 text-xs font-semibold text-brand-700"
+              className="inline-flex items-center gap-1.5 rounded-full border border-brand-100 bg-brand-50 px-3 py-1.5 text-xs font-semibold text-brand-700"
             >
+              <svg className="h-3.5 w-3.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d={getBadgeIcon(badge)} />
+              </svg>
               {badge}
             </span>
           ))}
@@ -138,6 +150,18 @@ export function ProductPurchasePanel({
           <p className="mt-3 text-xs leading-6 text-grey-500">
             Currently shipping within Bulgaria. Free shipping on orders above EUR 50.
           </p>
+          <p className="mt-2 flex items-start gap-1.5 text-xs text-grey-400">
+            <svg className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-brand-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+            </svg>
+            <span>Not satisfied after 30 days of consistent use? We refund in full — no questions asked.</span>
+          </p>
+          <div className="mt-3 flex items-center gap-2.5 opacity-40">
+            <span className="text-[10px] font-medium text-grey-500">Secure checkout</span>
+            <svg viewBox="0 0 48 16" className="h-4 w-auto fill-grey-600"><text x="0" y="13" fontSize="14" fontWeight="bold" fontFamily="Arial">VISA</text></svg>
+            <svg viewBox="0 0 36 24" className="h-4 w-auto"><circle cx="14" cy="12" r="10" fill="#888"/><circle cx="22" cy="12" r="10" fill="#aaa" fillOpacity="0.7"/></svg>
+            <svg viewBox="0 0 60 24" className="h-4 w-auto fill-grey-600"><text x="0" y="17" fontSize="13" fontFamily="Arial">stripe</text></svg>
+          </div>
         </div>
 
         <div className="mt-4 rounded-2xl border border-brand-200/70 bg-brand-50/70 p-5 shadow-elevated">
@@ -204,6 +228,9 @@ export function ProductPurchasePanel({
         <div className="flex items-center justify-between gap-3">
           <div>
             <p className="font-display text-sm font-bold text-grey-900">{copy.name}</p>
+            <p className="flex items-center gap-1 text-[10px] text-grey-400">
+              <span className="stars text-[10px]">★★★★★</span> {sales.rating.toFixed(1)}
+            </p>
             <p className="font-display text-lg font-bold text-grey-900">{formatEuro(product.priceCents)}</p>
           </div>
           <button

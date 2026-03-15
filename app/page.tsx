@@ -4,13 +4,24 @@ import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import { products } from "@/lib/products";
 import {
+  homeAggregateReview,
   homeConversionPoints,
   homeFaqs,
   homeHowItWorks,
   homeOfferCards,
   homeReviews,
   homeTrustPoints,
+  mushroomComparison,
 } from "@/lib/storefront-content";
+
+const TRUST_ICONS: Record<string, string> = {
+  lab:       "M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18",
+  natural:   "M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 0c0 5 2.5 9 6 11M12 3c0 5-2.5 9-6 11",
+  bulgaria:  "M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z",
+  guarantee: "M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z",
+  vegan:     "M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z",
+  fruiting:  "M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z",
+};
 import { SiteHeader } from "@/components/storefront/SiteHeader";
 import { SiteFooter } from "@/components/storefront/SiteFooter";
 import { ProductCard } from "@/components/storefront/ProductCard";
@@ -94,8 +105,11 @@ export default function HomePage() {
                 <Link href="/#products" className="btn-press inline-flex items-center gap-2 rounded-xl bg-brand-600 px-7 py-3.5 text-sm font-semibold text-white shadow-hover transition-colors duration-200 hover:bg-brand-700">
                   Shop Our Collection
                 </Link>
-                <Link href="/shipping-returns" className="btn-press inline-flex items-center gap-2 rounded-xl border border-warm-200 bg-white/80 px-7 py-3.5 text-sm font-semibold text-grey-800 transition-colors duration-200 hover:bg-white">
-                  Shipping and Returns
+                <Link href="/#how" className="btn-press inline-flex items-center gap-2 rounded-xl border border-warm-200 bg-white/80 px-7 py-3.5 text-sm font-semibold text-grey-800 transition-colors duration-200 hover:bg-white">
+                  How It Works
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>
                 </Link>
               </div>
 
@@ -227,16 +241,18 @@ export default function HomePage() {
           <Container>
             <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-8 lg:gap-14">
               {homeTrustPoints.map((point) => (
-                <div key={point} className="flex items-center gap-2 text-grey-600">
-                  <span className="h-2.5 w-2.5 rounded-full bg-brand-600" />
-                  <span className="whitespace-nowrap text-xs font-medium sm:text-sm">{point}</span>
+                <div key={point.label} className="flex items-center gap-2 text-grey-600">
+                  <svg className="h-4 w-4 flex-shrink-0 text-brand-600 sm:h-5 sm:w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d={TRUST_ICONS[point.icon] ?? TRUST_ICONS.fruiting} />
+                  </svg>
+                  <span className="whitespace-nowrap text-xs font-medium sm:text-sm">{point.label}</span>
                 </div>
               ))}
             </div>
           </Container>
         </section>
 
-        <section className="bg-white py-5 sm:py-6">
+        <section id="how" className="bg-white py-5 sm:py-6">
           <Container>
             <div className="mb-4 text-center sm:mb-5">
               <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
@@ -259,6 +275,92 @@ export default function HomePage() {
                   <p className="mt-1 text-xs leading-relaxed text-grey-500 sm:text-sm">{item.text}</p>
                 </div>
               ))}
+            </div>
+          </Container>
+        </section>
+
+        <section className="bg-white py-5 sm:py-6">
+          <Container>
+            <div className="mb-4 text-center sm:mb-5">
+              <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
+                Which Mushroom Is Right for You?
+              </h2>
+              <p className="mx-auto mt-2 max-w-xl text-base text-grey-500">
+                Each formula targets a different goal. Compare them to find your match — or start with the 5-Mix to cover all bases.
+              </p>
+            </div>
+
+            {/* Mobile: card grid */}
+            <div className="grid grid-cols-2 gap-3 sm:hidden">
+              {mushroomComparison.map((m) => (
+                <a key={m.slug} href={`/products/${m.slug}`} className="group rounded-xl border border-warm-200/70 bg-warm-50 p-3.5 shadow-elevated transition-colors hover:border-brand-200 hover:bg-brand-50/50">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-brand-600">{m.goal}</p>
+                  <h3 className="mt-1 font-display text-base font-bold text-grey-900">{m.name}</h3>
+                  <div className="mt-3 space-y-1.5">
+                    {(["focus", "energy", "sleep", "immunity", "antioxidant"] as const).map((trait) => (
+                      <div key={trait} className="flex items-center justify-between gap-2">
+                        <span className="w-20 shrink-0 text-[10px] font-medium capitalize text-grey-500">{trait}</span>
+                        <div className="flex gap-0.5">
+                          {Array.from({ length: 5 }, (_, i) => (
+                            <span key={i} className={`inline-block h-2 w-2 rounded-full ${i < m[trait] ? "bg-brand-500" : "bg-warm-200"}`} />
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-brand-600 transition-[gap] group-hover:gap-1.5">
+                    Shop
+                    <svg className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                    </svg>
+                  </span>
+                </a>
+              ))}
+            </div>
+
+            {/* Desktop: table */}
+            <div className="hidden overflow-x-auto sm:block">
+              <table className="w-full">
+                <thead>
+                  <tr>
+                    <th className="w-28 pb-4 text-left text-xs font-semibold uppercase tracking-widest text-grey-400" />
+                    {mushroomComparison.map((m) => (
+                      <th key={m.slug} className="pb-4 text-center">
+                        <a href={`/products/${m.slug}`} className="group inline-block">
+                          <p className="font-display text-sm font-bold text-grey-900 transition-colors group-hover:text-brand-600">{m.name}</p>
+                          <p className="mt-0.5 text-[10px] font-medium text-grey-400">{m.goal}</p>
+                        </a>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {(["focus", "energy", "sleep", "immunity", "antioxidant"] as const).map((trait, traitIdx) => (
+                    <tr key={trait} className={traitIdx % 2 === 0 ? "bg-warm-50/70" : "bg-white"}>
+                      <td className="rounded-l-xl py-3 pl-4 text-xs font-semibold capitalize text-grey-600">{trait}</td>
+                      {mushroomComparison.map((m) => (
+                        <td key={m.slug} className="py-3 text-center last:rounded-r-xl">
+                          <div className="inline-flex gap-0.5">
+                            {Array.from({ length: 5 }, (_, i) => (
+                              <span key={i} className={`inline-block h-2.5 w-2.5 rounded-full ${i < m[trait] ? "bg-brand-500" : "bg-warm-200"}`} />
+                            ))}
+                          </div>
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                  <tr>
+                    <td className="pt-5 text-xs font-semibold text-grey-400">Shop →</td>
+                    {mushroomComparison.map((m) => (
+                      <td key={m.slug} className="pt-5 text-center">
+                        <a href={`/products/${m.slug}`} className="inline-flex rounded-lg border border-brand-100 bg-brand-50 px-3 py-1.5 text-xs font-semibold text-brand-700 transition-colors hover:bg-brand-100">
+                          Buy
+                        </a>
+                      </td>
+                    ))}
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </Container>
         </section>
@@ -307,9 +409,10 @@ export default function HomePage() {
               <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
                 What Our Customers Say
               </h2>
+              <p className="mt-2 text-center text-sm text-grey-400">{homeAggregateReview.label}</p>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-3 lg:gap-5">
+            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:gap-5">
               {homeReviews.map((review, index) => (
                 <div key={review.name} className="rounded-xl bg-white p-5 shadow-elevated sm:rounded-2xl sm:p-6">
                   <div className="stars mb-2 text-base">★★★★★</div>
@@ -340,6 +443,9 @@ export default function HomePage() {
             <p className="mb-6 mt-3 text-sm text-brand-100 sm:text-base">
               Wellness tips, product drops, and offers for customers who want to build a better routine around natural mushroom support.
             </p>
+            <p className="mb-4 text-center text-xs font-medium text-white/70">
+              Join 2,000+ customers already on their routine
+            </p>
             <form className="mx-auto flex max-w-lg flex-col gap-3 sm:flex-row">
               <input
                 type="email"
@@ -351,6 +457,7 @@ export default function HomePage() {
                 Get 10% Off
               </button>
             </form>
+            <p className="mt-3 text-center text-xs text-white/40">No spam. Unsubscribe any time.</p>
           </Container>
         </section>
 

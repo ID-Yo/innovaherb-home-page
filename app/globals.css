@@ -115,6 +115,23 @@ details[open] .faq-chevron {
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* ─── Best-seller badge shimmer ─────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.badge-shimmer {
+  background: linear-gradient(
+    90deg,
+    #2d6e31 40%,
+    #4caf50 50%,
+    #2d6e31 60%
+  );
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
 @media (max-width: 767px) {
   html {
     scroll-behavior: auto;

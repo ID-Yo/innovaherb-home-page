@@ -3,15 +3,22 @@ import Image from "next/image";
 import { Product, Locale } from "@/lib/types";
 import { formatEuro } from "@/lib/format";
 import { AddToCartButton } from "@/components/storefront/add-to-cart-button";
+import { productSalesContent } from "@/lib/storefront-content";
 
 export function ProductCard({ product, locale }: { product: Product; locale: Locale }) {
   const copy = product.localized[locale];
+  const sales = productSalesContent[product.slug];
 
   return (
     <article className="group product-card flex h-full flex-col rounded-xl bg-white p-3 shadow-product sm:rounded-2xl sm:p-4">
       <Link href={`/products/${product.slug}`} className="block">
         <div className="relative mb-3 flex h-36 items-center justify-center overflow-hidden rounded-lg bg-warm-50 sm:h-40 sm:rounded-xl lg:h-44">
           <div className="absolute inset-0 bg-gradient-to-br from-brand-50/40 to-transparent" />
+          {product.slug === "mix" && (
+            <span className="badge-shimmer absolute left-2 top-2 z-10 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest text-white">
+              Best Seller
+            </span>
+          )}
           <Image
             src={product.image}
             alt={`${copy.name} mushroom extract spray by InnoVAherb`}
@@ -25,6 +32,10 @@ export function ProductCard({ product, locale }: { product: Product; locale: Loc
         <div className="space-y-0.5 sm:space-y-1">
           <span className={`text-[10px] font-bold uppercase tracking-widest sm:text-xs ${product.accentClass}`}>{copy.tagline}</span>
           <h3 className="font-display text-base font-bold tracking-tight text-grey-900 sm:text-lg">{copy.name}</h3>
+          <div className="mt-0.5 flex items-center gap-1">
+            <span className="stars text-xs leading-none">★★★★★</span>
+            <span className="text-xs text-grey-400">{sales.rating.toFixed(1)}</span>
+          </div>
           <p className="hidden text-xs leading-relaxed text-grey-500 sm:block sm:text-sm">{copy.shortDescription}</p>
         </div>
       </Link>

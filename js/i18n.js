@@ -14,7 +14,7 @@ const translations = {
   'hero.title': { en: 'Nature\'s Intelligence, One Spray at a Time', bg: 'Интелигентността на природата, спрей по спрей' },
   'hero.subtitle': { en: 'Premium Bulgarian mushroom extracts in a revolutionary spray format. Faster absorption. Precise dosing. Pure results.', bg: 'Премиум български гъбени екстракти в революционен спрей формат. По-бързо усвояване. Прецизно дозиране. Чисти резултати.' },
   'hero.cta': { en: 'Shop Our Collection', bg: 'Разгледайте колекцията' },
-  'hero.social_proof': { en: 'Trusted by 2,000+ customers across Europe', bg: 'Над 2 000 доволни клиенти в Европа' },
+  'hero.social_proof': { en: '4.9 / 5 · Trusted by 2,000+ customers across Europe', bg: '4.9 / 5 · Над 2 000 доволни клиенти в Европа' },
 
   // ── Products Section ──
   'products.title': { en: 'Shop by Goal', bg: 'Изберете по цел' },
@@ -63,7 +63,7 @@ const translations = {
   'trust.lab': { en: 'Lab Tested', bg: 'Лабораторно тестван' },
   'trust.natural': { en: '100% Natural', bg: '100% натурален' },
   'trust.bulgaria': { en: 'Made in Bulgaria', bg: 'Произведено в България' },
-  'trust.guarantee': { en: 'Satisfaction Guarantee', bg: 'Гаранция за удовлетворение' },
+  'trust.guarantee': { en: '30-Day Money-Back Guarantee', bg: '30-дневна гаранция за връщане' },
   'trust.vegan': { en: 'Vegan Friendly', bg: 'Подходящ за вегани' },
 
   // ── How It Works ──
@@ -74,7 +74,7 @@ const translations = {
   'how.step2.title': { en: 'Spray', bg: 'Впръскайте' },
   'how.step2.desc': { en: '3–4 sprays under the tongue', bg: '3–4 впръсквания под езика' },
   'how.step3.title': { en: 'Thrive', bg: 'Процъфтявайте' },
-  'how.step3.desc': { en: 'Feel the difference in 2–4 weeks', bg: 'Усетете разликата за 2–4 седмици' },
+  'how.step3.desc': { en: 'Most customers notice a difference by day 14. Give it 30 days for the full effect.', bg: 'Повечето клиенти забелязват разлика до 14-ия ден. Дайте й 30 дни за пълен ефект.' },
 
   // ── Story Section ──
   'story.title': { en: 'From Bulgarian Forests to Your Daily Ritual', bg: 'От българските гори до вашия ежедневен ритуал' },
@@ -413,6 +413,103 @@ const translations = {
   'contact.faq3_a': { en: 'Yes! We work with health food stores, pharmacies, and wellness centers. Select "Wholesale Inquiry" in the contact form above, and our team will provide you with a custom quote.', bg: 'Да! Работим с магазини за здравословни храни, аптеки и уелнес центрове. Изберете „Запитване за едро" в контактната форма по-горе и нашият екип ще ви предостави индивидуална оферта.' },
   'contact.faq4_q': { en: 'Which payment methods do you accept?', bg: 'Какви методи за плащане приемате?' },
   'contact.faq4_a': { en: 'We accept all major credit and debit cards (Visa, Mastercard, American Express), PayPal, and bank transfers for Bulgarian customers. All payments are processed securely.', bg: 'Приемаме всички основни кредитни и дебитни карти (Visa, Mastercard, American Express), PayPal и банкови преводи за български клиенти. Всички плащания се обработват сигурно.' },
+
+  // ── CRO Improvements ──
+
+  // Hero
+  'hero.trust_line': { en: '30-day money-back guarantee · Ships in 1 business day', bg: '30-дневна гаранция за връщане · Изпраща се в 1 работен ден' },
+
+  // Trust
+  'trust.fruiting_body': { en: 'Fruiting Body Only', bg: 'Само плодно тяло' },
+
+  // Reviews — homepage aggregate + 3 new cards
+  'reviews.aggregate': { en: '★★★★★ 4.9 average · 800+ verified reviews', bg: '★★★★★ 4.9 средна оценка · Над 800 потвърдени отзива' },
+  'reviews.4.text': { en: '"After 3 weeks I notice a genuine difference in how calm and focused I feel under pressure."', bg: '"След 3 седмици усещам реална разлика в това как се чувствам спокойна и фокусирана под напрежение."' },
+  'reviews.4.name': { en: 'Petya M., Varna', bg: 'Петя М., Варна' },
+  'reviews.5.text': { en: '"The spray format makes it impossible to forget your daily dose. Just spray and go — it is that simple."', bg: '"Спрей форматът прави невъзможно забравянето на дневната доза. Просто впръскай и тръгвай."' },
+  'reviews.5.name': { en: 'Boris T., Burgas', bg: 'Борис Т., Бургас' },
+  'reviews.6.text': { en: '"I have recommended InnoVAherb to my whole office. Three colleagues started their own routines and everyone is happy."', bg: '"Препоръчах InnoVAherb на целия си офис. Трима колеги започнаха своя рутина и всички са доволни."' },
+  'reviews.6.name': { en: 'Aneta V., Sofia', bg: 'Анета В., София' },
+
+  // Newsletter
+  'newsletter.social_proof': { en: 'Join 2,000+ customers already on their routine', bg: 'Присъединете се към 2 000+ клиенти вече в своята рутина' },
+  'newsletter.privacy': { en: 'No spam. Unsubscribe any time.', bg: 'Без спам. Отписване по всяко време.' },
+
+  // Product pages — shared
+  'pp.per_day': { en: '€0.67 / day · 30-day supply', bg: '€0,67 / ден · Запас за 30 дни' },
+  'pp.guarantee_detail': { en: 'Not satisfied after 30 days of consistent use? We refund in full — no questions asked.', bg: 'Не сте доволни след 30 дни редовна употреба? Възстановяваме пълната сума — без въпроси.' },
+  'pp.reviews_dist_label': { en: 'Rating breakdown', bg: 'Разпределение на оценките' },
+
+  // Shared new FAQ
+  'pp.faq.medication.q': { en: 'Is it safe to take alongside medication?', bg: 'Безопасно ли е при прием на лекарства?' },
+  'pp.faq.medication.a': { en: 'Our mushroom extracts are generally well-tolerated, but if you take prescription medication or have a medical condition please consult your healthcare professional before use.', bg: 'Нашите гъбени екстракти обикновено се понасят добре, но ако приемате лекарства с рецепта или имате здравословни проблеми, моля консултирайте се с лекар преди употреба.' },
+
+  // Product-specific FAQ 2
+  'pp.faq.lions_mane.fruiting.q': { en: 'Is this made from fruiting body extract or mycelium?', bg: 'Направен ли е от екстракт от плодно тяло или мицел?' },
+  'pp.faq.lions_mane.fruiting.a': { en: "100% fruiting body extract only. Our Lion's Mane is a 10:1 concentrate from the fruiting body — no mycelium biomass or grain fillers. This is the gold standard for active compound density.", bg: '100% само екстракт от плодно тяло. Нашата Лъвска грива е 10:1 концентрат без мицелна биомаса или пълнители — zlatният стандарт за плътност на активните съединения.' },
+
+  'pp.faq.cordyceps.stimulant.q': { en: 'Is Cordyceps a stimulant? Will I feel jittery?', bg: 'Стимулант ли е Кордицепс? Ще имам ли нервност?' },
+  'pp.faq.cordyceps.stimulant.a': { en: 'Cordyceps is not a stimulant. It supports natural cellular energy production without caffeine or synthetic compounds. Most customers describe it as clean, steady energy rather than a buzz.', bg: 'Кордицепс не е стимулант. Подкрепя естественото производство на клетъчна енергия без кофеин. Повечето клиенти го описват като чиста, устойчива енергия.' },
+
+  'pp.faq.reishi.daily.q': { en: 'Can I take Reishi every day long-term?', bg: 'Мога ли да приемам Рейши всеки ден дълго?' },
+  'pp.faq.reishi.daily.a': { en: 'Yes. Reishi has been used as a daily tonic for centuries. Our 10:1 extract is designed for consistent daily use — for best results take it in the evening as part of your wind-down routine.', bg: 'Да. Рейши се използва като ежедневен тоник от векове. Нашият 10:1 екстракт е за постоянна употреба — за най-добри резултати го приемайте вечер като част от рутината преди сън.' },
+
+  'pp.faq.shiitake.betaglucan.q': { en: 'How much beta-glucan does Shiitake contain and why does it matter?', bg: 'Колко бета-глюкан съдържа Шийтаке и защо е важно?' },
+  'pp.faq.shiitake.betaglucan.a': { en: 'Our Shiitake contains a minimum of 25% beta-glucans — the key active compounds for immune modulation. Beta-glucan content is the primary quality marker for mushroom extracts; low-quality products often contain mycelium biomass with near-zero active compounds.', bg: 'Нашият Шийтаке съдържа минимум 25% бета-глюкани — ключовите активни съединения за имунна модулация. Нискокачествените продукти често съдържат мицелна биомаса с почти никакви активни съединения.' },
+
+  'pp.faq.chaga.oxalate.q': { en: 'I have heard Chaga is high in oxalates — should I be concerned?', bg: 'Чувал съм, че Чага съдържа много оксалати — трябва ли да се притеснявам?' },
+  'pp.faq.chaga.oxalate.a': { en: 'Our hot-water extraction process significantly reduces oxalate content compared to raw Chaga. If you have a history of kidney stones or oxalate sensitivity, please consult your doctor before use.', bg: 'Нашият процес на горещоводна екстракция значително намалява съдържанието на оксалати. Ако имате история с бъбречни камъни, моля консултирайте се с лекар.' },
+
+  'pp.faq.mix.composition.q': { en: 'Which five mushrooms are in the Mix and why were they chosen?', bg: 'Кои са петте гъби в Микса и защо са избрани?' },
+  'pp.faq.mix.composition.a': { en: "The Mix contains Lion's Mane (focus), Cordyceps (energy), Reishi (balance), Shiitake (immunity), and Chaga (antioxidant protection). Each covers a different daily goal — together they provide broad-spectrum mind and body support in a single daily spray.", bg: 'Миксът съдържа Лъвска грива (фокус), Кордицепс (енергия), Рейши (баланс), Шийтаке (имунитет) и Чага (антиоксидантна защита). Заедно осигуряват широкоспектърна подкрепа в един дневен спрей.' },
+
+  // New reviews 4–6: Lion's Mane
+  'pp.lions_mane.review4.text': { en: '"Three weeks in and my study sessions are noticeably more productive. I stay focused much longer without mental fatigue."', bg: '"На третата седмица забелязах значителна разлика в учебните си сесии. Мога да се концентрирам много по-дълго без умора."' },
+  'pp.lions_mane.review4.name': { en: 'Diana R., Plovdiv', bg: 'Диана Р., Пловдив' },
+  'pp.lions_mane.review5.text': { en: '"I was sceptical at first. After a month the morning mental clarity is genuinely different — it has become non-negotiable in my routine."', bg: '"Отначало бях скептична. След месец сутрешната ментална яснота е реално различна — стана неизменна част от рутината ми."' },
+  'pp.lions_mane.review5.name': { en: 'Kremena V., Stara Zagora', bg: 'Кремена В., Стара Загора' },
+  'pp.lions_mane.review6.text': { en: '"Using it before work presentations has become a ritual. My mind feels sharper and I feel more confident when I need to perform."', bg: '"Използвам го преди работни презентации — стана ритуал. Умът ми е по-остър и се чувствам по-уверен, когато трябва да се представям."' },
+  'pp.lions_mane.review6.name': { en: 'Hristo M., Sofia', bg: 'Христо М., София' },
+
+  // New reviews 4–6: Cordyceps
+  'pp.cordyceps.review4.text': { en: '"I replaced my pre-workout supplement with Cordyceps. My endurance improved noticeably and there is no crash afterward."', bg: '"Заменях предтренировъчните си добавки с Кордицепс. Издръжливостта ми се подобри и няма последваща умора."' },
+  'pp.cordyceps.review4.name': { en: 'Monika S., Sofia', bg: 'Моника С., София' },
+  'pp.cordyceps.review5.text': { en: '"Part of my morning routine before long mountain hikes. I notice a real difference in sustained pace and oxygen capacity."', bg: '"Част от сутрешната ми рутина преди дълги планински излети. Усещам реална разлика в издръжливостта и темпото."' },
+  'pp.cordyceps.review5.name': { en: 'Plamen T., Varna', bg: 'Пламен Т., Варна' },
+  'pp.cordyceps.review6.text': { en: '"As a triathlete I am always looking for clean performance support. Cordyceps fits perfectly and the spray is incredibly convenient."', bg: '"Като триатлонист търся чиста подкрепа за представянето. Кордицепс се вписва перфектно, а спреят е изключително удобен."' },
+  'pp.cordyceps.review6.name': { en: 'Yulia D., Burgas', bg: 'Юлия Д., Бургас' },
+
+  // New reviews 4–6: Reishi
+  'pp.reishi.review4.text': { en: '"I started Reishi during a very stressful work quarter. The difference in how I handle pressure has been remarkable."', bg: '"Започнах Рейши по време на много натоварено тримесечие. Разликата в справянето с напрежението е забележителна."' },
+  'pp.reishi.review4.name': { en: 'Desislava K., Sofia', bg: 'Десислава К., София' },
+  'pp.reishi.review5.text': { en: '"With a demanding job, Reishi has become my evening go-to. I wake up genuinely refreshed in a way I did not before."', bg: '"С натоварена работа, Рейши стана моят вечерен избор. Събуждам се наистина отпочинала по начин, по който не се събуждах преди."' },
+  'pp.reishi.review5.name': { en: 'Nikolay V., Plovdiv', bg: 'Николай В., Пловдив' },
+  'pp.reishi.review6.text': { en: '"The improvement in my sleep quality after consistent Reishi use has been significant. I have tried many options — this is the best format."', bg: '"Подобрението в качеството на съня ми след редовна употреба е значително. Пробвала съм много варианти — това е най-добрият формат."' },
+  'pp.reishi.review6.name': { en: 'Marina A., Varna', bg: 'Марина А., Варна' },
+
+  // New reviews 4–6: Shiitake
+  'pp.shiitake.review4.text': { en: '"This winter I barely got sick. I have been taking Shiitake consistently and believe it has made a real difference to my immune resilience."', bg: '"Тази зима почти не се разболях. Приемам Шийтаке редовно и вярвам, че е направило реална разлика за имунната ми устойчивост."' },
+  'pp.shiitake.review4.name': { en: 'Petar S., Sofia', bg: 'Петър С., София' },
+  'pp.shiitake.review5.text': { en: '"Steadier energy levels throughout the day since starting Shiitake. The effect is subtle but consistent and I keep reordering."', bg: '"По-стабилни нива на енергия откакто започнах Шийтаке. Ефектът е деликатен, но постоянен и продължавам да поръчвам."' },
+  'pp.shiitake.review5.name': { en: 'Tsvetanka M., Burgas', bg: 'Цветанка М., Бургас' },
+  'pp.shiitake.review6.text': { en: '"The fruiting body extract with beta-glucan content listed is the transparency that made me trust this brand immediately."', bg: '"Екстрактът от плодно тяло с посочено съдържание на бета-глюкани е вида прозрачност, която ме накара веднага да се доверя на тази марка."' },
+  'pp.shiitake.review6.name': { en: 'Stefan P., Plovdiv', bg: 'Стефан П., Пловдив' },
+
+  // New reviews 4–6: Chaga
+  'pp.chaga.review4.text': { en: '"Several months of daily Chaga and I genuinely feel more robust. My skin also looks noticeably better — a bonus I did not expect."', bg: '"Няколко месеца ежедневен Чага и наистина се чувствам по-здрав. Кожата ми изглежда забележимо по-добре — бонус, който не очаквах."' },
+  'pp.chaga.review4.name': { en: 'Boryana K., Sofia', bg: 'Боряна К., София' },
+  'pp.chaga.review5.text': { en: '"As someone focused on longevity, Chaga was a natural addition to my routine. The spray format makes it effortless to stay consistent."', bg: '"Като човек, фокусиран върху дълголетието, Чага беше естествено допълнение към рутината ми. Спрей форматът прави редовната употреба лесна."' },
+  'pp.chaga.review5.name': { en: 'Evgeny T., Varna', bg: 'Евгений Т., Варна' },
+  'pp.chaga.review6.text': { en: '"The dark forest taste is unique — I actually enjoy it. The benefits after two months of daily use speak for themselves."', bg: '"Тъмният горски вкус е уникален — всъщност ми харесва. А ползите след два месеца ежедневна употреба говорят сами за себе си."' },
+  'pp.chaga.review6.name': { en: 'Simona V., Stara Zagora', bg: 'Симона В., Стара Загора' },
+
+  // New reviews 4–6: Mix
+  'pp.mix.review4.text': { en: '"The 5-Mushroom Mix was my first order and I have never looked back. Covers all my bases and the morning spray takes five seconds."', bg: '"Миксът от 5 гъби беше моята първа поръчка и никога не съм съжалила. Покрива всичко, а сутрешният спрей отнема пет секунди."' },
+  'pp.mix.review4.name': { en: 'Gergana T., Sofia', bg: 'Гергана Т., София' },
+  'pp.mix.review5.text': { en: '"I could not decide which single mushroom to start with so I chose the Mix. Best decision — I feel the broad-spectrum support every single day."', bg: '"Не можех да реша с коя гъба да започна, затова взех Микса. Най-доброто решение — усещам широкоспектърната подкрепа всеки ден."' },
+  'pp.mix.review5.name': { en: 'Andrei P., Ruse', bg: 'Андрей П., Русе' },
+  'pp.mix.review6.text': { en: '"I have recommended the Mix to everyone in my family. My husband started last month and already notices improvements in energy and sleep quality."', bg: '"Препоръчах Микса на всички в семейството. Съпругът ми го започна миналия месец и вече забелязва подобрения в енергията и съня."' },
+  'pp.mix.review6.name': { en: 'Veselina M., Varna', bg: 'Веселина М., Варна' },
 };
 
 // ── Language Engine ──

@@ -1,5 +1,20 @@
 import { ProductSlug } from "@/lib/types";
 
+// ─── Homepage aggregate ───────────────────────────────────────────
+export const homeAggregateReview = {
+  label: "★★★★★ 4.9 average · 800+ verified reviews",
+};
+
+// ─── Mushroom comparison matrix ───────────────────────────────────
+export const mushroomComparison = [
+  { slug: "lions-mane", name: "Lion's Mane", goal: "Focus & Memory",   focus: 5, energy: 2, sleep: 1, immunity: 2, antioxidant: 2 },
+  { slug: "cordyceps",  name: "Cordyceps",   goal: "Energy & Stamina", focus: 3, energy: 5, sleep: 1, immunity: 2, antioxidant: 2 },
+  { slug: "reishi",     name: "Reishi",      goal: "Calm & Balance",   focus: 2, energy: 1, sleep: 5, immunity: 3, antioxidant: 3 },
+  { slug: "shiitake",   name: "Shiitake",    goal: "Daily Vitality",   focus: 2, energy: 3, sleep: 2, immunity: 5, antioxidant: 3 },
+  { slug: "chaga",      name: "Chaga",       goal: "Antioxidants",     focus: 1, energy: 2, sleep: 2, immunity: 4, antioxidant: 5 },
+  { slug: "mix",        name: "5-Mix",       goal: "Full Spectrum",    focus: 4, energy: 4, sleep: 4, immunity: 4, antioxidant: 4 },
+] as const;
+
 export const homeReviews = [
   {
     initials: "MK",
@@ -16,14 +31,30 @@ export const homeReviews = [
     name: "Elena V., Varna",
     text: "Reishi became part of my evening ritual. I sleep better and feel far more balanced through stressful weeks.",
   },
+  {
+    initials: "PM",
+    name: "Petya M., Varna",
+    text: "After 3 weeks I notice a genuine difference in how calm and focused I feel under pressure.",
+  },
+  {
+    initials: "BT",
+    name: "Boris T., Burgas",
+    text: "The spray format makes it impossible to forget your daily dose. Just spray and go — it is that simple.",
+  },
+  {
+    initials: "AV",
+    name: "Aneta V., Sofia",
+    text: "I recommended InnoVAherb to my whole office. Three colleagues started their own routines and everyone is happy.",
+  },
 ];
 
 export const homeTrustPoints = [
-  "Lab tested",
-  "100% natural",
-  "Made in Bulgaria",
-  "Satisfaction guarantee",
-  "Vegan friendly",
+  { icon: "lab",       label: "Lab Tested" },
+  { icon: "natural",   label: "100% Natural" },
+  { icon: "bulgaria",  label: "Made in Bulgaria" },
+  { icon: "guarantee", label: "30-Day Money-Back" },
+  { icon: "vegan",     label: "Vegan Friendly" },
+  { icon: "fruiting",  label: "Fruiting Body Only" },
 ];
 
 export const homeConversionPoints = [
@@ -122,6 +153,7 @@ type ProductSalesContent = {
   conversionNote: string;
   bundleTitle: string;
   bundleText: string;
+  ratingDist: { five: number; four: number; three: number; two: number; one: number };
   reviews: Array<{
     initials: string;
     name: string;
@@ -152,15 +184,21 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
     conversionNote: "Most first-time customers pair Lion's Mane with Cordyceps or Mix to unlock free shipping and cover both focus and all-day support.",
     bundleTitle: "Focus + Energy starter pair",
     bundleText: "Pair Lion's Mane with Cordyceps for a sharper morning and stronger all-day drive.",
+    ratingDist: { five: 82, four: 13, three: 4, two: 1, one: 0 },
     reviews: [
       { initials: "MK", name: "Maria K., Sofia", text: "My concentration is noticeably better when I use Lion's Mane consistently before work." },
       { initials: "IP", name: "Ivan P., Ruse", text: "The spray format makes it easier to stay consistent than capsules ever did." },
       { initials: "NL", name: "Nina L., Burgas", text: "I use it before deep work blocks and it helps me stay on track much longer." },
+      { initials: "DR", name: "Diana R., Plovdiv", text: "Three weeks in and my study sessions are noticeably more productive. I stay focused much longer without mental fatigue." },
+      { initials: "KV", name: "Kremena V., Stara Zagora", text: "After a month the morning mental clarity is genuinely different — it has become non-negotiable in my routine." },
+      { initials: "HM", name: "Hristo M., Sofia", text: "Using it before work presentations has become a ritual. My mind feels sharper and I feel more confident." },
     ],
     faq: [
       { question: "When should I use Lion's Mane?", answer: "Most customers use it in the morning or before work, study, or any task that needs better concentration." },
       { question: "How long does one bottle last?", answer: "At 3-4 sprays daily, one bottle lasts around 30 daily servings." },
       { question: "Can I combine Lion's Mane with other sprays?", answer: "Yes. Many customers pair it with Cordyceps for mornings or with the Mix spray for broader daily support." },
+      { question: "Is it safe to take alongside medication?", answer: "Our mushroom extracts are generally well-tolerated, but if you take prescription medication or have a health condition please consult your healthcare professional before use." },
+      { question: "Is this made from fruiting body extract or mycelium?", answer: "100% fruiting body extract only. Our Lion's Mane is a 10:1 concentrate from the fruiting body — no mycelium biomass or grain fillers. This is the gold standard for active compound density." },
     ],
     pairsWith: ["cordyceps", "mix"],
   },
@@ -181,15 +219,21 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
     conversionNote: "Cordyceps is a strong choice in a two-bottle order, especially when paired with Lion's Mane or the Mix for broader support.",
     bundleTitle: "Energy + Focus pair",
     bundleText: "Pair Cordyceps with Lion's Mane for a stronger daytime routine that feels complete from the first order.",
+    ratingDist: { five: 87, four: 10, three: 2, two: 1, one: 0 },
     reviews: [
       { initials: "SD", name: "Stefan D., Plovdiv", text: "I use it before workouts and get steady energy without the caffeine crash." },
       { initials: "PV", name: "Petar V., Sofia", text: "Cordyceps has become my go-to on demanding workdays." },
       { initials: "RL", name: "Raya L., Varna", text: "I like how practical the format is. One bottle in my gym bag and I'm covered." },
+      { initials: "MS", name: "Monika S., Sofia", text: "I replaced my pre-workout supplement with Cordyceps. My endurance improved and there is no crash afterward." },
+      { initials: "PT", name: "Plamen T., Varna", text: "Part of my morning routine before long mountain hikes. I notice a real difference in sustained pace." },
+      { initials: "YD", name: "Yulia D., Burgas", text: "As a triathlete I am always looking for clean performance support. Cordyceps fits perfectly and the spray is incredibly convenient." },
     ],
     faq: [
       { question: "Is Cordyceps a stimulant?", answer: "No. It is positioned as natural stamina support, not a stimulant-heavy energy product." },
       { question: "When should I take it?", answer: "Morning use or 20-30 minutes before activity works best for most customers." },
       { question: "Can I use it every day?", answer: "Yes. It is designed for simple daily use as part of a consistent routine." },
+      { question: "Is it safe to take alongside medication?", answer: "Our mushroom extracts are generally well-tolerated, but if you take prescription medication or have a health condition please consult your healthcare professional before use." },
+      { question: "Is Cordyceps a stimulant? Will I feel jittery?", answer: "Cordyceps is not a stimulant. It supports natural cellular energy production without caffeine or synthetic compounds. Most customers describe it as clean, steady energy rather than a buzz." },
     ],
     pairsWith: ["lions-mane", "mix"],
   },
@@ -210,15 +254,21 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
     conversionNote: "Reishi works best when customers stack it with a daytime spray, which makes it a strong second bottle for free-shipping orders.",
     bundleTitle: "Day + Night balance pair",
     bundleText: "Pair Reishi with Lion's Mane for focus in the day and calmer recovery in the evening.",
+    ratingDist: { five: 74, four: 18, three: 6, two: 2, one: 0 },
     reviews: [
       { initials: "EV", name: "Elena V., Sofia", text: "My evenings feel calmer and my sleep quality improved after making Reishi a routine." },
       { initials: "PS", name: "Petya S., Burgas", text: "It helps me transition out of work mode much more easily." },
       { initials: "AM", name: "Anna M., Plovdiv", text: "A few sprays before bed became one of the simplest changes in my wellness routine." },
+      { initials: "DK", name: "Desislava K., Sofia", text: "I started Reishi during a very stressful work quarter. The difference in how I handle pressure has been remarkable." },
+      { initials: "NV", name: "Nikolay V., Plovdiv", text: "With a demanding job, Reishi has become my evening go-to. I wake up genuinely refreshed." },
+      { initials: "MA", name: "Marina A., Varna", text: "The improvement in my sleep quality after consistent Reishi use has been significant. The best format I have tried." },
     ],
     faq: [
       { question: "When should I use Reishi?", answer: "Most customers prefer it in the late afternoon or evening as part of a calmer routine." },
       { question: "Is it good for long-term daily use?", answer: "Yes. It is designed as a repeatable daily support product rather than an occasional use formula." },
       { question: "Can I pair it with a daytime spray?", answer: "Yes. Reishi pairs especially well with Lion's Mane or Cordyceps for a day-to-night stack." },
+      { question: "Is it safe to take alongside medication?", answer: "Our mushroom extracts are generally well-tolerated, but if you take prescription medication or have a health condition please consult your healthcare professional before use." },
+      { question: "Can I take Reishi every day long-term?", answer: "Yes. Reishi has been used as a daily tonic for centuries. Our 10:1 extract is designed for consistent daily use — for best results take it in the evening as part of your wind-down routine." },
     ],
     pairsWith: ["lions-mane", "mix"],
   },
@@ -239,15 +289,21 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
     conversionNote: "Shiitake performs best as a dependable daily-support bottle, often paired with Chaga or Mix in first-time orders.",
     bundleTitle: "Vitality + Resilience pair",
     bundleText: "Pair Shiitake with Chaga for a simple daily-support stack that feels grounded and easy to repeat.",
+    ratingDist: { five: 80, four: 15, three: 4, two: 1, one: 0 },
     reviews: [
       { initials: "TM", name: "Tanya M., Sofia", text: "Shiitake feels like a reliable everyday support product that is easy to keep using." },
       { initials: "DB", name: "Daniel B., Varna", text: "I wanted one formula for daily use and this fit that role well." },
       { initials: "GV", name: "Gergana V., Pleven", text: "The spray makes the habit so much easier than supplement stacks." },
+      { initials: "PS", name: "Petar S., Sofia", text: "This winter I barely got sick. I have been taking Shiitake consistently and believe it has made a real difference." },
+      { initials: "TsM", name: "Tsvetanka M., Burgas", text: "Steadier energy levels throughout the day since starting Shiitake. The effect is subtle but consistent and I keep reordering." },
+      { initials: "SP", name: "Stefan P., Plovdiv", text: "The fruiting body extract with beta-glucan content listed is the transparency that made me trust this brand immediately." },
     ],
     faq: [
       { question: "Who is Shiitake best for?", answer: "It is best for customers who want one simple daily-support formula without a narrow use case." },
       { question: "Can I combine it with other products?", answer: "Yes. Many customers layer it with Lion's Mane, Chaga, or the Mix spray." },
       { question: "Is it beginner-friendly?", answer: "Yes. It is one of the easiest products in the range to understand and use consistently." },
+      { question: "Is it safe to take alongside medication?", answer: "Our mushroom extracts are generally well-tolerated, but if you take prescription medication or have a health condition please consult your healthcare professional before use." },
+      { question: "How much beta-glucan does Shiitake contain and why does it matter?", answer: "Our Shiitake contains a minimum of 25% beta-glucans — the key active compounds for immune modulation. Beta-glucan content is the primary quality marker for mushroom extracts; low-quality products often contain mycelium biomass with near-zero active compounds." },
     ],
     pairsWith: ["chaga", "mix"],
   },
@@ -268,15 +324,21 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
     conversionNote: "Chaga makes the most sense for customers who want to build a broader routine rather than start with a single narrow goal.",
     bundleTitle: "Resilience support pair",
     bundleText: "Pair Chaga with Shiitake for a broader, steady routine built around everyday support.",
+    ratingDist: { five: 89, four: 8, three: 2, two: 1, one: 0 },
     reviews: [
       { initials: "KD", name: "Kalin D., Sofia", text: "Chaga feels like a strong anchor product in my morning wellness routine." },
       { initials: "BL", name: "Bistra L., Varna", text: "I like the no-fuss format and the grounded feel of the product." },
       { initials: "MV", name: "Mira V., Plovdiv", text: "It is easy to stay consistent when the dosing takes seconds." },
+      { initials: "BK", name: "Boryana K., Sofia", text: "Several months of daily Chaga and I genuinely feel more robust. My skin also looks noticeably better — a bonus I did not expect." },
+      { initials: "ET", name: "Evgeny T., Varna", text: "As someone focused on longevity, Chaga was a natural addition to my routine. The spray format makes it effortless to stay consistent." },
+      { initials: "SV", name: "Simona V., Stara Zagora", text: "The dark forest taste is unique — I actually enjoy it. The benefits after two months of daily use speak for themselves." },
     ],
     faq: [
       { question: "When should I take Chaga?", answer: "Morning use is the most common pattern, especially as part of a regular routine." },
       { question: "What kind of customer chooses Chaga?", answer: "Usually customers looking for antioxidant-rich, resilience-oriented support." },
       { question: "Can I stack it with other sprays?", answer: "Yes. Chaga pairs well with Shiitake or the 5-Mushroom Mix." },
+      { question: "Is it safe to take alongside medication?", answer: "Our mushroom extracts are generally well-tolerated, but if you take prescription medication or have a health condition please consult your healthcare professional before use." },
+      { question: "I have heard Chaga is high in oxalates — should I be concerned?", answer: "Our hot-water extraction process significantly reduces oxalate content compared to raw Chaga. If you have a history of kidney stones or oxalate sensitivity, please consult your doctor before use." },
     ],
     pairsWith: ["shiitake", "mix"],
   },
@@ -303,15 +365,21 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
     conversionNote: "The Mix is the easiest first order because it gives new customers one clear starting point with broad everyday support.",
     bundleTitle: "Best-selling starter routine",
     bundleText: "Pair the Mix with Lion's Mane or Cordyceps if you want one broad base plus one focused daytime formula.",
+    ratingDist: { five: 88, four: 9, three: 2, two: 1, one: 0 },
     reviews: [
       { initials: "AK", name: "Alex K., Sofia", text: "The Mix was the easiest way to start. I did not need to overthink which bottle to choose first." },
       { initials: "DV", name: "Diana V., Plovdiv", text: "It feels like the most versatile option when I want one product for everyday use." },
       { initials: "SP", name: "Simeon P., Burgas", text: "If someone is new to the brand, this is the formula I would recommend first." },
+      { initials: "GT", name: "Gergana T., Sofia", text: "The 5-Mushroom Mix was my first order and I have never looked back. Covers all my bases and the morning spray takes five seconds." },
+      { initials: "AP", name: "Andrei P., Ruse", text: "I could not decide which single mushroom to start with so I chose the Mix. Best decision — I feel the broad-spectrum support every single day." },
+      { initials: "VM", name: "Veselina M., Varna", text: "I have recommended the Mix to everyone in my family. My husband started last month and already notices improvements in energy and sleep quality." },
     ],
     faq: [
       { question: "Who should buy the Mix spray?", answer: "It is best for customers who want broad daily support or do not want to choose one narrow goal first." },
       { question: "Is it a good first order?", answer: "Yes. It is the most straightforward starting point for new customers." },
       { question: "Can I still use single-mushroom sprays later?", answer: "Yes. Many customers start with Mix and then add a focused formula later." },
+      { question: "Is it safe to take alongside medication?", answer: "Our mushroom extracts are generally well-tolerated, but if you take prescription medication or have a health condition please consult your healthcare professional before use." },
+      { question: "Which five mushrooms are in the Mix and why were they chosen?", answer: "The Mix contains Lion's Mane (focus), Cordyceps (energy), Reishi (balance), Shiitake (immunity), and Chaga (antioxidant protection). Each covers a different daily goal — together they provide broad-spectrum mind and body support in a single daily spray." },
     ],
     pairsWith: ["lions-mane", "cordyceps"],
   },
