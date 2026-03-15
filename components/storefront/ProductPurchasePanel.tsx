@@ -7,7 +7,6 @@ import { useCart } from "@/components/storefront/CartProvider";
 import { formatEuro } from "@/lib/format";
 import { getProductBySlug } from "@/lib/products";
 import { Locale, Product, ProductCopy } from "@/lib/types";
-import { productSalesContent } from "@/lib/storefront-content";
 
 function usePanelCopy(locale: Locale, reviewLabel: string) {
   if (locale === "bg") {
@@ -18,13 +17,13 @@ function usePanelCopy(locale: Locale, reviewLabel: string) {
       addToCart: "Добави в количката",
       buyNow: "Купи сега",
       shipping: "Доставяме в рамките на България. Безплатна доставка при поръчки над 50 EUR.",
-      guarantee: "Не сте доволни след 30 дни постоянна употреба? Възстановяваме сумата изцяло — без излишни въпроси.",
+      guarantee: "Не сте доволни след 30 дни постоянна употреба? Възстановяваме сумата изцяло, без излишни въпроси.",
       secure: "Сигурно плащане",
       pairBadge: "Препоръчана комбинация",
       pairButton: "Добави стартов комплект",
-      pairNote:
-        "Комбинацията е удобен начин да подкрепите повече от една ежедневна цел, без да усложнявате рутината си.",
+      pairNote: "Комбинацията е удобен начин да подкрепите повече от една ежедневна цел, без да усложнявате рутината си.",
       popular: "Популярна комбинация",
+      dailySupply: "€0.67 / ден · 30-дневен прием",
     };
   }
 
@@ -35,13 +34,13 @@ function usePanelCopy(locale: Locale, reviewLabel: string) {
     addToCart: "Add to Cart",
     buyNow: "Buy Now",
     shipping: "Currently shipping within Bulgaria. Free shipping on orders above EUR 50.",
-    guarantee: "Not satisfied after 30 days of consistent use? We refund in full — no questions asked.",
+    guarantee: "Not satisfied after 30 days of consistent use? We refund in full, no questions asked.",
     secure: "Secure checkout",
     pairBadge: "Recommended pair",
     pairButton: "Add starter pair",
-    pairNote:
-      "A two-spray routine is a popular way to cover more than one daily goal while keeping your routine simple.",
+    pairNote: "A two-spray routine is a popular way to cover more than one daily goal while keeping your routine simple.",
     popular: "Popular pair",
+    dailySupply: "€0.67 / day · 30-day supply",
   };
 }
 
@@ -115,16 +114,24 @@ export function ProductPurchasePanel({
   product,
   copy,
   locale,
+  salesContent,
 }: {
   product: Product;
   copy: ProductCopy;
   locale: Locale;
+  salesContent: {
+    rating: number;
+    reviewCount: number;
+    trustBadges: string[];
+    usageTitle: string;
+    conversionNote: string;
+  };
 }) {
   const router = useRouter();
   const { addItem } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [showSticky, setShowSticky] = useState(false);
-  const sales = productSalesContent[product.slug];
+  const sales = salesContent;
   const reviewLabel =
     locale === "bg"
       ? `${sales.rating.toFixed(1)} · ${sales.reviewCount} отзива`
@@ -137,10 +144,9 @@ export function ProductPurchasePanel({
       return undefined;
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => setShowSticky(!entry.isIntersecting),
-      { threshold: 0.15 },
-    );
+    const observer = new IntersectionObserver(([entry]) => setShowSticky(!entry.isIntersecting), {
+      threshold: 0.15,
+    });
 
     observer.observe(zone);
     return () => observer.disconnect();
@@ -165,10 +171,10 @@ export function ProductPurchasePanel({
   }, [locale, product.stock]);
 
   const getBadgeIcon = (badge: string): string => {
-    const b = badge.toLowerCase();
-    if (b.includes("lab")) return "M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18";
-    if (b.includes("guarantee") || b.includes("day") || b.includes("back")) return "M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z";
-    if (b.includes("spray") || b.includes("capsule")) return "M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3";
+    const normalized = badge.toLowerCase();
+    if (normalized.includes("lab") || normalized.includes("лабо")) return "M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18";
+    if (normalized.includes("guarantee") || normalized.includes("дни") || normalized.includes("гаран")) return "M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z";
+    if (normalized.includes("spray") || normalized.includes("capsule") || normalized.includes("спрей") || normalized.includes("капсул")) return "M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3";
     return "M4.5 12.75l6 6 9-13.5";
   };
 
@@ -195,10 +201,10 @@ export function ProductPurchasePanel({
         </div>
         <div className="mb-4">
           <span className="font-display text-3xl font-bold text-grey-900">{formatEuro(product.priceCents)}</span>
-          <span className="ml-2 text-sm text-grey-400">/ {sales.volume}</span>
-          <p className="mt-1 text-xs font-semibold text-brand-600">€0.67 / day · 30-day supply</p>
+          <span className="ml-2 text-sm text-grey-400">/ 35 ml</span>
+          <p className="mt-1 text-xs font-semibold text-brand-600">{t.dailySupply}</p>
         </div>
-        <p className="mb-6 leading-body text-grey-600">{sales.shortPitch}</p>
+        <p className="mb-6 leading-body text-grey-600">{copy.heroDescription}</p>
 
         <div className="mb-6 flex flex-wrap gap-3">
           {sales.trustBadges.map((badge) => (
@@ -264,7 +270,7 @@ export function ProductPurchasePanel({
           <div className="mt-3 flex items-center gap-2.5 opacity-40">
             <span className="text-[10px] font-medium text-grey-500">{t.secure}</span>
             <svg viewBox="0 0 48 16" className="h-4 w-auto fill-grey-600"><text x="0" y="13" fontSize="14" fontWeight="bold" fontFamily="Arial">VISA</text></svg>
-            <svg viewBox="0 0 36 24" className="h-4 w-auto"><circle cx="14" cy="12" r="10" fill="#888"/><circle cx="22" cy="12" r="10" fill="#aaa" fillOpacity="0.7"/></svg>
+            <svg viewBox="0 0 36 24" className="h-4 w-auto"><circle cx="14" cy="12" r="10" fill="#888" /><circle cx="22" cy="12" r="10" fill="#aaa" fillOpacity="0.7" /></svg>
             <svg viewBox="0 0 60 24" className="h-4 w-auto fill-grey-600"><text x="0" y="17" fontSize="13" fontFamily="Arial">stripe</text></svg>
           </div>
         </div>
@@ -275,7 +281,7 @@ export function ProductPurchasePanel({
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4">
-            <img src={product.image} alt={copy.name} className="h-10 w-10 rounded-lg object-cover" />
+            <img src={product.image} alt={copy.name} className="h-10 w-10 rounded-xl object-cover" />
             <div>
               <h3 className="font-display text-base font-bold text-grey-900">{copy.name}</h3>
               <span className={`text-xs font-semibold ${product.accentClass}`}>{copy.tagline}</span>

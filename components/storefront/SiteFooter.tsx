@@ -2,8 +2,41 @@ import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { products } from "@/lib/products";
+import { withLocale } from "@/lib/i18n";
+import { Locale } from "@/lib/types";
 
-export function SiteFooter() {
+export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
+  const t =
+    locale === "bg"
+      ? {
+          blurb:
+            "Природна интелигентност, усъвършенствана. Премиум български гъбени спрейове за по-лесна ежедневна рутина.",
+          shop: "Продукти",
+          company: "Компания",
+          support: "Поддръжка",
+          about: "За нас",
+          blog: "Блог",
+          contact: "Контакти",
+          shipping: "Доставка и връщане",
+          privacy: "Политика за поверителност",
+          terms: "Общи условия",
+          copyright: "Copyright 2026 InnoVAherb. Всички права запазени.",
+        }
+      : {
+          blurb:
+            "Nature's Intelligence, Perfected. Premium Bulgarian mushroom sprays designed for modern daily rituals.",
+          shop: "Shop",
+          company: "Company",
+          support: "Support",
+          about: "About Us",
+          blog: "Blog",
+          contact: "Contact",
+          shipping: "Shipping and Returns",
+          privacy: "Privacy Policy",
+          terms: "Terms of Service",
+          copyright: "Copyright 2026 InnoVAherb. All rights reserved.",
+        };
+
   return (
     <footer className="bg-grey-900 pb-8 pt-16 text-warm-200">
       <Container>
@@ -19,7 +52,7 @@ export function SiteFooter() {
               className="mb-4 h-8 w-auto brightness-0 invert opacity-80"
             />
             <p className="mb-6 max-w-xs text-sm leading-relaxed text-warm-300">
-              Nature's Intelligence, Perfected. Premium Bulgarian mushroom sprays designed for modern daily rituals.
+              {t.blurb}
             </p>
             <div className="flex gap-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-full bg-grey-800 text-xs font-bold">IG</div>
@@ -28,12 +61,12 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="font-display text-lg font-semibold tracking-heading text-white">Shop</p>
+            <p className="font-display text-lg font-semibold tracking-heading text-white">{t.shop}</p>
             <ul className="mt-4 space-y-2.5 text-sm">
               {products.map((product) => (
                 <li key={product.slug}>
-                  <Link href={`/products/${product.slug}`} className="text-warm-300 transition-colors hover:text-white">
-                    {product.localized.en.name}
+                  <Link href={withLocale(`/products/${product.slug}`, locale)} className="text-warm-300 transition-colors hover:text-white">
+                    {product.localized[locale].name}
                   </Link>
                 </li>
               ))}
@@ -41,25 +74,25 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="font-display text-lg font-semibold tracking-heading text-white">Company</p>
+            <p className="font-display text-lg font-semibold tracking-heading text-white">{t.company}</p>
             <ul className="mt-4 space-y-2.5 text-sm">
-              <li><Link href="/about" className="text-warm-300 transition-colors hover:text-white">About Us</Link></li>
-              <li><Link href="/blog" className="text-warm-300 transition-colors hover:text-white">Blog</Link></li>
-              <li><Link href="/contact" className="text-warm-300 transition-colors hover:text-white">Contact</Link></li>
+              <li><Link href={withLocale("/about", locale)} className="text-warm-300 transition-colors hover:text-white">{t.about}</Link></li>
+              <li><Link href={withLocale("/blog", locale)} className="text-warm-300 transition-colors hover:text-white">{t.blog}</Link></li>
+              <li><Link href={withLocale("/contact", locale)} className="text-warm-300 transition-colors hover:text-white">{t.contact}</Link></li>
             </ul>
           </div>
 
           <div>
-            <p className="font-display text-lg font-semibold tracking-heading text-white">Support</p>
+            <p className="font-display text-lg font-semibold tracking-heading text-white">{t.support}</p>
             <ul className="mt-4 space-y-2.5 text-sm">
-              <li><Link href="/shipping-returns" className="text-warm-300 transition-colors hover:text-white">Shipping and Returns</Link></li>
-              <li><Link href="/privacy-policy" className="text-warm-300 transition-colors hover:text-white">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="text-warm-300 transition-colors hover:text-white">Terms of Service</Link></li>
+              <li><Link href={withLocale("/shipping-returns", locale)} className="text-warm-300 transition-colors hover:text-white">{t.shipping}</Link></li>
+              <li><Link href={withLocale("/privacy-policy", locale)} className="text-warm-300 transition-colors hover:text-white">{t.privacy}</Link></li>
+              <li><Link href={withLocale("/terms", locale)} className="text-warm-300 transition-colors hover:text-white">{t.terms}</Link></li>
             </ul>
           </div>
         </div>
         <div className="pt-8 text-center">
-          <p className="text-xs text-grey-400">Copyright 2026 InnoVAherb. All rights reserved.</p>
+          <p className="text-xs text-grey-400">{t.copyright}</p>
         </div>
       </Container>
     </footer>
