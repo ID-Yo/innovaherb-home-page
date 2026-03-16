@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import { CartProvider } from "@/components/storefront/CartProvider";
-import { ChatWidget } from "@/components/storefront/ChatWidget";
+import { DeferredChatWidget } from "@/components/storefront/DeferredChatWidget";
 import { buildMetadata } from "@/lib/metadata";
 import "./globals.css";
 
@@ -36,7 +36,7 @@ export default async function RootLayout({
       <body className={`${bodyFont.variable} ${displayFont.variable} ${bodyFont.className}`}>
         <CartProvider>
           {children}
-          <ChatWidget />
+          <DeferredChatWidget />
         </CartProvider>
       </body>
     </html>

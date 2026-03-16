@@ -21,6 +21,7 @@ function buildInternalUrl(request: NextRequest, pathname: string, locale: string
   const internal = request.nextUrl.clone();
   internal.pathname = pathname;
   internal.searchParams.set("lang", locale);
+  internal.searchParams.set("__i18n", "1");
   return internal;
 }
 
@@ -34,7 +35,9 @@ export async function middleware(request: NextRequest) {
   }
 
   const queryLocale = request.nextUrl.searchParams.get("lang") ?? undefined;
-  if (isLocale(queryLocale)) {
+  const isInternalLocaleRewrite = request.nextUrl.searchParams.get("__i18n") === "1";
+
+  if (isLocale(queryLocale) && !isInternalLocaleRewrite) {
     const redirectUrl = request.nextUrl.clone();
     redirectUrl.searchParams.delete("lang");
     redirectUrl.pathname = queryLocale === DEFAULT_LOCALE ? stripLocalePrefix(redirectUrl.pathname) : `/${queryLocale}${stripLocalePrefix(redirectUrl.pathname) === "/" ? "" : stripLocalePrefix(redirectUrl.pathname)}`;

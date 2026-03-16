@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { notFound } from "next/navigation";
@@ -140,7 +141,15 @@ export default async function ProductPage({
               <div className="animate-fade-in-up delay-100">
                 <div className="product-img-wrap relative overflow-hidden rounded-3xl bg-white p-6 shadow-product sm:p-8">
                   <div className="absolute inset-0 bg-gradient-to-br from-brand-50/30 to-transparent" />
-                  <img src={product.image} alt={copy.name} className="relative mx-auto w-full max-w-xs rounded-[1.75rem]" />
+                  <Image
+                    src={product.image}
+                    alt={`${copy.name} spray bottle`}
+                    width={1000}
+                    height={1000}
+                    sizes="(min-width: 1024px) 34rem, 100vw"
+                    quality={74}
+                    className="relative mx-auto w-full max-w-xs rounded-[1.75rem]"
+                  />
                 </div>
                 <RecommendedPairCard
                   locale={locale}
@@ -175,7 +184,7 @@ export default async function ProductPage({
             <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
               <div>
                 <h2 className="font-display text-xl font-bold tracking-heading text-grey-900 sm:text-2xl">{t.whyBuy(copy.name)}</h2>
-                <p className="mt-3 leading-body text-grey-600">{copy.heroDescription}</p>
+                <p className="mt-3 leading-body text-grey-600">{sales.shortPitch}</p>
                 <div className="mt-5 grid gap-4 sm:grid-cols-2">
                   <div className="rounded-2xl border border-warm-200/70 bg-warm-50 p-5">
                     <h3 className="font-body text-sm font-semibold uppercase tracking-[0.2em] text-brand-600">{t.keyBenefits}</h3>
@@ -321,7 +330,15 @@ export default async function ProductPage({
                   className="product-card group block rounded-2xl bg-white p-5 shadow-product"
                 >
                   <div className="relative mb-3 overflow-hidden rounded-xl bg-warm-50 p-3">
-                    <img src={paired.image} alt={paired.localized[locale].name} className="mx-auto h-auto w-28 rounded-2xl transition-transform duration-500 ease-spring" />
+                    <Image
+                      src={paired.image}
+                      alt={`${paired.localized[locale].name} spray bottle`}
+                      width={1000}
+                      height={1000}
+                      sizes="112px"
+                      quality={70}
+                      className="mx-auto h-auto w-28 rounded-2xl transition-transform duration-500 ease-spring"
+                    />
                   </div>
                   <span className={`text-xs font-bold uppercase tracking-widest ${paired.accentClass}`}>
                     {paired.localized[locale].tagline}

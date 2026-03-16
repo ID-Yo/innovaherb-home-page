@@ -197,38 +197,6 @@ export default async function HomePage({
           </Container>
         </section>
 
-        <section className="bg-white py-5 sm:py-6">
-          <Container>
-            <div className="mb-4 text-center sm:mb-5">
-              <h2 className="font-display text-2xl font-bold tracking-heading text-grey-900 sm:text-3xl lg:text-4xl">
-                {t.offerHeading}
-              </h2>
-              <p className="mx-auto mt-2 max-w-2xl text-base text-grey-500">{t.offerText}</p>
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-3 lg:gap-5">
-              {t.offerCards.map((card, index) => (
-                <div
-                  key={card.title}
-                  className={`rounded-xl border p-5 shadow-elevated sm:rounded-2xl sm:p-6 ${index === 0 ? "border-brand-200 bg-brand-50/70" : "border-warm-200/70 bg-warm-50"}`}
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">{card.eyebrow}</p>
-                    <span className={`rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest ${index === 0 ? "bg-brand-700 text-white" : "bg-white text-grey-600"}`}>
-                      {card.badge}
-                    </span>
-                  </div>
-                  <h3 className="mt-4 font-display text-2xl font-bold text-grey-900">{card.title}</h3>
-                  <p className="mt-3 text-sm leading-body text-grey-600">{card.text}</p>
-                  <Link href={withLocale(card.href, locale)} className={`btn-press mt-5 inline-flex rounded-xl px-5 py-3 text-sm font-semibold transition-colors ${index === 0 ? "bg-brand-700 text-white hover:bg-brand-800" : "border border-warm-200 bg-white text-grey-800 hover:bg-warm-50"}`}>
-                    {card.cta}
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </Container>
-        </section>
-
         <section className="border-y border-warm-100 bg-white py-8 sm:py-12">
           <Container>
             <div className="grid grid-cols-3 divide-x divide-warm-200/70">
@@ -431,31 +399,6 @@ export default async function HomePage({
           </Container>
         </section>
 
-        <section className="grain relative overflow-hidden py-5 sm:py-6">
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-600 via-brand-700 to-brand-800" />
-          <div className="absolute right-0 top-0 hidden h-96 w-96 rounded-full bg-brand-400/20 blur-3xl sm:block" />
-
-          <Container className="relative max-w-2xl text-center">
-            <h2 className="font-display text-2xl font-bold tracking-heading text-white sm:text-3xl">
-              {t.newsletterHeading}
-            </h2>
-            <p className="mb-6 mt-3 text-sm text-brand-100 sm:text-base">{t.newsletterText}</p>
-            <p className="mb-4 text-center text-xs font-medium text-white/70">{t.newsletterProof}</p>
-            <form className="mx-auto flex max-w-lg flex-col gap-3 sm:flex-row">
-              <input
-                type="email"
-                required
-                placeholder={t.newsletterPlaceholder}
-                className="flex-1 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/40"
-              />
-              <button type="submit" className="btn-press rounded-xl bg-white px-5 py-3 text-sm font-bold text-brand-700 transition-colors duration-200 hover:bg-warm-50">
-                {t.newsletterButton}
-              </button>
-            </form>
-            <p className="mt-3 text-center text-xs text-white/40">{t.newsletterNote}</p>
-          </Container>
-        </section>
-
         <section className="bg-white py-5 sm:py-6">
           <Container className="max-w-4xl">
             <div className="mb-4 text-center sm:mb-5">
@@ -480,6 +423,34 @@ export default async function HomePage({
                 </details>
               ))}
             </div>
+          </Container>
+        </section>
+
+        <section className="grain relative overflow-hidden py-5 sm:py-6">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-600 via-brand-700 to-brand-800" />
+          <div className="absolute right-0 top-0 hidden h-96 w-96 rounded-full bg-brand-400/20 blur-3xl sm:block" />
+
+          <Container className="relative max-w-2xl text-center">
+            <h2 className="font-display text-2xl font-bold tracking-heading text-white sm:text-3xl">
+              {t.newsletterHeading}
+            </h2>
+            <p className="mb-6 mt-3 text-sm text-brand-100 sm:text-base">{t.newsletterText}</p>
+            <p className="mb-5 text-center text-xs font-medium uppercase tracking-[0.18em] text-white/70">{t.newsletterProof}</p>
+            <div className="mx-auto flex max-w-lg flex-col gap-3 sm:flex-row sm:justify-center">
+              <Link
+                href={withLocale("/products/mix", locale)}
+                className="btn-press rounded-xl bg-white px-5 py-3 text-sm font-bold text-brand-700 transition-colors duration-200 hover:bg-warm-50"
+              >
+                {t.newsletterButton}
+              </Link>
+              <Link
+                href={withLocale("/#products", locale)}
+                className="btn-press rounded-xl border border-white/25 bg-white/10 px-5 py-3 text-sm font-bold text-white transition-colors duration-200 hover:bg-white/15"
+              >
+                {t.shop}
+              </Link>
+            </div>
+            <p className="mt-3 text-center text-xs text-white/50">{t.newsletterNote}</p>
           </Container>
         </section>
       </main>

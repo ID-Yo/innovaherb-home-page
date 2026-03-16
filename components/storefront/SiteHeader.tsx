@@ -41,7 +41,7 @@ const content = {
     products: "Produkter",
     about: "Om oss",
     blog: "Blogg",
-    contacts: "Kontakter",
+    contacts: "Kontakt",
     cartLabel: (count: number) => `Varukorg (${count})`,
   },
 } as const;

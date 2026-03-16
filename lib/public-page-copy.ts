@@ -10,7 +10,7 @@ export const aboutPageContent: Record<Locale, { metadataTitle: string; metadataD
     paragraphs: [
       "InnoVAherb was created for people who want natural supplement routines that feel practical instead of complicated. The collection starts with premium mushroom extracts and turns them into simple oral sprays that fit workdays, home routines, and travel.",
       "The brand position is direct: one spray, one clear use case, one premium but accessible daily ritual. That clarity carries into the storefront, the product naming, and the order flow. Every product page explains what the formula is for, how to use it, and how it fits into a real routine.",
-      "As the e-commerce product grows, the focus stays the same: clean product data, straightforward checkout, and operations that give the team visibility into every order from payment to fulfillment.",
+      "As the store grows, the focus stays the same: clear product information, a straightforward checkout experience, and visibility into every order from payment to fulfillment.",
     ],
   },
   bg: {
@@ -22,7 +22,7 @@ export const aboutPageContent: Record<Locale, { metadataTitle: string; metadataD
     paragraphs: [
       "InnoVAherb е създаден за хора, които искат натурална рутина с добавки, която да бъде практична, а не сложна. Колекцията започва с премиум гъбени екстракти и ги превръща в лесни орални спрейове за работни дни, домашна рутина и пътуване.",
       "Позиционирането на марката е ясно: един спрей, една конкретна цел, един премиум, но достъпен ежедневен ритуал. Тази яснота се вижда в магазина, в имената на продуктите и в процеса на поръчка.",
-      "Докато електронният магазин расте, фокусът остава същият: чисти продуктови данни, директен checkout и ясна оперативна видимост за всеки етап от поръчката.",
+      "Докато магазинът расте, фокусът остава същият: ясна продуктова информация, лесно финализиране на поръчката и прозрачност за всеки етап от изпълнението.",
     ],
   },
   ru: {
@@ -34,7 +34,7 @@ export const aboutPageContent: Record<Locale, { metadataTitle: string; metadataD
     paragraphs: [
       "InnoVAherb создан для людей, которые хотят, чтобы натуральная рутина с добавками была практичной, а не сложной. Коллекция начинается с премиальных грибных экстрактов и превращает их в удобные оральные спреи для работы, дома и поездок.",
       "Позиционирование бренда прямое: один спрей, одна понятная задача, один премиальный, но доступный ежедневный ритуал. Эта ясность сохраняется и в магазине, и в названиях продуктов, и в процессе заказа.",
-      "По мере роста интернет-магазина фокус остается тем же: чистые данные о продуктах, понятный checkout и прозрачная операционная видимость по каждому заказу от оплаты до отправки.",
+      "По мере роста магазина фокус остается тем же: понятная информация о продуктах, простой процесс оформления и прозрачность по каждому заказу от оплаты до отправки.",
     ],
   },
   sv: {
@@ -46,7 +46,7 @@ export const aboutPageContent: Record<Locale, { metadataTitle: string; metadataD
     paragraphs: [
       "InnoVAherb skapades for personer som vill ha naturliga kosttillskottsrutiner som kanns praktiska i stallet for komplicerade. Kollektionen borjar med premiumextrakt fran svamp och gor dem till enkla orala sprayer for arbetsdagar, hemmarutiner och resor.",
       "Varumarkets position ar tydlig: en spray, ett klart anvandningsomrade, en premium men tillganglig daglig rutin. Den tydligheten finns i butiken, i produktnamnen och i bestallningsflodet.",
-      "Nar e-handeln vaxer ar fokus detsamma: rena produktdata, tydlig checkout och drift som ger teamet insyn i varje bestallning fran betalning till leverans.",
+      "När butiken växer är fokus detsamma: tydlig produktinformation, enkel checkout och full insyn i varje beställning från betalning till leverans.",
     ],
   },
 };
@@ -111,11 +111,11 @@ export const contactPageContent: Record<Locale, { metadataTitle: string; metadat
     body: "Reach out for product questions, wholesale requests, or order support. We currently deliver across Bulgaria and are happy to help with shipping, product selection, and after-purchase care.",
     email: "Email",
     phone: "Phone",
-    faqTitle: "FAQ snapshot",
+    faqTitle: "Quick support answers",
     blocks: [
       { title: "Shipping coverage", text: "We currently ship orders across Bulgaria." },
       { title: "Payments", text: "Secure card payments are handled via Stripe Checkout." },
-      { title: "Returns", text: "See the dedicated shipping and returns page for delivery and support details." },
+      { title: "Returns", text: "Visit the shipping and returns page for delivery details, return guidance, and the next step if you need help." },
     ],
   },
   bg: {
@@ -152,15 +152,15 @@ export const contactPageContent: Record<Locale, { metadataTitle: string; metadat
     metadataTitle: "Kontakta InnoVAherb | Support och hjalp med bestallningar",
     metadataDescription: "Kontakta InnoVAherb for fragor om produkter, frakt, grossistforfragan och bestallningshjalp i Bulgarien.",
     eyebrow: "Support",
-    title: "Behover du hjalp med en produkt eller bestallning?",
-    body: "Hor av dig om du har frager om produkter, grossistforfragan eller behov av hjalp med en bestallning. Vi levererar for narvarande i hela Bulgarien och hjalper garna till med frakt, produktval och support efter kopet.",
+    title: "Behöver du hjälp med en produkt eller beställning?",
+    body: "Hör av dig om du har frågor om produkter, grossistförfrågningar eller behöver hjälp med en beställning. Vi levererar för närvarande i hela Bulgarien och hjälper gärna till med frakt, produktval och support efter köpet.",
     email: "E-post",
     phone: "Telefon",
     faqTitle: "Snabba svar",
     blocks: [
       { title: "Leveransomrade", text: "Vi skickar for narvarande bestallningar inom hela Bulgarien." },
       { title: "Betalningar", text: "Sakra kortbetalningar hanteras via Stripe Checkout." },
-      { title: "Returer", text: "Se sidan om frakt och returer for mer information om leverans och support." },
+      { title: "Returer", text: "Se sidan om frakt och returer för tydliga detaljer om leverans, returer och hur du får hjälp." },
     ],
   },
 };

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { AddToCartButton } from "@/components/storefront/add-to-cart-button";
 import { useCart } from "@/components/storefront/CartProvider";
 import { formatEuro } from "@/lib/format";
+import { commerceLocale, withLocale } from "@/lib/i18n";
 import { getProductBySlug } from "@/lib/products";
 import { Locale, Product, ProductCopy } from "@/lib/types";
 
@@ -14,6 +15,8 @@ function usePanelCopy(locale: Locale, reviewLabel: string) {
       reviewLabel,
       quantity: "Количество",
       stock: "Наличност",
+      bestFor: "Най-подходящ за",
+      pairHeading: "Защо клиентите често добавят още една бутилка",
       addToCart: "Добави в количката",
       buyNow: "Купи сега",
       shipping: "Доставяме в рамките на България. Безплатна доставка при поръчки над 50 EUR.",
@@ -27,10 +30,52 @@ function usePanelCopy(locale: Locale, reviewLabel: string) {
     };
   }
 
+  if (locale === "ru") {
+    return {
+      reviewLabel,
+      quantity: "Количество",
+      stock: "В наличии",
+      bestFor: "Лучше всего подходит для",
+      pairHeading: "Почему покупатели часто добавляют вторую бутылочку",
+      addToCart: "Добавить в корзину",
+      buyNow: "Купить сейчас",
+      shipping: "Доставляем по Болгарии. Бесплатная доставка при заказах от 50 EUR.",
+      guarantee: "Если после 30 дней регулярного использования продукт вам не подойдет, мы полностью вернем деньги.",
+      secure: "Безопасная оплата",
+      pairBadge: "Рекомендуемая пара",
+      pairButton: "Добавить стартовую пару",
+      pairNote: "Две бутылочки помогают закрыть больше одной ежедневной цели и сразу собрать более удобную рутину.",
+      popular: "Популярное сочетание",
+      dailySupply: "€0.67 / день · запас на 30 дней",
+    };
+  }
+
+  if (locale === "sv") {
+    return {
+      reviewLabel,
+      quantity: "Antal",
+      stock: "I lager",
+      bestFor: "Passar bäst för",
+      pairHeading: "Varför många kunder börjar med två flaskor",
+      addToCart: "Lägg i varukorgen",
+      buyNow: "Köp nu",
+      shipping: "Vi levererar inom Bulgarien. Fri frakt gäller för beställningar över 50 EUR.",
+      guarantee: "Om du inte är nöjd efter 30 dagars konsekvent användning får du pengarna tillbaka.",
+      secure: "Säker betalning",
+      pairBadge: "Rekommenderad kombination",
+      pairButton: "Lägg till startpaketet",
+      pairNote: "Två sprayer gör det enklare att täcka fler än ett dagligt mål utan att göra rutinen komplicerad.",
+      popular: "Populärt par",
+      dailySupply: "€0.67 / dag · räcker i 30 dagar",
+    };
+  }
+
   return {
     reviewLabel,
     quantity: "Quantity",
     stock: "In stock",
+    bestFor: "Best for",
+    pairHeading: "Why customers often start with a second bottle",
     addToCart: "Add to Cart",
     buyNow: "Buy Now",
     shipping: "Currently shipping within Bulgaria. Free shipping on orders above EUR 50.",
@@ -38,7 +83,7 @@ function usePanelCopy(locale: Locale, reviewLabel: string) {
     secure: "Secure checkout",
     pairBadge: "Recommended pair",
     pairButton: "Add starter pair",
-    pairNote: "A two-spray routine is a popular way to cover more than one daily goal while keeping your routine simple.",
+    pairNote: "A two-spray routine helps cover more than one daily goal while keeping the routine simple from the first order.",
     popular: "Popular pair",
     dailySupply: "€0.67 / day · 30-day supply",
   };
@@ -65,11 +110,12 @@ export function RecommendedPairCard({
   const productCopy = product.localized[locale];
   const pairedCopy = pairedProduct?.localized[locale] ?? pairedProduct?.localized.en;
   const t = usePanelCopy(locale, "");
+  const storeLocale = commerceLocale(locale);
 
   const addBundle = () => {
     addItem(product.slug, 1);
     addItem(pairSlug, 1);
-    router.push("/cart");
+    router.push(withLocale("/cart", storeLocale));
   };
 
   if (!pairedCopy) {
@@ -132,10 +178,15 @@ export function ProductPurchasePanel({
   const [quantity, setQuantity] = useState(1);
   const [showSticky, setShowSticky] = useState(false);
   const sales = salesContent;
+  const storeLocale = commerceLocale(locale);
   const reviewLabel =
     locale === "bg"
       ? `${sales.rating.toFixed(1)} · ${sales.reviewCount} отзива`
-      : `${sales.rating.toFixed(1)} · ${sales.reviewCount} reviews`;
+      : locale === "ru"
+        ? `${sales.rating.toFixed(1)} · ${sales.reviewCount} отзывов`
+        : locale === "sv"
+          ? `${sales.rating.toFixed(1)} · ${sales.reviewCount} omdömen`
+          : `${sales.rating.toFixed(1)} · ${sales.reviewCount} reviews`;
   const t = usePanelCopy(locale, reviewLabel);
 
   useEffect(() => {
@@ -156,17 +207,29 @@ export function ProductPurchasePanel({
     if (product.stock <= 12) {
       return locale === "bg"
         ? `Остават само ${product.stock} броя от тази партида.`
+        : locale === "ru"
+          ? `Осталось только ${product.stock} шт. из текущей партии.`
+          : locale === "sv"
+            ? `Lågt lager: bara ${product.stock} kvar i den här batchen.`
         : `Low stock: only ${product.stock} left in this batch.`;
     }
 
     if (product.stock <= 24) {
       return locale === "bg"
         ? `Налични са ${product.stock} броя от текущата партида.`
+        : locale === "ru"
+          ? `В наличии ${product.stock} шт. из текущей партии.`
+          : locale === "sv"
+            ? `${product.stock} enheter finns kvar i den aktuella batchen.`
         : `${product.stock} units available from the current batch.`;
     }
 
     return locale === "bg"
       ? "Изпращане от България в рамките на 1 работен ден."
+      : locale === "ru"
+        ? "Отправка из Болгарии в течение 1 рабочего дня."
+        : locale === "sv"
+          ? "Skickas från Bulgarien inom 1 arbetsdag."
       : "Ships from Bulgaria in 1 business day.";
   }, [locale, product.stock]);
 
@@ -180,7 +243,7 @@ export function ProductPurchasePanel({
 
   const buyNow = () => {
     addItem(product.slug, quantity);
-    router.push("/checkout");
+    router.push(withLocale("/checkout", storeLocale));
   };
 
   return (
@@ -243,11 +306,15 @@ export function ProductPurchasePanel({
                 +
               </button>
             </div>
-            <p className="text-sm text-grey-500">{sales.usageTitle}</p>
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-600">{t.bestFor}</p>
+              <p className="mt-1 text-sm text-grey-500">{sales.usageTitle}</p>
+            </div>
           </div>
-          <p className="mb-4 rounded-xl bg-warm-50 px-4 py-3 text-sm leading-body text-grey-600">
-            {sales.conversionNote}
-          </p>
+          <div className="mb-4 rounded-xl bg-warm-50 px-4 py-3">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-600">{t.pairHeading}</p>
+            <p className="mt-1 text-sm leading-body text-grey-600">{sales.conversionNote}</p>
+          </div>
           <div className="grid gap-3 sm:grid-cols-2">
             <AddToCartButton slug={product.slug} quantity={quantity} className="w-full py-3 text-sm font-bold">
               {t.addToCart}
