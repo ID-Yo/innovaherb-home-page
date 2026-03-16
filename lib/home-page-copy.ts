@@ -1,0 +1,355 @@
+import { Locale } from "@/lib/types";
+
+type HomeContent = {
+  metadataTitle: string;
+  metadataDescription: string;
+  trusted: string;
+  title: string;
+  subtitle: string;
+  shop: string;
+  how: string;
+  firstPurchase: string;
+  firstPurchaseTitle: string;
+  firstPurchaseText: string;
+  firstPurchaseCta: string;
+  imageText: string;
+  shopByGoal: string;
+  shopByGoalText: string;
+  freeShipping: string;
+  freeShippingText: string;
+  ritual: string;
+  ritualText: string;
+  bestSeller: string;
+  bestSellerText: string;
+  offerHeading: string;
+  offerText: string;
+  offerCards: Array<{ eyebrow: string; title: string; text: string; cta: string; href: string; badge: string }>;
+  metrics: Array<{ num: string; sub: string; accent: boolean }>;
+  trustPoints: Array<{ icon: string; label: string }>;
+  howHeading: string;
+  howText: string;
+  howSteps: Array<{ step: string; title: string; text: string }>;
+  comparisonHeading: string;
+  comparisonText: string;
+  comparisonGoals: Record<string, string>;
+  traitLabels: Record<string, string>;
+  comparisonShop: string;
+  comparisonBuy: string;
+  originEyebrow: string;
+  originTitle: string;
+  originTextOne: string;
+  originTextTwo: string;
+  originCta: string;
+  reviewsHeading: string;
+  aggregateReviewLabel: string;
+  verifiedPurchase: string;
+  reviews: Array<{ initials: string; name: string; text: string }>;
+  newsletterHeading: string;
+  newsletterText: string;
+  newsletterProof: string;
+  newsletterPlaceholder: string;
+  newsletterButton: string;
+  newsletterNote: string;
+  faqHeading: string;
+  faqText: string;
+  faqs: Array<{ question: string; answer: string }>;
+};
+
+export const homeContentByLocale: Record<Locale, HomeContent> = {
+  en: {
+    metadataTitle: "Bulgarian Mushroom Extract Sprays | InnoVAherb",
+    metadataDescription: "Shop Bulgarian mushroom extract sprays for focus, energy, balance, vitality, and immunity. Explore six InnoVAherb formulas with secure checkout.",
+    trusted: "Trusted by 2,000+ customers across Europe",
+    title: "Bulgarian Mushroom Extract Sprays for Daily Focus, Energy, and Vitality",
+    subtitle: "Discover premium Bulgarian mushroom extract sprays for focus, energy, balance, immunity, and full-spectrum daily support in a faster, easier oral format.",
+    shop: "Shop Our Collection",
+    how: "How It Works",
+    firstPurchase: "Recommended first purchase",
+    firstPurchaseTitle: "Start with the 5-Mushroom Mix",
+    firstPurchaseText: "The easiest entry point for shoppers who want one bottle to cover more than one goal.",
+    firstPurchaseCta: "Shop the best seller",
+    imageText: "InnoVAherb mushroom extract sprays are designed for shoppers who want a simpler wellness routine, cleaner daily dosing, and formulas matched to clear goals like mental clarity, natural energy, evening balance, and everyday resilience.",
+    shopByGoal: "Shop by Goal",
+    shopByGoalText: "Every mushroom has a role. Pick the result you want, or start with the Mix if you want the easiest first order.",
+    freeShipping: "Free shipping",
+    freeShippingText: "On Bulgaria orders over EUR 50.",
+    ritual: "Daily ritual",
+    ritualText: "Spray in seconds, no capsules or prep.",
+    bestSeller: "Best seller",
+    bestSellerText: "Start with the 5-Mushroom Mix if you are unsure.",
+    offerHeading: "Choose the Best First Order",
+    offerText: "Pick the buying path that feels easiest for you: a best-selling all-in-one spray, a two-bottle routine, or a single formula matched to one clear goal.",
+    offerCards: [
+      { eyebrow: "Best first order", title: "Start with the 5-Mushroom Mix", text: "The easiest starting point for first-time buyers who want one bottle that covers multiple goals.", cta: "Shop the Mix", href: "/products/mix", badge: "Best seller" },
+      { eyebrow: "Free shipping unlock", title: "Build a two-bottle routine", text: "Most customers pair a daytime spray with a broader evening or all-day support formula to cover more than one goal and qualify for free shipping.", cta: "Browse pairings", href: "/#products", badge: "Most popular" },
+      { eyebrow: "Low-risk trial", title: "Test one bottle first", text: "Every formula shares the same price, which makes it easy to try one targeted spray before expanding your routine.", cta: "Choose by goal", href: "/#products", badge: "Simple option" },
+    ],
+    metrics: [{ num: "2,000+", sub: "happy customers", accent: false }, { num: "€0.67", sub: "per day, per bottle", accent: true }, { num: "1 day", sub: "shipping from Bulgaria", accent: false }],
+    trustPoints: [{ icon: "lab", label: "Lab Tested" }, { icon: "natural", label: "100% Natural" }, { icon: "bulgaria", label: "Made in Bulgaria" }, { icon: "guarantee", label: "30-Day Money-Back" }, { icon: "vegan", label: "Vegan Friendly" }, { icon: "fruiting", label: "Fruiting Body Only" }],
+    howHeading: "How It Works",
+    howText: "Three simple steps to build a mushroom routine that actually fits modern life.",
+    howSteps: [{ step: "1", title: "Shake", text: "Activate the extract before each use." }, { step: "2", title: "Spray", text: "Use 3 to 4 sprays under the tongue." }, { step: "3", title: "Stay consistent", text: "Use daily for 2 to 4 weeks to feel the full routine." }],
+    comparisonHeading: "Which Mushroom Is Right for You?",
+    comparisonText: "Each formula targets a different goal. Compare them to find your match or start with the 5-Mix to cover more than one area.",
+    comparisonGoals: { "lions-mane": "Focus & Memory", cordyceps: "Energy & Stamina", reishi: "Calm & Balance", shiitake: "Daily Vitality", chaga: "Antioxidants", mix: "Full Spectrum" },
+    traitLabels: { focus: "Focus", energy: "Energy", sleep: "Sleep", immunity: "Immunity", antioxidant: "Antioxidants" },
+    comparisonShop: "Shop",
+    comparisonBuy: "Buy",
+    originEyebrow: "Our Origin",
+    originTitle: "From Bulgarian Forests to Your Daily Ritual",
+    originTextOne: "InnoVAherb was created to turn the quiet strength of medicinal mushrooms into a modern daily habit. We use Bulgarian-sourced ingredients and a premium spray format so customers get a cleaner, more practical route to focus, energy, balance, vitality, and full-spectrum wellness.",
+    originTextTwo: "The goal is not complexity. It is repeatability. Every bottle is built to be easy to understand, easy to use, and easy to reorder because the routine genuinely fits real life.",
+    originCta: "Learn Our Story",
+    reviewsHeading: "What Our Customers Say",
+    aggregateReviewLabel: "★★★★★ 4.9 average · 800+ verified reviews",
+    verifiedPurchase: "Verified Purchase",
+    reviews: [
+      { initials: "MK", name: "Maria K., Sofia", text: "I've noticed a real improvement in my focus since starting the Lion's Mane spray. It fits perfectly into my morning work routine." },
+      { initials: "SD", name: "Stefan D., Plovdiv", text: "Cordyceps gives me a clean energy lift before training. No jitters, just steady drive and better endurance." },
+      { initials: "EV", name: "Elena V., Varna", text: "Reishi became part of my evening ritual. I sleep better and feel far more balanced through stressful weeks." },
+      { initials: "PM", name: "Petya M., Varna", text: "After 3 weeks I notice a genuine difference in how calm and focused I feel under pressure." },
+      { initials: "BT", name: "Boris T., Burgas", text: "The spray format makes it impossible to forget your daily dose. Just spray and go. It is that simple." },
+      { initials: "AV", name: "Aneta V., Sofia", text: "I recommended InnoVAherb to my whole office. Three colleagues started their own routines and everyone is happy." }
+    ],
+    newsletterHeading: "Join the InnoVAherb Community",
+    newsletterText: "Wellness tips, product drops, and offers for customers who want to build a better routine around natural mushroom support.",
+    newsletterProof: "Join 2,000+ customers already on their routine",
+    newsletterPlaceholder: "Enter your email",
+    newsletterButton: "Get 10% Off",
+    newsletterNote: "No spam. Unsubscribe any time.",
+    faqHeading: "Frequently Asked Questions About Our Mushroom Extract Sprays",
+    faqText: "Find quick answers about how InnoVAherb sprays work, which formula to start with, and how delivery works in Bulgaria.",
+    faqs: [
+      { question: "What makes InnoVAherb different from capsules or powders?", answer: "InnoVAherb uses a fast, convenient spray format that is easier to carry, easier to dose, and easier to repeat every day than capsules, teas, or powder blends." },
+      { question: "Which mushroom spray should I start with?", answer: "Most first-time customers start with the 5-Mushroom Mix for broader support, then add a more focused formula such as Lion's Mane, Cordyceps, or Reishi based on their main goal." },
+      { question: "Do you ship across Bulgaria?", answer: "Yes. InnoVAherb currently ships within Bulgaria, and orders above EUR 50 qualify for free shipping." },
+      { question: "How do I use the sprays each day?", answer: "Shake the bottle, spray 3 to 4 times under the tongue, hold briefly, and use consistently as part of your daily routine." },
+      { question: "How much extract is in each spray bottle?", answer: "Every InnoVAherb bottle contains 35 ml and is designed for around 30 daily servings when used as directed." },
+      { question: "Can I combine two sprays in one routine?", answer: "Yes. Many customers combine one daytime formula with one evening or broader-support formula to match more than one goal without overcomplicating the routine." },
+      { question: "How quickly do customers notice a difference?", answer: "Some customers notice the routine benefits within the first days, but the best results usually come after 2 to 4 weeks of consistent daily use." },
+      { question: "Are the sprays easy to carry and use on the go?", answer: "Yes. The compact 35 ml format fits easily into a bag, desk drawer, or gym kit, making it easier to stay consistent every day." }
+    ],
+  },
+  bg: {
+    metadataTitle: "Български спрейове с гъбени екстракти | InnoVAherb",
+    metadataDescription: "Поръчайте български спрейове с гъбени екстракти за фокус, енергия, баланс, жизненост и имунитет. Разгледайте шестте формули на InnoVAherb.",
+    trusted: "Доверие от над 2 000 клиенти в Европа",
+    title: "Български спрейове с гъбени екстракти за ежедневен фокус, енергия и жизненост",
+    subtitle: "Открийте премиум български спрейове с гъбени екстракти за фокус, енергия, баланс, имунитет и цялостна ежедневна подкрепа в по-бърз и удобен орален формат.",
+    shop: "Разгледай колекцията",
+    how: "Как работи",
+    firstPurchase: "Препоръчителна първа поръчка",
+    firstPurchaseTitle: "Започнете с Микс 5 гъби",
+    firstPurchaseText: "Най-лесният старт, ако искате една бутилка да покрива повече от една ежедневна цел.",
+    firstPurchaseCta: "Към бестселъра",
+    imageText: "InnoVAherb спрейовете с гъбени екстракти са създадени за хора, които искат по-лесна уелнес рутина, по-чисто ежедневно дозиране и формули, насочени към ясни цели като умствена яснота, естествена енергия, вечерен баланс и ежедневна устойчивост.",
+    shopByGoal: "Изберете по цел",
+    shopByGoalText: "Всяка гъба има своя роля. Изберете резултата, който търсите, или започнете с Микса, ако искате най-лесната първа поръчка.",
+    freeShipping: "Безплатна доставка",
+    freeShippingText: "За поръчки в България над 50 EUR.",
+    ritual: "Ежедневен ритуал",
+    ritualText: "Впръсквате за секунди, без капсули и без подготовка.",
+    bestSeller: "Най-продаван",
+    bestSellerText: "Започнете с Микс 5 гъби, ако не сте сигурни.",
+    offerHeading: "Изберете най-подходящата първа поръчка",
+    offerText: "Изберете най-лесния път за старт: бестселър с всичко в едно, рутина с две бутилки или една формула, насочена към ясна цел.",
+    offerCards: [
+      { eyebrow: "Най-добър старт", title: "Започнете с Микс 5 гъби", text: "Най-лесната отправна точка за първа поръчка, ако искате една бутилка да покрива повече от една цел.", cta: "Към Микса", href: "/products/mix", badge: "Бестселър" },
+      { eyebrow: "Достигнете безплатна доставка", title: "Изградете рутина с две бутилки", text: "Много клиенти комбинират дневен спрей с по-широка или вечерна формула, за да покрият повече от една цел и да получат безплатна доставка.", cta: "Виж комбинации", href: "/#products", badge: "Най-популярно" },
+      { eyebrow: "Лесен тест", title: "Пробвайте първо една бутилка", text: "Всички формули са на една и съща цена, така че лесно можете да тествате един целеви спрей, преди да разширите рутината си.", cta: "Избери по цел", href: "/#products", badge: "Лесен избор" }
+    ],
+    metrics: [{ num: "2 000+", sub: "доволни клиенти", accent: false }, { num: "€0.67", sub: "на ден, за бутилка", accent: true }, { num: "1 ден", sub: "доставка от България", accent: false }],
+    trustPoints: [{ icon: "lab", label: "Лабораторно тествани" }, { icon: "natural", label: "100% натурални" }, { icon: "bulgaria", label: "Произведени в България" }, { icon: "guarantee", label: "30 дни гаранция" }, { icon: "vegan", label: "Подходящи за вегани" }, { icon: "fruiting", label: "Само плодни тела" }],
+    howHeading: "Как работи",
+    howText: "Три лесни стъпки за гъбена рутина, която наистина пасва на модерния начин на живот.",
+    howSteps: [{ step: "1", title: "Разклатете", text: "Активирайте екстракта преди всяка употреба." }, { step: "2", title: "Впръскайте", text: "Използвайте 3 до 4 впръсквания под езика." }, { step: "3", title: "Бъдете постоянни", text: "Използвайте всеки ден 2 до 4 седмици, за да усетите пълната рутина." }],
+    comparisonHeading: "Коя гъба е най-подходяща за вас?",
+    comparisonText: "Всяка формула е насочена към различна цел. Сравнете ги, за да откриете своята, или започнете с Микс 5 гъби за по-широко покритие.",
+    comparisonGoals: { "lions-mane": "Фокус и памет", cordyceps: "Енергия и издръжливост", reishi: "Спокойствие и баланс", shiitake: "Ежедневна жизненост", chaga: "Антиоксидантна защита", mix: "Пълна подкрепа" },
+    traitLabels: { focus: "Фокус", energy: "Енергия", sleep: "Сън", immunity: "Имунитет", antioxidant: "Антиоксиданти" },
+    comparisonShop: "Виж",
+    comparisonBuy: "Купи",
+    originEyebrow: "Нашият произход",
+    originTitle: "От българските гори до вашия ежедневен ритуал",
+    originTextOne: "InnoVAherb е създаден, за да превърне тихата сила на лечебните гъби в модерен ежедневен навик. Използваме съставки с произход от България и премиум спрей формат, за да получават клиентите по-чист и практичен път към фокус, енергия, баланс, жизненост и цялостна подкрепа.",
+    originTextTwo: "Целта не е сложност, а постоянство. Всяка бутилка е създадена да бъде лесна за разбиране, лесна за употреба и лесна за повторна поръчка, защото рутината наистина пасва на реалния живот.",
+    originCta: "Научете нашата история",
+    reviewsHeading: "Какво споделят нашите клиенти",
+    aggregateReviewLabel: "★★★★★ Средна оценка 4.9 · 800+ потвърдени отзива",
+    verifiedPurchase: "Потвърдена покупка",
+    reviews: [
+      { initials: "MK", name: "Maria K., Sofia", text: "Забелязах истинска разлика във фокуса си, откакто започнах със спрея Lion's Mane. Пасва идеално на сутрешната ми работна рутина." },
+      { initials: "SD", name: "Stefan D., Plovdiv", text: "Cordyceps ми дава чист прилив на енергия преди тренировка. Няма треперене, само стабилен тонус и по-добра издръжливост." },
+      { initials: "EV", name: "Elena V., Varna", text: "Reishi стана част от вечерния ми ритуал. Спя по-добре и се чувствам много по-балансирана през напрегнати седмици." },
+      { initials: "PM", name: "Petya M., Varna", text: "След три седмици усещам реална разлика в това колко спокойна и концентрирана съм под напрежение." },
+      { initials: "BT", name: "Boris T., Burgas", text: "Спрей форматът прави почти невъзможно да пропуснеш дневната доза. Просто впръскваш и продължаваш. Толкова е лесно." },
+      { initials: "AV", name: "Aneta V., Sofia", text: "Препоръчах InnoVAherb на целия си офис. Трима колеги вече започнаха собствена рутина и всички са доволни." }
+    ],
+    newsletterHeading: "Присъединете се към общността на InnoVAherb",
+    newsletterText: "Съвети за уелнес, нови продукти и специални оферти за хора, които искат по-добра рутина с натурална гъбена подкрепа.",
+    newsletterProof: "Присъединете се към над 2 000 клиенти, които вече следват своята рутина",
+    newsletterPlaceholder: "Въведете вашия имейл",
+    newsletterButton: "Вземете 10% отстъпка",
+    newsletterNote: "Без спам. Можете да се отпишете по всяко време.",
+    faqHeading: "Често задавани въпроси за нашите спрейове с гъбени екстракти",
+    faqText: "Вижте бързи отговори за това как работят спрейовете InnoVAherb, с коя формула да започнете и как се извършва доставката в България.",
+    faqs: [
+      { question: "С какво InnoVAherb се различава от капсулите или праховете?", answer: "InnoVAherb използва бърз и удобен спрей формат, който е по-лесен за носене, по-лесен за дозиране и по-лесен за повтаряне всеки ден от капсули, чайове или прахообразни смеси." },
+      { question: "С кой гъбен спрей е добре да започна?", answer: "Повечето нови клиенти започват с Микс 5 гъби за по-широка подкрепа, а след това добавят по-фокусирана формула като Лъвска грива, Кордицепс или Рейши според основната си цел." },
+      { question: "Доставяте ли в цяла България?", answer: "Да. InnoVAherb в момента доставя в рамките на България, а поръчките над 50 EUR получават безплатна доставка." },
+      { question: "Как да използвам спрейовете всеки ден?", answer: "Разклатете бутилката, впръскайте 3 до 4 пъти под езика, задръжте за кратко и използвайте постоянно като част от дневната си рутина." },
+      { question: "Колко екстракт има във всяка бутилка?", answer: "Всяка бутилка InnoVAherb съдържа 35 мл и е предназначена за около 30 дневни приема при употреба според указанията." },
+      { question: "Мога ли да комбинирам два спрея в една рутина?", answer: "Да. Много клиенти комбинират една дневна формула с една вечерна или по-широка формула, за да покрият повече от една цел, без да усложняват рутината." },
+      { question: "Колко бързо обикновено се усеща разлика?", answer: "Някои клиенти усещат ползите още през първите дни, но най-добрите резултати обикновено идват след 2 до 4 седмици постоянна ежедневна употреба." },
+      { question: "Лесно ли е да носите и използвате спрейовете в движение?", answer: "Да. Компактният формат от 35 мл влиза лесно в чанта, чекмедже на бюро или спортен сак и прави постоянството по-лесно всеки ден." }
+    ],
+  },
+  ru: {
+    metadataTitle: "Болгарские спреи с грибными экстрактами | InnoVAherb",
+    metadataDescription: "Купите болгарские спреи с грибными экстрактами для концентрации, энергии, баланса, жизненного тонуса и ежедневной поддержки. Откройте шесть формул InnoVAherb.",
+    trusted: "Нам доверяют более 2 000 покупателей по всей Европе",
+    title: "Болгарские спреи с грибными экстрактами для ежедневной концентрации, энергии и жизненного тонуса",
+    subtitle: "Откройте премиальные болгарские спреи с грибными экстрактами для концентрации, энергии, баланса, иммунной поддержки и более удобного ежедневного приема.",
+    shop: "Перейти к коллекции",
+    how: "Как это работает",
+    firstPurchase: "Рекомендуемый первый заказ",
+    firstPurchaseTitle: "Начните со смеси из 5 грибов",
+    firstPurchaseText: "Самый простой старт, если вы хотите одну бутылочку для поддержки сразу нескольких целей.",
+    firstPurchaseCta: "К бестселлеру",
+    imageText: "Спреи InnoVAherb с грибными экстрактами созданы для тех, кто хочет более простую wellness-рутину, удобную ежедневную дозировку и формулы под понятные цели: ясность мышления, естественную энергию, вечерний баланс и ежедневную устойчивость.",
+    shopByGoal: "Выберите по цели",
+    shopByGoalText: "У каждого гриба своя роль. Выберите нужный результат или начните со смеси, если хотите самый простой первый заказ.",
+    freeShipping: "Бесплатная доставка",
+    freeShippingText: "Для заказов по Болгарии от 50 EUR.",
+    ritual: "Ежедневный ритуал",
+    ritualText: "Несколько распылений за секунды, без капсул и подготовки.",
+    bestSeller: "Бестселлер",
+    bestSellerText: "Начните со смеси из 5 грибов, если не уверены, что выбрать.",
+    offerHeading: "Выберите лучший первый заказ",
+    offerText: "Выберите самый удобный путь: бестселлер все-в-одном, рутину из двух бутылочек или одну формулу под четкую задачу.",
+    offerCards: [
+      { eyebrow: "Лучший старт", title: "Начните со смеси из 5 грибов", text: "Самая простая отправная точка для первого заказа, если вы хотите одну бутылочку для нескольких задач.", cta: "К смеси", href: "/products/mix", badge: "Бестселлер" },
+      { eyebrow: "Порог бесплатной доставки", title: "Соберите рутину из двух бутылочек", text: "Многие покупатели сочетают дневной спрей с более широкой или вечерней формулой, чтобы закрыть больше одной цели и получить бесплатную доставку.", cta: "Смотреть сочетания", href: "/#products", badge: "Самый популярный" },
+      { eyebrow: "Низкий порог входа", title: "Попробуйте одну бутылочку", text: "Все формулы стоят одинаково, поэтому удобно начать с одного целевого спрея, а потом расширить рутину.", cta: "Выбрать по цели", href: "/#products", badge: "Простой вариант" }
+    ],
+    metrics: [{ num: "2 000+", sub: "довольных покупателей", accent: false }, { num: "€0.67", sub: "в день за бутылочку", accent: true }, { num: "1 день", sub: "отправка из Болгарии", accent: false }],
+    trustPoints: [{ icon: "lab", label: "Лабораторно протестировано" }, { icon: "natural", label: "100% натурально" }, { icon: "bulgaria", label: "Сделано в Болгарии" }, { icon: "guarantee", label: "30-дневная гарантия" }, { icon: "vegan", label: "Подходит веганам" }, { icon: "fruiting", label: "Только плодовые тела" }],
+    howHeading: "Как это работает",
+    howText: "Три простых шага, чтобы встроить грибную рутину в реальную повседневную жизнь.",
+    howSteps: [{ step: "1", title: "Встряхните", text: "Активируйте экстракт перед каждым использованием." }, { step: "2", title: "Распылите", text: "Сделайте 3-4 распыления под язык." }, { step: "3", title: "Соблюдайте регулярность", text: "Используйте ежедневно 2-4 недели, чтобы полностью почувствовать рутину." }],
+    comparisonHeading: "Какой гриб подойдет именно вам?",
+    comparisonText: "Каждая формула работает на свою цель. Сравните их и найдите подходящий вариант или начните со смеси 5 грибов для более широкой поддержки.",
+    comparisonGoals: { "lions-mane": "Концентрация и память", cordyceps: "Энергия и выносливость", reishi: "Спокойствие и баланс", shiitake: "Ежедневный тонус", chaga: "Антиоксидантная поддержка", mix: "Комплексная поддержка" },
+    traitLabels: { focus: "Концентрация", energy: "Энергия", sleep: "Сон", immunity: "Иммунитет", antioxidant: "Антиоксиданты" },
+    comparisonShop: "Смотреть",
+    comparisonBuy: "Купить",
+    originEyebrow: "Наше происхождение",
+    originTitle: "Из болгарских лесов в ваш ежедневный ритуал",
+    originTextOne: "InnoVAherb был создан, чтобы превратить спокойную силу лечебных грибов в современную ежедневную привычку. Мы используем ингредиенты болгарского происхождения и удобный спрей-формат, чтобы дать покупателям более практичный путь к концентрации, энергии, балансу и ежедневной поддержке.",
+    originTextTwo: "Наша цель - не усложнять, а помогать сохранять регулярность. Каждая бутылочка должна быть понятной, удобной и такой, к которой легко возвращаться снова.",
+    originCta: "Узнать нашу историю",
+    reviewsHeading: "Что говорят наши покупатели",
+    aggregateReviewLabel: "★★★★★ Средняя оценка 4.9 - 800+ подтвержденных отзывов",
+    verifiedPurchase: "Подтвержденная покупка",
+    reviews: [
+      { initials: "MK", name: "Maria K., Sofia", text: "Я действительно заметила улучшение концентрации после того, как начала использовать спрей Lion's Mane. Он идеально вписался в мою утреннюю рабочую рутину." },
+      { initials: "SD", name: "Stefan D., Plovdiv", text: "Cordyceps дает мне чистый заряд энергии перед тренировкой. Без нервозности, только ровный тонус и лучшая выносливость." },
+      { initials: "EV", name: "Elena V., Varna", text: "Reishi стал частью моего вечернего ритуала. Я лучше сплю и гораздо спокойнее чувствую себя в напряженные недели." },
+      { initials: "PM", name: "Petya M., Varna", text: "Через три недели я заметила реальную разницу в том, насколько спокойно и собранно чувствую себя под давлением." },
+      { initials: "BT", name: "Boris T., Burgas", text: "Формат спрея почти не оставляет шансов забыть дневную дозу. Просто распылил и пошел дальше. Очень удобно." },
+      { initials: "AV", name: "Aneta V., Sofia", text: "Я порекомендовала InnoVAherb всему нашему офису. Трое коллег уже начали свою рутину, и все довольны." }
+    ],
+    newsletterHeading: "Присоединяйтесь к сообществу InnoVAherb",
+    newsletterText: "Советы по wellness, новинки и специальные предложения для тех, кто хочет выстроить более удобную натуральную грибную рутину.",
+    newsletterProof: "Присоединяйтесь к более чем 2 000 покупателей, которые уже выбрали свою рутину",
+    newsletterPlaceholder: "Введите ваш email",
+    newsletterButton: "Получить скидку 10%",
+    newsletterNote: "Без спама. Отписаться можно в любой момент.",
+    faqHeading: "Часто задаваемые вопросы о наших спреях с грибными экстрактами",
+    faqText: "Короткие ответы о том, как работают спреи InnoVAherb, с какой формулы лучше начать и как устроена доставка по Болгарии.",
+    faqs: [
+      { question: "Чем InnoVAherb отличается от капсул и порошков?", answer: "InnoVAherb использует быстрый и удобный формат спрея, который легче носить с собой, легче дозировать и проще использовать каждый день, чем капсулы, чаи или порошковые смеси." },
+      { question: "С какого грибного спрея лучше начать?", answer: "Большинство новых покупателей начинают со смеси из 5 грибов для более широкой поддержки, а затем добавляют более целевую формулу, например Lion's Mane, Cordyceps или Reishi, в зависимости от основной задачи." },
+      { question: "Вы доставляете по всей Болгарии?", answer: "Да. Сейчас InnoVAherb доставляет по Болгарии, а заказы свыше 50 EUR получают бесплатную доставку." },
+      { question: "Как использовать спреи каждый день?", answer: "Встряхните бутылочку, распылите 3-4 раза под язык, подержите немного и используйте регулярно как часть вашей ежедневной рутины." },
+      { question: "Сколько экстракта в каждой бутылочке?", answer: "Каждая бутылочка InnoVAherb содержит 35 мл и рассчитана примерно на 30 ежедневных порций при использовании по инструкции." },
+      { question: "Можно ли сочетать два спрея в одной рутине?", answer: "Да. Многие покупатели сочетают одну дневную формулу с вечерней или более широкой формулой, чтобы закрыть больше одной цели без лишней сложности." },
+      { question: "Как быстро обычно замечают разницу?", answer: "Некоторые покупатели замечают эффект уже в первые дни, но лучший результат обычно приходит после 2-4 недель регулярного ежедневного использования." },
+      { question: "Удобно ли носить спреи с собой?", answer: "Да. Компактный формат 35 мл легко помещается в сумку, ящик стола или спортивную сумку, поэтому соблюдать рутину намного проще." }
+    ],
+  },
+  sv: {
+    metadataTitle: "Bulgariska sprays med svampextrakt | InnoVAherb",
+    metadataDescription: "Handla bulgariska sprays med svampextrakt for fokus, energi, balans, vitalitet och dagligt stod. Upptack sex formulor fran InnoVAherb.",
+    trusted: "Betrott av 2 000+ kunder runt om i Europa",
+    title: "Bulgariska sprays med svampextrakt for dagligt fokus, energi och vitalitet",
+    subtitle: "Upptack premiumsprayer med bulgariska svampextrakt for fokus, energi, balans, immunstod och en enklare daglig rutin i snabbt oralt format.",
+    shop: "Handla kollektionen",
+    how: "Sa fungerar det",
+    firstPurchase: "Rekommenderad forsta bestallning",
+    firstPurchaseTitle: "Borja med 5-svampsmixen",
+    firstPurchaseText: "Det enklaste valet om du vill att en flaska ska tacka mer an ett dagligt mal.",
+    firstPurchaseCta: "Till bastsaljaren",
+    imageText: "InnoVAherbs sprays med svampextrakt ar skapade for kunder som vill ha en enklare wellnessrutin, renare daglig dosering och formulor anpassade efter tydliga mal som mental skarpa, naturlig energi, kvallsbalans och vardaglig motstandskraft.",
+    shopByGoal: "Handla efter mal",
+    shopByGoalText: "Varje svamp har sin roll. Valj det resultat du vill ha eller borja med mixen om du vill ha den enklaste forsta bestallningen.",
+    freeShipping: "Fri frakt",
+    freeShippingText: "For bestallningar i Bulgarien over 50 EUR.",
+    ritual: "Daglig rutin",
+    ritualText: "Spraya pa sekunder, inga kapslar och ingen forberedelse.",
+    bestSeller: "Bastsaljare",
+    bestSellerText: "Borja med 5-svampsmixen om du ar osaker.",
+    offerHeading: "Valj den basta forsta bestallningen",
+    offerText: "Valj den kopvag som kanns enklast: en bastsaljande allt-i-ett-spray, en tvaflaskrutin eller en formel for ett tydligt mal.",
+    offerCards: [
+      { eyebrow: "Basta starten", title: "Borja med 5-svampsmixen", text: "Den enklaste utgangspunktet for forstagangskopare som vill ha en flaska som tackar flera mal.", cta: "Handla mixen", href: "/products/mix", badge: "Bastsaljare" },
+      { eyebrow: "Niva for fri frakt", title: "Bygg en rutin med tva flaskor", text: "Manga kunder kombinerar en dagspray med en bredare kvalls- eller heldagsformula for att tacka fler an ett mal och kvalificera sig for fri frakt.", cta: "Se kombinationer", href: "/#products", badge: "Mest popular" },
+      { eyebrow: "Latt att prova", title: "Prova en flaska forst", text: "Alla formulor har samma pris, sa det ar enkelt att testa en riktad spray innan du bygger ut din rutin.", cta: "Valj efter mal", href: "/#products", badge: "Enkelt val" }
+    ],
+    metrics: [{ num: "2 000+", sub: "nojda kunder", accent: false }, { num: "€0.67", sub: "per dag och flaska", accent: true }, { num: "1 dag", sub: "leverans fran Bulgarien", accent: false }],
+    trustPoints: [{ icon: "lab", label: "Laboratorietestad" }, { icon: "natural", label: "100 % naturlig" }, { icon: "bulgaria", label: "Tillverkad i Bulgarien" }, { icon: "guarantee", label: "30 dagars garanti" }, { icon: "vegan", label: "Vegansk" }, { icon: "fruiting", label: "Endast fruktkropp" }],
+    howHeading: "Sa fungerar det",
+    howText: "Tre enkla steg for att bygga en svamprutin som faktiskt passar ett modernt liv.",
+    howSteps: [{ step: "1", title: "Skaka", text: "Aktivera extraktet fore varje anvandning." }, { step: "2", title: "Spraya", text: "Anvand 3 till 4 spray under tungan." }, { step: "3", title: "Var konsekvent", text: "Anvand dagligen i 2 till 4 veckor for att kanna hela rutinen." }],
+    comparisonHeading: "Vilken svamp passar dig?",
+    comparisonText: "Varje formula ar riktad mot ett annat mal. Jamfor dem for att hitta ratt val eller borja med 5-mixen for bredare stod.",
+    comparisonGoals: { "lions-mane": "Fokus och minne", cordyceps: "Energi och uthallighet", reishi: "Lugn och balans", shiitake: "Daglig vitalitet", chaga: "Antioxidanter", mix: "Helhetsspektrum" },
+    traitLabels: { focus: "Fokus", energy: "Energi", sleep: "Somn", immunity: "Immunstod", antioxidant: "Antioxidanter" },
+    comparisonShop: "Se",
+    comparisonBuy: "Kop",
+    originEyebrow: "Vart ursprung",
+    originTitle: "Fran bulgariska skogar till din dagliga rutin",
+    originTextOne: "InnoVAherb skapades for att gora den stilla styrkan i medicinalsvampar till en modern vardagsvana. Vi anvander ingredienser fran Bulgarien och ett premiumsprayformat sa att kunder far en renare och mer praktisk vag till fokus, energi, balans, vitalitet och dagligt stod.",
+    originTextTwo: "Malet ar inte komplexitet utan konsekvens. Varje flaska ar byggd for att vara latt att forsta, latt att anvanda och latt att bestalla igen eftersom rutinen verkligen passar vardagen.",
+    originCta: "Las var historia",
+    reviewsHeading: "Vad vara kunder sager",
+    aggregateReviewLabel: "★★★★★ 4.9 i snitt - 800+ verifierade omdomen",
+    verifiedPurchase: "Verifierat kop",
+    reviews: [
+      { initials: "MK", name: "Maria K., Sofia", text: "Jag har markt en verklig skillnad i mitt fokus sedan jag borjade med Lion's Mane-sprayen. Den passar perfekt i min morgonrutin for arbete." },
+      { initials: "SD", name: "Stefan D., Plovdiv", text: "Cordyceps ger mig ett rent energilyft fore traning. Ingen skakighet, bara jamn drivkraft och battre uthallighet." },
+      { initials: "EV", name: "Elena V., Varna", text: "Reishi blev en del av min kvallsrutin. Jag sover battre och kanner mig mycket mer balanserad under stressiga veckor." },
+      { initials: "PM", name: "Petya M., Varna", text: "Efter tre veckor marker jag en tydlig skillnad i hur lugn och fokuserad jag kanner mig under press." },
+      { initials: "BT", name: "Boris T., Burgas", text: "Sprayformatet gor det nastan omojligt att glomma den dagliga dosen. Bara spraya och ga vidare. Sa enkelt ar det." },
+      { initials: "AV", name: "Aneta V., Sofia", text: "Jag rekommenderade InnoVAherb till hela kontoret. Tre kollegor startade sina egna rutiner och alla ar nojda." }
+    ],
+    newsletterHeading: "Ga med i InnoVAherb-communityt",
+    newsletterText: "Valmaendetips, produktnyheter och erbjudanden for kunder som vill bygga en battre rutin kring naturligt svampstod.",
+    newsletterProof: "Ga med i 2 000+ kunder som redan foljer sin rutin",
+    newsletterPlaceholder: "Ange din e-post",
+    newsletterButton: "Fa 10 % rabatt",
+    newsletterNote: "Ingen spam. Du kan avsluta nar du vill.",
+    faqHeading: "Vanliga fragor om vara sprays med svampextrakt",
+    faqText: "Snabba svar om hur InnoVAherb-sprayer fungerar, vilken formula du bor borja med och hur leverans i Bulgarien fungerar.",
+    faqs: [
+      { question: "Vad skiljer InnoVAherb fran kapslar eller pulver?", answer: "InnoVAherb anvander ett snabbt och bekvamt sprayformat som ar lattare att bara med sig, lattare att dosera och lattare att upprepa varje dag an kapslar, teer eller pulverblandningar." },
+      { question: "Vilken svampspray bor jag borja med?", answer: "De flesta forstagangskunder borjar med 5-svampsmixen for bredare stod och lagger sedan till en mer fokuserad formula som Lion's Mane, Cordyceps eller Reishi beroende pa sitt huvudmal." },
+      { question: "Levererar ni i hela Bulgarien?", answer: "Ja. InnoVAherb levererar for narvarande inom Bulgarien och bestallningar over 50 EUR far fri frakt." },
+      { question: "Hur anvander jag sprayerna varje dag?", answer: "Skaka flaskan, spraya 3 till 4 ganger under tungan, hall kort och anvand konsekvent som en del av din dagliga rutin." },
+      { question: "Hur mycket extrakt finns i varje flaska?", answer: "Varje InnoVAherb-flaska innehaller 35 ml och ar utformad for cirka 30 dagliga portioner nar den anvands enligt rekommendation." },
+      { question: "Kan jag kombinera tva sprayer i en rutin?", answer: "Ja. Manga kunder kombinerar en dagsformula med en kvalls- eller bredare stodformula for att matcha mer an ett mal utan att gora rutinen komplicerad." },
+      { question: "Hur snabbt marker kunder vanligtvis skillnad?", answer: "Vissa kunder marker fordelarna redan under de forsta dagarna, men de basta resultaten kommer oftast efter 2 till 4 veckors konsekvent daglig anvandning." },
+      { question: "Ar sprayerna enkla att ta med och anvanda pa språng?", answer: "Ja. Det kompakta 35 ml-formatet far latt plats i en vaska, skrivbordslada eller gymbag och gor det enklare att vara konsekvent varje dag." }
+    ],
+  },
+};

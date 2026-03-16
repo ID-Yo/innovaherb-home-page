@@ -9,6 +9,8 @@ export const siteConfig = {
   localeAlternates: {
     en: "en-US",
     bg: "bg-BG",
+    ru: "ru-RU",
+    sv: "sv-SE",
   },
   socialImage: "/brand_assets/Group_front.webp",
   shippingThresholdCents: 5000,

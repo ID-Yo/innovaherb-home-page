@@ -1,34 +1,26 @@
 import { SiteFooter } from "@/components/storefront/SiteFooter";
 import { SiteHeader } from "@/components/storefront/SiteHeader";
 import { Container } from "@/components/ui/Container";
-import { getLocale } from "@/lib/i18n";
+import { getLocale, PUBLIC_LOCALES } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/metadata";
+import { shippingReturnsPageContent } from "@/lib/public-page-copy";
 
-export const metadata = buildMetadata({
-  title: "Shipping and Returns | InnoVAherb",
-  description:
-    "Review Bulgaria shipping, order support, and return guidance for the InnoVAherb storefront.",
-  path: "/shipping-returns",
-});
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const locale = getLocale(await searchParams);
+  const t = shippingReturnsPageContent[locale];
 
-const content = {
-  en: {
-    eyebrow: "Support policy",
-    title: "Shipping and returns",
-    shippingTitle: "Shipping",
-    shippingText: "We currently deliver across Bulgaria. Orders over EUR 50 receive free shipping, while orders below that threshold show a flat delivery fee at checkout before payment.",
-    returnsTitle: "Returns",
-    returnsText: "If you need help with a return or refund, contact our support team and we will guide you through the next steps as quickly as possible.",
-  },
-  bg: {
-    eyebrow: "Политика за поддръжка",
-    title: "Доставка и връщане",
-    shippingTitle: "Доставка",
-    shippingText: "В момента доставяме в рамките на България. Поръчките над 50 EUR получават безплатна доставка, а за поръчки под тази стойност таксата се показва при checkout преди плащане.",
-    returnsTitle: "Връщане",
-    returnsText: "Ако имате нужда от съдействие за връщане или възстановяване на сума, свържете се с нашия екип и ще ви насочим през следващите стъпки възможно най-бързо.",
-  },
-} as const;
+  return buildMetadata({
+    title: t.metadataTitle,
+    description: t.metadataDescription,
+    path: "/shipping-returns",
+    locale,
+    availableLocales: PUBLIC_LOCALES,
+  });
+}
 
 export default async function ShippingReturnsPage({
   searchParams,
@@ -36,11 +28,11 @@ export default async function ShippingReturnsPage({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const locale = getLocale(await searchParams);
-  const t = content[locale];
+  const t = shippingReturnsPageContent[locale];
 
   return (
     <>
-      <SiteHeader locale={locale} />
+      <SiteHeader locale={locale} availableLocales={PUBLIC_LOCALES} />
       <main className="py-20">
         <Container className="max-w-4xl space-y-10">
           <div>

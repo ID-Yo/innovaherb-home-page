@@ -6,17 +6,29 @@ import { withLocale } from "@/lib/i18n";
 import { productSalesContent } from "@/lib/storefront-content";
 import { Locale, Product } from "@/lib/types";
 
-export function ProductCard({ product, locale }: { product: Product; locale: Locale }) {
+export function ProductCard({
+  product,
+  locale,
+  linkLocale = locale,
+}: {
+  product: Product;
+  locale: Locale;
+  linkLocale?: Locale;
+}) {
   const copy = product.localized[locale];
   const sales = productSalesContent[product.slug];
   const t =
     locale === "bg"
       ? { bestSeller: "Най-продаван", view: "Виж", addToCart: "Добави" }
-      : { bestSeller: "Best Seller", view: "View", addToCart: "Add to Cart" };
+      : locale === "ru"
+        ? { bestSeller: "Хит продаж", view: "Смотреть", addToCart: "Добавить" }
+        : locale === "sv"
+          ? { bestSeller: "Bästsäljare", view: "Visa", addToCart: "Lägg till" }
+          : { bestSeller: "Best Seller", view: "View", addToCart: "Add to Cart" };
 
   return (
     <article className="group product-card flex h-full flex-col rounded-xl bg-white p-3 shadow-product sm:rounded-2xl sm:p-4">
-      <Link href={withLocale(`/products/${product.slug}`, locale)} className="block">
+      <Link href={withLocale(`/products/${product.slug}`, linkLocale)} className="block">
         <div className="relative mb-3 flex h-36 items-center justify-center overflow-hidden rounded-lg bg-warm-50 sm:h-40 sm:rounded-xl lg:h-44">
           <div className="absolute inset-0 bg-gradient-to-br from-brand-50/40 to-transparent" />
           {product.slug === "mix" && (
@@ -47,7 +59,7 @@ export function ProductCard({ product, locale }: { product: Product; locale: Loc
       <div className="mt-2.5 flex items-center justify-between border-t border-warm-100 pt-2.5 sm:mt-3 sm:pt-3">
         <span className="font-display text-base font-bold text-grey-900 sm:text-lg">{formatEuro(product.priceCents)}</span>
         <div className="flex items-center gap-2">
-          <Link href={withLocale(`/products/${product.slug}`, locale)} className="text-xs font-semibold text-grey-600 sm:text-sm">
+          <Link href={withLocale(`/products/${product.slug}`, linkLocale)} className="text-xs font-semibold text-grey-600 sm:text-sm">
             {t.view} {copy.name}
           </Link>
           <AddToCartButton slug={product.slug} className="px-2.5 py-2 text-[10px] sm:px-3.5 sm:text-xs">

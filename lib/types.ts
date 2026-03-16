@@ -1,4 +1,4 @@
-export type Locale = "en" | "bg";
+export type Locale = "en" | "bg" | "ru" | "sv";
 
 export type ProductSlug =
   | "lions-mane"

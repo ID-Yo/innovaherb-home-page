@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import { DM_Sans, Cormorant_Garamond } from "next/font/google";
+import { headers } from "next/headers";
+import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import { CartProvider } from "@/components/storefront/CartProvider";
 import { ChatWidget } from "@/components/storefront/ChatWidget";
 import { buildMetadata } from "@/lib/metadata";
+import "./globals.css";
 
 const bodyFont = DM_Sans({
   subsets: ["latin"],
@@ -22,13 +23,16 @@ export const metadata: Metadata = buildMetadata({
   path: "/",
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headerList = await headers();
+  const locale = headerList.get("x-innovaherb-locale") ?? "en";
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={`${bodyFont.variable} ${displayFont.variable} ${bodyFont.className}`}>
         <CartProvider>
           {children}

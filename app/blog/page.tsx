@@ -1,56 +1,26 @@
 import { SiteFooter } from "@/components/storefront/SiteFooter";
 import { SiteHeader } from "@/components/storefront/SiteHeader";
 import { Container } from "@/components/ui/Container";
-import { getLocale } from "@/lib/i18n";
+import { getLocale, PUBLIC_LOCALES } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/metadata";
+import { blogPageContent } from "@/lib/public-page-copy";
 
-export const metadata = buildMetadata({
-  title: "InnoVAherb Blog | Mushroom Wellness and Product Guides",
-  description:
-    "Read InnoVAherb articles about mushroom wellness routines, supplement shopping, and product guidance.",
-  path: "/blog",
-});
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const locale = getLocale(await searchParams);
+  const t = blogPageContent[locale];
 
-const content = {
-  en: {
-    eyebrow: "Editorial",
-    title: "Brand, ingredient, and wellness notes.",
-    label: "Journal",
-    posts: [
-      {
-        title: "How mushroom spray formats support consistency",
-        excerpt: "A practical look at why easy daily rituals outperform complicated supplement stacks for many shoppers.",
-      },
-      {
-        title: "Choosing between Lion's Mane, Reishi, and Cordyceps",
-        excerpt: "A simple guide for choosing a mushroom spray based on the day you want to have, not just the ingredient name.",
-      },
-      {
-        title: "What a clean e-commerce supplement experience should feel like",
-        excerpt: "Why product clarity, transparent pricing, and reliable fulfillment matter as much as beautiful packaging.",
-      },
-    ],
-  },
-  bg: {
-    eyebrow: "Редакционно",
-    title: "Бележки за марката, съставките и уелнес рутината.",
-    label: "Статия",
-    posts: [
-      {
-        title: "Защо спрей форматът помага за по-добро постоянство",
-        excerpt: "Практичен поглед към това защо лесните ежедневни ритуали често работят по-добре от сложните режими с много добавки.",
-      },
-      {
-        title: "Как да изберете между Лъвска грива, Рейши и Кордицепс",
-        excerpt: "Лесен ориентир за избор на спрей според начина, по който искате да се чувствате през деня, а не само според името на съставката.",
-      },
-      {
-        title: "Как трябва да изглежда едно чисто онлайн пазаруване на добавки",
-        excerpt: "Защо яснотата на продукта, прозрачната цена и надеждното изпълнение на поръчките са толкова важни, колкото и красивата опаковка.",
-      },
-    ],
-  },
-} as const;
+  return buildMetadata({
+    title: t.metadataTitle,
+    description: t.metadataDescription,
+    path: "/blog",
+    locale,
+    availableLocales: PUBLIC_LOCALES,
+  });
+}
 
 export default async function BlogPage({
   searchParams,
@@ -58,11 +28,11 @@ export default async function BlogPage({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const locale = getLocale(await searchParams);
-  const t = content[locale];
+  const t = blogPageContent[locale];
 
   return (
     <>
-      <SiteHeader locale={locale} />
+      <SiteHeader locale={locale} availableLocales={PUBLIC_LOCALES} />
       <main className="py-20">
         <Container>
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-600">{t.eyebrow}</p>

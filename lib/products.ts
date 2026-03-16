@@ -1,12 +1,219 @@
-import { Product } from "@/lib/types";
+import { Product, ProductCopy, ProductSlug } from "@/lib/types";
 
 function product(
-  value: Product,
-): Product {
+  value: Omit<Product, "localized"> & { localized: Record<"en" | "bg", ProductCopy> },
+) {
   return value;
 }
 
-export const products = [
+const localeExpansions: Record<ProductSlug, { ru: ProductCopy; sv: ProductCopy }> = {
+  "lions-mane": {
+    ru: {
+      name: "Львиная грива",
+      shortDescription: "Поддержка фокуса, памяти и ясности мышления.",
+      heroTitle: "Спрей с Львиной гривой для более четкого фокуса",
+      heroDescription: "Быстроусваиваемый оральный спрей для работы, учебы и ежедневной концентрации без капсул.",
+      tagline: "ФОКУС",
+      benefits: [
+        "Поддерживает концентрацию и умственную выносливость",
+        "Помогает сохранять память и ясность мышления",
+        "Удобный сублингвальный формат на каждый день",
+      ],
+      ingredients: ["Экстракт Львиной гривы 10:1", "Очищенная вода", "Растительный глицерин", "Натуральный консервант"],
+      usage: ["Встряхнуть перед использованием", "Распылить 3-4 раза под язык", "Подержать 30 секунд и проглотить"],
+      seoTitle: "Спрей с Львиной гривой для фокуса | InnoVAherb",
+      seoDescription: "Спрей InnoVAherb с Львиной гривой для фокуса, памяти и ясности мышления.",
+    },
+    sv: {
+      name: "Lion's Mane",
+      shortDescription: "Stöd för fokus, minne och mental klarhet varje dag.",
+      heroTitle: "Lion's Mane-spray för skarpare fokus",
+      heroDescription: "En snabbupptaglig munspray för arbete, studier och daglig koncentration utan kapslar.",
+      tagline: "FOKUS",
+      benefits: [
+        "Stödjer koncentration och mental uthållighet",
+        "Hjälper till att bevara minne och klarhet",
+        "Praktiskt sublingualt format för daglig användning",
+      ],
+      ingredients: ["Lion's Mane-extrakt 10:1", "Renat vatten", "Vegetabiliskt glycerin", "Naturligt konserveringsmedel"],
+      usage: ["Skaka före användning", "Spraya 3-4 gånger under tungan", "Håll i 30 sekunder och svälj"],
+      seoTitle: "Lion's Mane-spray för fokus | InnoVAherb",
+      seoDescription: "InnoVAherb Lion's Mane-spray för fokus, klarhet och minnesstöd.",
+    },
+  },
+  cordyceps: {
+    ru: {
+      name: "Кордицепс",
+      shortDescription: "Естественная поддержка энергии и выносливости.",
+      heroTitle: "Спрей с Кордицепсом для чистой ежедневной энергии",
+      heroDescription: "Создан для активных дней, тренировок и естественной выносливости без резких стимуляторов.",
+      tagline: "ЭНЕРГИЯ",
+      benefits: [
+        "Поддерживает естественную энергию и выносливость",
+        "Подходит для тренировок и напряженных дней",
+        "Быстрый оральный формат",
+      ],
+      ingredients: ["Экстракт Кордицепса 10:1", "Очищенная вода", "Растительный глицерин", "Натуральный консервант"],
+      usage: ["Встряхнуть перед использованием", "Распылить 3-4 раза под язык", "Использовать утром или перед активностью"],
+      seoTitle: "Спрей с Кордицепсом для энергии | InnoVAherb",
+      seoDescription: "Спрей InnoVAherb с Кордицепсом для чистой энергии, выносливости и активных дней.",
+    },
+    sv: {
+      name: "Cordyceps",
+      shortDescription: "Naturligt stöd för energi och uthållighet varje dag.",
+      heroTitle: "Cordyceps-spray för ren daglig energi",
+      heroDescription: "Utvecklad för aktiva dagar, träning och naturlig uthållighet utan hårda stimulanser.",
+      tagline: "ENERGI",
+      benefits: [
+        "Stödjer naturlig energi och uthållighet",
+        "Passar inför träning och intensiva dagar",
+        "Snabb munspray utan kapslar",
+      ],
+      ingredients: ["Cordyceps-extrakt 10:1", "Renat vatten", "Vegetabiliskt glycerin", "Naturligt konserveringsmedel"],
+      usage: ["Skaka före användning", "Spraya 3-4 gånger under tungan", "Använd på morgonen eller före aktivitet"],
+      seoTitle: "Cordyceps-spray för energi | InnoVAherb",
+      seoDescription: "Cordyceps-spray från InnoVAherb för ren daglig energi och uthållighet.",
+    },
+  },
+  reishi: {
+    ru: {
+      name: "Рейши",
+      shortDescription: "Вечерняя формула для баланса и восстановления.",
+      heroTitle: "Спрей с Рейши для спокойствия и вечернего баланса",
+      heroDescription: "Спрей для вечернего ритуала, снятия напряжения и более спокойного восстановления.",
+      tagline: "БАЛАНС",
+      benefits: [
+        "Поддерживает спокойствие и ежедневный баланс",
+        "Подходит для вечерней рутины",
+        "Простой оральный формат",
+      ],
+      ingredients: ["Экстракт Рейши 10:1", "Очищенная вода", "Растительный глицерин", "Натуральный консервант"],
+      usage: ["Встряхнуть перед использованием", "Распылить 3-4 раза под язык", "Использовать вечером"],
+      seoTitle: "Спрей с Рейши для баланса | InnoVAherb",
+      seoDescription: "Спрей InnoVAherb с Рейши для спокойствия, баланса и вечернего восстановления.",
+    },
+    sv: {
+      name: "Reishi",
+      shortDescription: "En kvällsformula för balans och återhämtning.",
+      heroTitle: "Reishi-spray för lugn och kvällsbalans",
+      heroDescription: "En jordad kvällsspray för stressiga rutiner, återhämtning och vila.",
+      tagline: "BALANS",
+      benefits: [
+        "Stödjer lugn och daglig balans",
+        "Passar i kvällsrutinen",
+        "Enkel munspray för daglig användning",
+      ],
+      ingredients: ["Reishi-extrakt 10:1", "Renat vatten", "Vegetabiliskt glycerin", "Naturligt konserveringsmedel"],
+      usage: ["Skaka före användning", "Spraya 3-4 gånger under tungan", "Använd på eftermiddagen eller kvällen"],
+      seoTitle: "Reishi-spray för balans | InnoVAherb",
+      seoDescription: "Reishi-spray från InnoVAherb för lugn, balans och kvällsåterhämtning.",
+    },
+  },
+  shiitake: {
+    ru: {
+      name: "Шиитаке",
+      shortDescription: "Ежедневная поддержка жизненного тонуса и устойчивости.",
+      heroTitle: "Спрей с Шиитаке для ежедневной жизненности",
+      heroDescription: "Простой ежедневный спрей для устойчивого тонуса и поддержки иммунной системы.",
+      tagline: "ЖИЗНЕННОСТЬ",
+      benefits: [
+        "Поддерживает ежедневный тонус и хорошее самочувствие",
+        "Подходит для постоянного использования",
+        "Быстрый формат без капсул",
+      ],
+      ingredients: ["Экстракт Шиитаке 10:1", "Очищенная вода", "Растительный глицерин", "Натуральный консервант"],
+      usage: ["Встряхнуть перед использованием", "Распылить 3-4 раза под язык", "Использовать ежедневно в любое время"],
+      seoTitle: "Спрей с Шиитаке для жизненности | InnoVAherb",
+      seoDescription: "Спрей InnoVAherb с Шиитаке для ежедневной жизненности и устойчивой поддержки.",
+    },
+    sv: {
+      name: "Shiitake",
+      shortDescription: "Dagligt stöd för jämn vitalitet och välbefinnande.",
+      heroTitle: "Shiitake-spray för daglig vitalitet",
+      heroDescription: "En enkel daglig wellness-spray som stödjer motståndskraft och vardaglig vitalitet.",
+      tagline: "VITALITET",
+      benefits: [
+        "Stödjer daglig vitalitet och välmående",
+        "Passar för konsekvent vardagsanvändning",
+        "Snabb spray utan kapslar",
+      ],
+      ingredients: ["Shiitake-extrakt 10:1", "Renat vatten", "Vegetabiliskt glycerin", "Naturligt konserveringsmedel"],
+      usage: ["Skaka före användning", "Spraya 3-4 gånger under tungan", "Använd dagligen när som helst"],
+      seoTitle: "Shiitake-spray för vitalitet | InnoVAherb",
+      seoDescription: "Shiitake-spray från InnoVAherb för daglig vitalitet och jämnt välbefinnande.",
+    },
+  },
+  chaga: {
+    ru: {
+      name: "Чага",
+      shortDescription: "Антиоксидантная поддержка для устойчивой ежедневной рутины.",
+      heroTitle: "Спрей с Чагой для ежедневной антиоксидантной поддержки",
+      heroDescription: "Мощный грибной спрей для антиоксидантной защиты и устойчивой ежедневной рутины.",
+      tagline: "ЗАЩИТА",
+      benefits: [
+        "Богатая антиоксидантная поддержка",
+        "Подходит для стабильной ежедневной рутины",
+        "Быстрый оральный формат",
+      ],
+      ingredients: ["Экстракт Чаги 10:1", "Очищенная вода", "Растительный глицерин", "Натуральный консервант"],
+      usage: ["Встряхнуть перед использованием", "Распылить 3-4 раза под язык", "Использовать утром как часть рутины"],
+      seoTitle: "Спрей с Чагой для антиоксидантной поддержки | InnoVAherb",
+      seoDescription: "Спрей InnoVAherb с Чагой для антиоксидантной поддержки и устойчивой ежедневной рутины.",
+    },
+    sv: {
+      name: "Chaga",
+      shortDescription: "Antioxidantrikt stöd för en mer motståndskraftig vardag.",
+      heroTitle: "Chaga-spray för motståndskraftig daglig support",
+      heroDescription: "En kraftfull svampspray för antioxidantstöd och en mer jordad wellness-rutin.",
+      tagline: "SKYDD",
+      benefits: [
+        "Antioxidantrikt svampstöd",
+        "Stödjer en stadig daglig rutin",
+        "Snabb oral spray",
+      ],
+      ingredients: ["Chaga-extrakt 10:1", "Renat vatten", "Vegetabiliskt glycerin", "Naturligt konserveringsmedel"],
+      usage: ["Skaka före användning", "Spraya 3-4 gånger under tungan", "Använd på morgonen som del av rutinen"],
+      seoTitle: "Chaga-spray för antioxidantstöd | InnoVAherb",
+      seoDescription: "Chaga-spray från InnoVAherb för antioxidantstöd och en mer motståndskraftig vardag.",
+    },
+  },
+  mix: {
+    ru: {
+      name: "Микс 5 грибов",
+      shortDescription: "Комплексная формула для ежедневной грибной поддержки.",
+      heroTitle: "Спрей с 5 грибами для всесторонней поддержки",
+      heroDescription: "Наша самая широкая формула сочетает фокус, энергию, баланс, жизненность и антиоксидантную защиту в одном спрее.",
+      tagline: "КОМПЛЕКС",
+      benefits: [
+        "Объединяет ключевые направления поддержки в одной формуле",
+        "Отличный стартовый продукт для ежедневной рутины",
+        "Удобный спрей для работы и поездок",
+      ],
+      ingredients: ["Экстракт Львиной гривы", "Экстракт Кордицепса", "Экстракт Рейши", "Экстракт Шиитаке", "Экстракт Чаги"],
+      usage: ["Встряхнуть перед использованием", "Распылить 3-4 раза под язык", "Использовать один или два раза в день"],
+      seoTitle: "Спрей Микс 5 грибов для ежедневной поддержки | InnoVAherb",
+      seoDescription: "Микс 5 грибов от InnoVAherb для широкого ежедневного грибного wellness-подхода.",
+    },
+    sv: {
+      name: "5-svampsmix",
+      shortDescription: "En komplett blandning för dagligt svampwellness.",
+      heroTitle: "5-svampsspray för bred daglig support",
+      heroDescription: "Vår bredaste dagliga formula kombinerar fokus, energi, balans, vitalitet och antioxidantstöd i en enda spray.",
+      tagline: "KOMPLETT",
+      benefits: [
+        "Samlar flera viktiga svampfördelar i en formula",
+        "En stark startprodukt för nya kunder",
+        "Praktiskt sprayformat för arbete och resor",
+      ],
+      ingredients: ["Lion's Mane-extrakt", "Cordyceps-extrakt", "Reishi-extrakt", "Shiitake-extrakt", "Chaga-extrakt"],
+      usage: ["Skaka före användning", "Spraya 3-4 gånger under tungan", "Använd en eller två gånger dagligen"],
+      seoTitle: "5-svampsspray för daglig wellness | InnoVAherb",
+      seoDescription: "5-svampsmixen från InnoVAherb för bred daglig wellness med bulgariska svampextrakt.",
+    },
+  },
+};
+
+const baseProducts = [
   product({
     slug: "lions-mane",
     sku: "IH-LM-001",
@@ -405,7 +612,15 @@ export const products = [
       },
     },
   }),
-] as const satisfies Product[];
+] as const;
+
+export const products = baseProducts.map((product) => ({
+  ...product,
+  localized: {
+    ...product.localized,
+    ...localeExpansions[product.slug],
+  },
+})) satisfies Product[];
 
 export function getProductBySlug(slug: string) {
   return products.find((product) => product.slug === slug);

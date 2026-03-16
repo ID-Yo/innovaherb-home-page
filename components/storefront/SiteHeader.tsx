@@ -1,43 +1,66 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { Menu, ShoppingBag, X } from "lucide-react";
 import { useState } from "react";
-import { Locale } from "@/lib/types";
 import { LocaleToggle } from "@/components/storefront/LocaleToggle";
 import { CartIndicator } from "@/components/storefront/cart-indicator";
 import { useCart } from "@/components/storefront/CartProvider";
 import { Container } from "@/components/ui/Container";
-import { withLocale } from "@/lib/i18n";
+import { commerceLocale, PUBLIC_LOCALES, withLocale } from "@/lib/i18n";
+import { Locale } from "@/lib/types";
 
-export function SiteHeader({ locale }: { locale: Locale }) {
+const content = {
+  en: {
+    promo: "Get 10% off your first order when you start with two bottles or more.",
+    products: "Products",
+    about: "About Us",
+    blog: "Blog",
+    contacts: "Contacts",
+    cartLabel: (count: number) => `Cart (${count} item${count === 1 ? "" : "s"})`,
+  },
+  bg: {
+    promo: "Вземете 10% отстъпка от първата поръчка при два или повече продукта.",
+    products: "Продукти",
+    about: "За нас",
+    blog: "Блог",
+    contacts: "Контакти",
+    cartLabel: (count: number) => `Количка (${count} ${count === 1 ? "артикул" : "артикула"})`,
+  },
+  ru: {
+    promo: "Получите скидку 10% на первый заказ, если начнете с двух и более флаконов.",
+    products: "Продукты",
+    about: "О нас",
+    blog: "Блог",
+    contacts: "Контакты",
+    cartLabel: (count: number) => `Корзина (${count})`,
+  },
+  sv: {
+    promo: "Få 10 % rabatt på din första beställning när du börjar med två flaskor eller fler.",
+    products: "Produkter",
+    about: "Om oss",
+    blog: "Blogg",
+    contacts: "Kontakter",
+    cartLabel: (count: number) => `Varukorg (${count})`,
+  },
+} as const;
+
+export function SiteHeader({
+  locale,
+  availableLocales = PUBLIC_LOCALES,
+}: {
+  locale: Locale;
+  availableLocales?: readonly Locale[];
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const { itemCount } = useCart();
-  const t =
-    locale === "bg"
-      ? {
-          promo: "Вземете 10% отстъпка от първата поръчка при два или повече продукта.",
-          products: "Продукти",
-          about: "За нас",
-          blog: "Блог",
-          contacts: "Контакти",
-          cart: `Количка (${itemCount} ${itemCount === 1 ? "артикул" : "артикула"})`,
-        }
-      : {
-          promo: "Get 10% off your first order when you start with two bottles or more.",
-          products: "Products",
-          about: "About Us",
-          blog: "Blog",
-          contacts: "Contacts",
-          cart: `Cart (${itemCount} item${itemCount === 1 ? "" : "s"})`,
-        };
+  const t = content[locale];
+  const storeLocale = commerceLocale(locale);
 
   return (
     <>
-      <div className="bg-brand-700 px-4 py-1.5 text-center text-xs tracking-wide text-white">
-        {t.promo}
-      </div>
+      <div className="bg-brand-700 px-4 py-1.5 text-center text-xs tracking-wide text-white">{t.promo}</div>
       <header className="sticky top-0 z-50 border-b border-warm-200/60 bg-warm-50/95 sm:backdrop-blur-md">
         <Container className="flex h-14 items-center justify-between lg:h-16">
           <Link href={withLocale("/", locale)} className="group flex-shrink-0">
@@ -69,11 +92,11 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           </nav>
 
           <div className="flex items-center gap-3">
-            <LocaleToggle locale={locale} />
+            <LocaleToggle locale={locale} availableLocales={availableLocales} />
             <Link
-              href={withLocale("/cart", locale)}
+              href={withLocale("/cart", storeLocale)}
               className="relative rounded-full p-2 text-grey-700 transition-colors hover:bg-warm-100"
-              aria-label={t.cart}
+              aria-label={t.cartLabel(itemCount)}
             >
               <ShoppingBag className="h-5 w-5" />
               <span aria-hidden="true" className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-brand-600 px-1 text-[0.625rem] font-bold text-white">

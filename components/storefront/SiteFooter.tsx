@@ -1,8 +1,8 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { products } from "@/lib/products";
 import { withLocale } from "@/lib/i18n";
+import { products } from "@/lib/products";
 import { Locale } from "@/lib/types";
 
 export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
@@ -22,21 +22,48 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
           terms: "Общи условия",
           copyright: "Copyright 2026 InnoVAherb. Всички права запазени.",
         }
-      : {
-          blurb:
-            "Nature's Intelligence, Perfected. Premium Bulgarian mushroom sprays designed for modern daily rituals.",
-          shop: "Shop",
-          company: "Company",
-          support: "Support",
-          about: "About Us",
-          blog: "Blog",
-          contact: "Contact",
-          shipping: "Shipping and Returns",
-          privacy: "Privacy Policy",
-          terms: "Terms of Service",
-          copyright: "Copyright 2026 InnoVAherb. All rights reserved.",
-        };
-
+      : locale === "ru"
+        ? {
+            blurb: "Интеллект природы, доведенный до совершенства. Премиальные болгарские грибные спреи для более простой ежедневной рутины.",
+            shop: "Продукты",
+            company: "Компания",
+            support: "Поддержка",
+            about: "О нас",
+            blog: "Блог",
+            contact: "Контакты",
+            shipping: "Доставка и возврат",
+            privacy: "Политика конфиденциальности",
+            terms: "Условия использования",
+            copyright: "Copyright 2026 InnoVAherb. Все права защищены.",
+          }
+        : locale === "sv"
+          ? {
+              blurb: "Naturens intelligens, förfinad. Premiumsprayer med bulgariska svampextrakt för en enklare daglig rutin.",
+              shop: "Produkter",
+              company: "Företag",
+              support: "Support",
+              about: "Om oss",
+              blog: "Blogg",
+              contact: "Kontakter",
+              shipping: "Frakt och returer",
+              privacy: "Integritetspolicy",
+              terms: "Användarvillkor",
+              copyright: "Copyright 2026 InnoVAherb. Alla rättigheter förbehållna.",
+            }
+          : {
+              blurb:
+                "Nature's Intelligence, Perfected. Premium Bulgarian mushroom sprays designed for modern daily rituals.",
+              shop: "Shop",
+              company: "Company",
+              support: "Support",
+              about: "About Us",
+              blog: "Blog",
+              contact: "Contact",
+              shipping: "Shipping and Returns",
+              privacy: "Privacy Policy",
+              terms: "Terms of Service",
+              copyright: "Copyright 2026 InnoVAherb. All rights reserved.",
+            };
   return (
     <footer className="bg-grey-900 pb-8 pt-16 text-warm-200">
       <Container>
@@ -51,9 +78,7 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
               quality={65}
               className="mb-4 h-8 w-auto brightness-0 invert opacity-80"
             />
-            <p className="mb-6 max-w-xs text-sm leading-relaxed text-warm-300">
-              {t.blurb}
-            </p>
+            <p className="mb-6 max-w-xs text-sm leading-relaxed text-warm-300">{t.blurb}</p>
             <div className="flex gap-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-full bg-grey-800 text-xs font-bold">IG</div>
               <div className="flex h-9 w-9 items-center justify-center rounded-full bg-grey-800 text-xs font-bold">FB</div>

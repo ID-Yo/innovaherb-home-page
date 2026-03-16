@@ -1,44 +1,26 @@
 import { SiteFooter } from "@/components/storefront/SiteFooter";
 import { SiteHeader } from "@/components/storefront/SiteHeader";
 import { Container } from "@/components/ui/Container";
-import { getLocale } from "@/lib/i18n";
+import { getLocale, PUBLIC_LOCALES } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/metadata";
+import { contactPageContent } from "@/lib/public-page-copy";
 
-export const metadata = buildMetadata({
-  title: "Contact InnoVAherb | Support and Order Help",
-  description:
-    "Contact InnoVAherb for product questions, shipping support, wholesale inquiries, and order assistance in Bulgaria.",
-  path: "/contact",
-});
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const locale = getLocale(await searchParams);
+  const t = contactPageContent[locale];
 
-const content = {
-  en: {
-    eyebrow: "Support",
-    title: "Need help with a product or order?",
-    body: "Reach out for product questions, wholesale requests, or order support. We currently deliver across Bulgaria and are happy to help with shipping, product selection, and after-purchase care.",
-    email: "Email",
-    phone: "Phone",
-    faqTitle: "FAQ snapshot",
-    blocks: [
-      { title: "Shipping coverage", text: "We currently ship orders across Bulgaria." },
-      { title: "Payments", text: "Secure card payments are handled via Stripe Checkout." },
-      { title: "Returns", text: "See the dedicated shipping and returns page for delivery and support details." },
-    ],
-  },
-  bg: {
-    eyebrow: "Поддръжка",
-    title: "Имате нужда от помощ за продукт или поръчка?",
-    body: "Свържете се с нас за въпроси относно продуктите, заявки на едро или съдействие по поръчка. В момента доставяме в цяла България и с удоволствие помагаме при доставка, избор на продукт и следпокупкова грижа.",
-    email: "Имейл",
-    phone: "Телефон",
-    faqTitle: "Бързи отговори",
-    blocks: [
-      { title: "Покритие на доставката", text: "В момента изпращаме поръчки в рамките на цяла България." },
-      { title: "Плащания", text: "Сигурните картови плащания се обработват чрез Stripe Checkout." },
-      { title: "Връщане", text: "Вижте страницата за доставка и връщане за повече детайли относно доставката и поддръжката." },
-    ],
-  },
-} as const;
+  return buildMetadata({
+    title: t.metadataTitle,
+    description: t.metadataDescription,
+    path: "/contact",
+    locale,
+    availableLocales: PUBLIC_LOCALES,
+  });
+}
 
 export default async function ContactPage({
   searchParams,
@@ -46,11 +28,11 @@ export default async function ContactPage({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const locale = getLocale(await searchParams);
-  const t = content[locale];
+  const t = contactPageContent[locale];
 
   return (
     <>
-      <SiteHeader locale={locale} />
+      <SiteHeader locale={locale} availableLocales={PUBLIC_LOCALES} />
       <main className="py-20">
         <Container className="grid gap-10 lg:grid-cols-[1fr_0.8fr]">
           <section className="rounded-[2rem] border border-warm-200 bg-white p-8 shadow-elevated">
