@@ -9,8 +9,7 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
   const t =
     locale === "bg"
       ? {
-          blurb:
-            "Природна интелигентност, усъвършенствана. Премиум български гъбени спрейове за по-лесна ежедневна рутина.",
+          blurb: "Премиум български гъбени спрейове за по-лесна ежедневна рутина.",
           shop: "Продукти",
           company: "Компания",
           support: "Поддръжка",
@@ -24,7 +23,7 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
         }
       : locale === "ru"
         ? {
-            blurb: "Интеллект природы, доведенный до совершенства. Премиальные болгарские грибные спреи для более простой ежедневной рутины.",
+            blurb: "Премиальные болгарские грибные спреи для более простой ежедневной рутины.",
             shop: "Продукты",
             company: "Компания",
             support: "Поддержка",
@@ -38,7 +37,7 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
           }
         : locale === "sv"
           ? {
-              blurb: "Naturens intelligens, förfinad. Premiumsprayer med bulgariska svampextrakt för en enklare daglig rutin.",
+              blurb: "Premiumsprayer med bulgariska svampextrakt för en enklare daglig rutin.",
               shop: "Produkter",
               company: "Företag",
               support: "Support",
@@ -51,8 +50,7 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
               copyright: "Copyright 2026 InnoVAherb. Alla rättigheter förbehållna.",
             }
           : {
-              blurb:
-                "Nature's Intelligence, Perfected. Premium Bulgarian mushroom sprays designed for modern daily rituals.",
+              blurb: "Premium Bulgarian mushroom sprays designed for modern daily rituals.",
               shop: "Shop",
               company: "Company",
               support: "Support",

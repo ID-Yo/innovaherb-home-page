@@ -108,7 +108,7 @@ export const homeHowItWorks = [
   {
     step: "2",
     title: "Spray",
-    text: "Use 3-4 sprays under the tongue.",
+    text: "Use 5-7 sprays under the tongue.",
   },
   {
     step: "3",
@@ -136,7 +136,7 @@ export const homeFaqs = [
   {
     question: "How do I use the sprays each day?",
     answer:
-      "Shake the bottle, spray 3 to 4 times under the tongue, hold briefly, and use consistently as part of your daily routine.",
+      "Shake the bottle, spray 5 to 7 times under the tongue, hold briefly, and use consistently as part of your daily routine.",
   },
   {
     question: "How much extract is in each spray bottle?",
@@ -215,7 +215,7 @@ export const productSalesContent: Record<ProductSlug, ProductSalesContent> = {
     ],
     faq: [
       { question: "When should I use Lion's Mane?", answer: "Most customers use it in the morning or before work, study, or any task that needs better concentration." },
-      { question: "How long does one bottle last?", answer: "At 3-4 sprays daily, one bottle lasts around 30 daily servings." },
+      { question: "How long does one bottle last?", answer: "At 5-7 sprays daily, one bottle lasts around 30 daily servings." },
       { question: "Can I combine Lion's Mane with other sprays?", answer: "Yes. Many customers pair it with Cordyceps for mornings or with the Mix spray for broader daily support." },
       { question: "Is it safe to take alongside medication?", answer: "Our mushroom extracts are generally well-tolerated, but if you take prescription medication or have a health condition please consult your healthcare professional before use." },
       { question: "Is this made from fruiting body extract or mycelium?", answer: "100% fruiting body extract only. Our Lion's Mane is a 10:1 concentrate from the fruiting body — no mycelium biomass or grain fillers. This is the gold standard for active compound density." },

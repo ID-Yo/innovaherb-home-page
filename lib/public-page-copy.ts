@@ -8,9 +8,9 @@ export const aboutPageContent: Record<Locale, { metadataTitle: string; metadataD
     eyebrow: "About us",
     title: "Bulgarian mushroom extracts built for daily use.",
     paragraphs: [
-      "InnoVAherb was created for people who want natural supplement routines that feel practical instead of complicated. The collection starts with premium mushroom extracts and turns them into simple oral sprays that fit workdays, home routines, and travel.",
-      "The brand position is direct: one spray, one clear use case, one premium but accessible daily ritual. That clarity carries into the storefront, the product naming, and the order flow. Every product page explains what the formula is for, how to use it, and how it fits into a real routine.",
-      "As the store grows, the focus stays the same: clear product information, a straightforward checkout experience, and visibility into every order from payment to fulfillment.",
+      "Our mushrooms are grown in the foothills of the Rila Mountains without pesticides or artificial fertilizers, so they draw directly from the gifts of our natural environment. We select the most potent mushrooms and turn their fruiting bodies into the elixirs of InnoVAherb.",
+      "Once the fruiting bodies are dried, we place them in separate vessels filled with ethanol, glycerin, and water to extract their most valuable compounds, including polysaccharides, beta-glucans, and other active constituents. These are the compounds most closely associated with the remarkable effects of adaptogenic mushrooms. When the extracts are ready, we combine the three solutions into one final formula for maximum potency and concentration.",
+      "We chose a spray format because current research points to strong absorption of adaptogens in the mouth, especially under the tongue. That makes the extracts easy to take by spraying directly into the mouth or by adding them to tea, water, or coffee.",
     ],
   },
   bg: {
@@ -20,9 +20,9 @@ export const aboutPageContent: Record<Locale, { metadataTitle: string; metadataD
     eyebrow: "За нас",
     title: "Български гъбени екстракти, създадени за ежедневна употреба.",
     paragraphs: [
-      "InnoVAherb е създаден за хора, които искат натурална рутина с добавки, която да бъде практична, а не сложна. Колекцията започва с премиум гъбени екстракти и ги превръща в лесни орални спрейове за работни дни, домашна рутина и пътуване.",
-      "Позиционирането на марката е ясно: един спрей, една конкретна цел, един премиум, но достъпен ежедневен ритуал. Тази яснота се вижда в магазина, в имената на продуктите и в процеса на поръчка.",
-      "Докато магазинът расте, фокусът остава същият: ясна продуктова информация, лесно финализиране на поръчката и прозрачност за всеки етап от изпълнението.",
+      "Нашите гъби се отглеждат в полите на планина Рила, без използването на пестициди и изкуствени торове, като по този начин черпят от даровете на прекрасната ни природа. Избираме най-потентните гъби и от тяхното плодно тяло правим елексирите на InnoVAherb.",
+      "Когато плодните тела изсъхнат, ги разпределяме в отделни съдове, пълни с етанол, глицерин и вода, за да извлечем най-ценните вещества от тях - полизахариди, бета глюкани и други. Именно тези вещества са основните виновници за чудотворните ефекти на тези адаптогенни гъби. Когато извлеците са готови, ние смесваме трите вида разтвори в обща формула за максимален ефект и концентрация на полезните вещества.",
+      "Избрахме форма за прием на спрей, защото според последните проучвания адаптогените имат много добро усвояване в устната кухина и по-точно под езика. Така можете лесно и удобно да приемате екстрактите чрез впръскване в устата, в чаша чай, вода или кафе.",
     ],
   },
   ru: {
@@ -32,9 +32,9 @@ export const aboutPageContent: Record<Locale, { metadataTitle: string; metadataD
     eyebrow: "О нас",
     title: "Болгарские грибные экстракты, созданные для ежедневного использования.",
     paragraphs: [
-      "InnoVAherb создан для людей, которые хотят, чтобы натуральная рутина с добавками была практичной, а не сложной. Коллекция начинается с премиальных грибных экстрактов и превращает их в удобные оральные спреи для работы, дома и поездок.",
-      "Позиционирование бренда прямое: один спрей, одна понятная задача, один премиальный, но доступный ежедневный ритуал. Эта ясность сохраняется и в магазине, и в названиях продуктов, и в процессе заказа.",
-      "По мере роста магазина фокус остается тем же: понятная информация о продуктах, простой процесс оформления и прозрачность по каждому заказу от оплаты до отправки.",
+      "Наши грибы выращиваются в предгорьях Рилы без использования пестицидов и искусственных удобрений, поэтому они получают силу напрямую от богатой болгарской природы. Мы отбираем самые potentные грибы и превращаем их плодовые тела в эликсиры InnoVAherb.",
+      "Когда плодовые тела высыхают, мы распределяем их по отдельным сосудам с этанолом, глицерином и водой, чтобы извлечь самые ценные вещества: полисахариды, бета-глюканы и другие активные компоненты. Именно эти соединения чаще всего связывают с впечатляющими свойствами адаптогенных грибов. Когда экстракты готовы, мы объединяем три вида раствора в одну общую формулу для максимального эффекта и высокой концентрации полезных веществ.",
+      "Мы выбрали формат спрея, потому что современные исследования показывают хорошее усвоение адаптогенов в полости рта, особенно под языком. Поэтому экстракты удобно принимать напрямую в рот или добавлять в чай, воду или кофе.",
     ],
   },
   sv: {
@@ -42,11 +42,11 @@ export const aboutPageContent: Record<Locale, { metadataTitle: string; metadataD
     metadataDescription:
       "Las hur InnoVAherb bygger premiumsprayer med bulgariska svampextrakt for praktiska dagliga rutiner.",
     eyebrow: "Om oss",
-    title: "Bulgariska svampextrakt utvecklade for daglig anvandning.",
+    title: "Bulgariska svampextrakt utvecklade för daglig användning.",
     paragraphs: [
-      "InnoVAherb skapades for personer som vill ha naturliga kosttillskottsrutiner som kanns praktiska i stallet for komplicerade. Kollektionen borjar med premiumextrakt fran svamp och gor dem till enkla orala sprayer for arbetsdagar, hemmarutiner och resor.",
-      "Varumarkets position ar tydlig: en spray, ett klart anvandningsomrade, en premium men tillganglig daglig rutin. Den tydligheten finns i butiken, i produktnamnen och i bestallningsflodet.",
-      "När butiken växer är fokus detsamma: tydlig produktinformation, enkel checkout och full insyn i varje beställning från betalning till leverans.",
+      "Våra svampar odlas vid foten av Rilabergen utan användning av bekämpningsmedel eller konstgödsel, så att de kan hämta sin styrka direkt från den bulgariska naturen. Vi väljer ut de mest potenta svamparna och förvandlar deras fruktkroppar till InnoVAherbs elixir.",
+      "När fruktkropparna har torkat fördelar vi dem i separata kärl fyllda med etanol, glycerin och vatten för att utvinna de mest värdefulla ämnena: polysackarider, beta-glukaner och andra aktiva föreningar. Det är just dessa ämnen som oftast förknippas med de anmärkningsvärda effekterna hos adaptogena svampar. När extrakten är klara blandar vi de tre lösningarna till en gemensam formula för maximal effekt och hög koncentration av nyttiga ämnen.",
+      "Vi valde sprayformatet eftersom aktuell forskning visar att adaptogener tas upp väl i munhålan, särskilt under tungan. Därför kan extrakten enkelt tas direkt i munnen eller blandas i te, vatten eller kaffe.",
     ],
   },
 };
